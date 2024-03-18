@@ -40,10 +40,10 @@ namespace EduvetKonovalov.ClassFolder
                 ApplicationCommands.Copy.Execute(null, listDataGrid);
 
                 ws.Paste();
-                ws.Range["A1", "I1"].Font.Bold = true;
+                ws.Range["A1", "K1"].Font.Bold = true;
                 int number = ws.UsedRange.Rows.Count;
 
-                Range myRange = ws.Range["A1", "I" + number];
+                Range myRange = ws.Range["A1", "K" + number];
                 myRange.Borders.LineStyle = XlLineStyle.xlContinuous;
                 myRange.WrapText = false;
                 ws.Columns.EntireColumn.AutoFit();

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e764549d04f64887a5f22b692a0f0229" Name="Diagram1">
+        <EntityTypeShape EntityType="DBModel.Coming" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Consumption" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Gender" Width="1.5" PointX="5.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Login" Width="1.5" PointX="5.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Passport" Width="1.5" PointX="5.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Password" Width="1.5" PointX="5.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Remainder" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Role" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Staff" Width="1.5" PointX="8" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.TypeVeterinaryEquipment" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.User" Width="1.5" PointX="11" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.VeterinaryEquipment" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <AssociationConnector Association="DBModel.FK_VeterinaryEquipment_Coming" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_VeterinaryEquipment_Consumption" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Staff_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Staff_Login" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_User_Login" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Staff_Passport" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Staff_Password" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_User_Password" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_VeterinaryEquipment_Remainder" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_VeterinaryEquipment_TypeVeterinaryEquipment" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

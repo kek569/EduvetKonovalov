@@ -1,0 +1,219 @@
+﻿<Page x:Class="EduvetKonovalov.PageFolder.StaffPageFolder.ListProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EduvetKonovalov.PageFolder.StaffPageFolder"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Title="Личный кабинет">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="650"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button x:Name="EditProfileBtn"
+                Grid.Column="3"
+                Content="Редактирование"
+                Click="EditProfileBtn_Click"/>
+
+        <ListBox x:Name="ProfileListB"
+                 SelectionMode="Single"
+                 Grid.Row="3"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="9"
+                 HorizontalContentAlignment="Stretch"
+                ItemsSource="{Binding Path=ResizeItems}" 
+                BorderThickness="0">
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Редактирование"
+                          Name="EditProfilefMi"
+                          Click="EditProfilefMi_Click"/>
+                    <MenuItem Header="Обновить страницу"
+                          Name="UpdateProfileMi"
+                          Click="UpdateProfileMi_Click"/>
+                </ContextMenu>
+            </ListBox.ContextMenu>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="300"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Column="1"
+            TextWrapping="WrapWithOverflow"
+            Text="Фамилия"
+                                   Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Center"/>
+                        <TextBlock Grid.Column="2"
+                                   TextWrapping="WrapWithOverflow"
+            Text="Имя"
+                                       Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Center"/>
+                        <TextBlock Grid.Column="3"
+                                   TextWrapping="WrapWithOverflow"
+            Text="Отчество"
+                                       Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Center"/>
+                        <TextBlock Grid.Column="0"
+                                   TextWrapping="WrapWithOverflow"
+                    Text="Фото"
+                                       Style="{DynamicResource TBlListBox}"
+                       TextAlignment="Center"/>
+                        <TextBlock Grid.Column="4"
+Text="Пол"
+                          Style="{DynamicResource TBlListBox}"
+                      TextWrapping="WrapWithOverflow"
+                      TextAlignment="Center"/>
+                        <TextBlock Grid.Column="5"
+                                   Grid.ColumnSpan="2"
+             Text="Паспортные данные"
+                                       Style="{DynamicResource TBlListBox}"
+                                   TextWrapping="WrapWithOverflow"
+                                   TextAlignment="Center"/>
+                        <TextBlock Grid.Column="5"
+                                   Grid.Row="1"
+Text="Серия"
+                          Style="{DynamicResource TBlListBox}"
+                      TextWrapping="WrapWithOverflow"
+                      TextAlignment="Center"/>
+                        <TextBlock Grid.Column="6"
+                                   Grid.Row="1"
+Text="Номер"
+                          Style="{DynamicResource TBlListBox}"
+                      TextWrapping="WrapWithOverflow"
+                      TextAlignment="Center"/>
+                        <TextBlock Grid.Column="7"
+             Text="День рождения"
+                                       Style="{DynamicResource TBlListBox}"
+                                   TextWrapping="WrapWithOverflow"
+                                   TextAlignment="Center"/>
+                        <TextBlock Grid.Column="8"
+             Text="Адрес"
+                                       Style="{DynamicResource TBlListBox}"
+                                   TextWrapping="WrapWithOverflow"
+                                   TextAlignment="Center"/>
+                        <TextBlock Grid.Column="9"
+             Text="Номер телефона"
+                                       Style="{DynamicResource TBlListBox}"
+                                   TextWrapping="WrapWithOverflow"
+                                   TextAlignment="Center"/>
+                        <TextBlock Grid.Column="10"
+             Text="Логин"
+                                       Style="{DynamicResource TBlListBox}"
+                                   TextWrapping="WrapWithOverflow"
+                                   TextAlignment="Center"/>
+                        <TextBlock Grid.Column="11"
+             Text="Пароль"
+                                       Style="{DynamicResource TBlListBox}"
+                                   TextWrapping="WrapWithOverflow"
+                                   TextAlignment="Center"/>
+                        <Image Source="{Binding PhotoStaff}"
+                               Width="200" Grid.RowSpan="4"
+                                   Grid.Row="1"
+                               Margin="10"
+                               Stretch="Uniform"/>
+                        <TextBlock Grid.Column="1"
+                                   Grid.Row="2"
+                                   Text="{Binding FirstNameStaff}"
+                                   Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Center"
+                                   TextWrapping="WrapWithOverflow"/>
+                        <TextBlock Grid.Column="2"
+                                   Grid.Row="2"
+                                   Text="{Binding LastNameStaff}"
+                                   Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Center"
+                                   TextWrapping="WrapWithOverflow"/>
+                        <TextBlock Grid.Column="3"
+                                   Grid.Row="2"
+                                   Text="{Binding MiddleNameStaff}"
+                                   Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Center"
+                                   TextWrapping="WrapWithOverflow"/>
+                        <TextBlock Grid.Column="4"
+           Grid.Row="2"
+           Text="{Binding Gender.GenderStaff}"
+           Style="{DynamicResource TBlListBox}"
+           TextAlignment="Center"
+           TextWrapping="WrapWithOverflow"/>
+                        <TextBlock Grid.Column="5"
+                                   Grid.Row="2"
+                                    Text="{Binding Passport.NumberPassport}"
+                                   Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Center"
+                                   TextWrapping="WrapWithOverflow"/>
+                        <TextBlock Grid.Column="6"
+           Grid.Row="2"
+            Text="{Binding Passport.SeriesPassport}"
+           Style="{DynamicResource TBlListBox}"
+           TextAlignment="Center"
+           TextWrapping="WrapWithOverflow"/>
+                        <TextBlock Grid.Column="7"
+                                   Grid.Row="2"
+                                    Text="{Binding DateOfBirthStaff}"
+                                   Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Center"
+                                   TextWrapping="WrapWithOverflow"/>
+                        <TextBlock Grid.Column="8"
+                                   Grid.Row="2"
+                                    Text="{Binding AdressStaff}"
+                                   Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Center"
+                                   TextWrapping="WrapWithOverflow"/>
+                        <TextBlock Grid.Column="9"
+                                   Grid.Row="2"
+                                    Text="{Binding NumberPhoneStaff}"
+                                   Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Center"
+                                   TextWrapping="WrapWithOverflow"/>
+                        <TextBlock Grid.Column="10"
+                                   Grid.Row="2"
+                                    Text="{Binding Login.LoginUser}"
+                                   Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Center"
+                                   TextWrapping="WrapWithOverflow"/>
+                        <TextBlock Grid.Column="11"
+                                   Grid.Row="2"
+                                    Text="{Binding Password.PasswordUser}"
+                                   TextAlignment="Center"
+                                   Style="{DynamicResource TBlListBox}"
+                                   TextWrapping="WrapWithOverflow"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Page>

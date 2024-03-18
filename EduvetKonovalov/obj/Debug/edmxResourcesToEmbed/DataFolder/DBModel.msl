@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DBModelContainer" CdmEntityContainer="DBEntities">
+    <EntitySetMapping Name="Coming">
+      <EntityTypeMapping TypeName="DBModel.Coming">
+        <MappingFragment StoreEntitySet="Coming">
+          <ScalarProperty Name="IdComing" ColumnName="IdComing" />
+          <ScalarProperty Name="AmountComing" ColumnName="AmountComing" />
+          <ScalarProperty Name="SumComing" ColumnName="SumComing" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Consumption">
+      <EntityTypeMapping TypeName="DBModel.Consumption">
+        <MappingFragment StoreEntitySet="Consumption">
+          <ScalarProperty Name="IdConsumption" ColumnName="IdConsumption" />
+          <ScalarProperty Name="AmountConsumption" ColumnName="AmountConsumption" />
+          <ScalarProperty Name="SumConsumption" ColumnName="SumConsumption" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gender">
+      <EntityTypeMapping TypeName="DBModel.Gender">
+        <MappingFragment StoreEntitySet="Gender">
+          <ScalarProperty Name="IdGender" ColumnName="IdGender" />
+          <ScalarProperty Name="GenderStaff" ColumnName="GenderStaff" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Login">
+      <EntityTypeMapping TypeName="DBModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="IdLogin" ColumnName="IdLogin" />
+          <ScalarProperty Name="LoginUser" ColumnName="LoginUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Passport">
+      <EntityTypeMapping TypeName="DBModel.Passport">
+        <MappingFragment StoreEntitySet="Passport">
+          <ScalarProperty Name="IdPassport" ColumnName="IdPassport" />
+          <ScalarProperty Name="NumberPassport" ColumnName="NumberPassport" />
+          <ScalarProperty Name="SeriesPassport" ColumnName="SeriesPassport" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Password">
+      <EntityTypeMapping TypeName="DBModel.Password">
+        <MappingFragment StoreEntitySet="Password">
+          <ScalarProperty Name="IdPassword" ColumnName="IdPassword" />
+          <ScalarProperty Name="PasswordUser" ColumnName="PasswordUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Remainder">
+      <EntityTypeMapping TypeName="DBModel.Remainder">
+        <MappingFragment StoreEntitySet="Remainder">
+          <ScalarProperty Name="IdRemainder" ColumnName="IdRemainder" />
+          <ScalarProperty Name="AmountRemainder" ColumnName="AmountRemainder" />
+          <ScalarProperty Name="SumRemainder" ColumnName="SumRemainder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="DBModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+          <ScalarProperty Name="NameRole" ColumnName="NameRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staff">
+      <EntityTypeMapping TypeName="DBModel.Staff">
+        <MappingFragment StoreEntitySet="Staff">
+          <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />
+          <ScalarProperty Name="LastNameStaff" ColumnName="LastNameStaff" />
+          <ScalarProperty Name="FirstNameStaff" ColumnName="FirstNameStaff" />
+          <ScalarProperty Name="MiddleNameStaff" ColumnName="MiddleNameStaff" />
+          <ScalarProperty Name="NumberPhoneStaff" ColumnName="NumberPhoneStaff" />
+          <ScalarProperty Name="DateOfBirthStaff" ColumnName="DateOfBirthStaff" />
+          <ScalarProperty Name="IdPassport" ColumnName="IdPassport" />
+          <ScalarProperty Name="IdGender" ColumnName="IdGender" />
+          <ScalarProperty Name="IdLogin" ColumnName="IdLogin" />
+          <ScalarProperty Name="IdPassword" ColumnName="IdPassword" />
+          <ScalarProperty Name="PhotoStaff" ColumnName="PhotoStaff" />
+          <ScalarProperty Name="AdressStaff" ColumnName="AdressStaff" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeVeterinaryEquipment">
+      <EntityTypeMapping TypeName="DBModel.TypeVeterinaryEquipment">
+        <MappingFragment StoreEntitySet="TypeVeterinaryEquipment">
+          <ScalarProperty Name="IdTypeVeterinaryEquipment" ColumnName="IdTypeVeterinaryEquipment" />
+          <ScalarProperty Name="NameTypeVeterinaryEquipment" ColumnName="NameTypeVeterinaryEquipment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="DBModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdLogin" ColumnName="IdLogin" />
+          <ScalarProperty Name="IdPassword" ColumnName="IdPassword" />
+          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VeterinaryEquipment">
+      <EntityTypeMapping TypeName="DBModel.VeterinaryEquipment">
+        <MappingFragment StoreEntitySet="VeterinaryEquipment">
+          <ScalarProperty Name="IdVeterinaryEquipment" ColumnName="IdVeterinaryEquipment" />
+          <ScalarProperty Name="NameVeterinaryEquipment" ColumnName="NameVeterinaryEquipment" />
+          <ScalarProperty Name="IdTypeVeterinaryEquipment" ColumnName="IdTypeVeterinaryEquipment" />
+          <ScalarProperty Name="RecordingDate" ColumnName="RecordingDate" />
+          <ScalarProperty Name="WhereDidItComeFrom" ColumnName="WhereDidItComeFrom" />
+          <ScalarProperty Name="WhoWasReleased" ColumnName="WhoWasReleased" />
+          <ScalarProperty Name="IdComing" ColumnName="IdComing" />
+          <ScalarProperty Name="IdConsumption" ColumnName="IdConsumption" />
+          <ScalarProperty Name="IdRemainder" ColumnName="IdRemainder" />
+          <ScalarProperty Name="PhotoVeterinaryEquipment" ColumnName="PhotoVeterinaryEquipment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

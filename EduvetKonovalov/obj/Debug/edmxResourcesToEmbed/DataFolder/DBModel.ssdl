@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище DBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Coming">
+    <Key>
+      <PropertyRef Name="IdComing" />
+    </Key>
+    <Property Name="IdComing" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AmountComing" Type="int" Nullable="false" />
+    <Property Name="SumComing" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Consumption">
+    <Key>
+      <PropertyRef Name="IdConsumption" />
+    </Key>
+    <Property Name="IdConsumption" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AmountConsumption" Type="int" Nullable="false" />
+    <Property Name="SumConsumption" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="IdGender" />
+    </Key>
+    <Property Name="IdGender" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GenderStaff" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="IdLogin" />
+    </Key>
+    <Property Name="IdLogin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LoginUser" Type="nvarchar" MaxLength="80" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Passport">
+    <Key>
+      <PropertyRef Name="IdPassport" />
+    </Key>
+    <Property Name="IdPassport" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumberPassport" Type="int" Nullable="false" />
+    <Property Name="SeriesPassport" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Password">
+    <Key>
+      <PropertyRef Name="IdPassword" />
+    </Key>
+    <Property Name="IdPassword" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PasswordUser" Type="nvarchar" MaxLength="80" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Remainder">
+    <Key>
+      <PropertyRef Name="IdRemainder" />
+    </Key>
+    <Property Name="IdRemainder" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AmountRemainder" Type="int" Nullable="false" />
+    <Property Name="SumRemainder" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="IdRole" />
+    </Key>
+    <Property Name="IdRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameRole" Type="nvarchar" MaxLength="80" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="IdStaff" />
+    </Key>
+    <Property Name="IdStaff" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LastNameStaff" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="FirstNameStaff" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="MiddleNameStaff" Type="nvarchar" MaxLength="80" />
+    <Property Name="NumberPhoneStaff" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DateOfBirthStaff" Type="date" Nullable="false" />
+    <Property Name="IdPassport" Type="int" Nullable="false" />
+    <Property Name="IdGender" Type="int" Nullable="false" />
+    <Property Name="IdLogin" Type="int" Nullable="false" />
+    <Property Name="IdPassword" Type="int" Nullable="false" />
+    <Property Name="PhotoStaff" Type="varbinary(max)" />
+    <Property Name="AdressStaff" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="FullName" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TypeVeterinaryEquipment">
+    <Key>
+      <PropertyRef Name="IdTypeVeterinaryEquipment" />
+    </Key>
+    <Property Name="IdTypeVeterinaryEquipment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameTypeVeterinaryEquipment" Type="nvarchar" MaxLength="80" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="IdUser" />
+    </Key>
+    <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdLogin" Type="int" Nullable="false" />
+    <Property Name="IdPassword" Type="int" Nullable="false" />
+    <Property Name="IdRole" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VeterinaryEquipment">
+    <Key>
+      <PropertyRef Name="IdVeterinaryEquipment" />
+    </Key>
+    <Property Name="IdVeterinaryEquipment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameVeterinaryEquipment" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="IdTypeVeterinaryEquipment" Type="int" Nullable="false" />
+    <Property Name="RecordingDate" Type="date" Nullable="false" />
+    <Property Name="WhereDidItComeFrom" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="WhoWasReleased" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="IdComing" Type="int" Nullable="false" />
+    <Property Name="IdConsumption" Type="int" Nullable="false" />
+    <Property Name="IdRemainder" Type="int" Nullable="false" />
+    <Property Name="PhotoVeterinaryEquipment" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_Staff_Gender">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="IdGender" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="IdGender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_Login">
+    <End Role="Login" Type="Self.Login" Multiplicity="1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="IdLogin" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="IdLogin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_Passport">
+    <End Role="Passport" Type="Self.Passport" Multiplicity="1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passport">
+        <PropertyRef Name="IdPassport" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="IdPassport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_Password">
+    <End Role="Password" Type="Self.Password" Multiplicity="1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Password">
+        <PropertyRef Name="IdPassword" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="IdPassword" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Login">
+    <End Role="Login" Type="Self.Login" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="IdLogin" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="IdLogin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Password">
+    <End Role="Password" Type="Self.Password" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Password">
+        <PropertyRef Name="IdPassword" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="IdPassword" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="IdRole" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="IdRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VeterinaryEquipment_Coming">
+    <End Role="Coming" Type="Self.Coming" Multiplicity="1" />
+    <End Role="VeterinaryEquipment" Type="Self.VeterinaryEquipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coming">
+        <PropertyRef Name="IdComing" />
+      </Principal>
+      <Dependent Role="VeterinaryEquipment">
+        <PropertyRef Name="IdComing" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VeterinaryEquipment_Consumption">
+    <End Role="Consumption" Type="Self.Consumption" Multiplicity="1" />
+    <End Role="VeterinaryEquipment" Type="Self.VeterinaryEquipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Consumption">
+        <PropertyRef Name="IdConsumption" />
+      </Principal>
+      <Dependent Role="VeterinaryEquipment">
+        <PropertyRef Name="IdConsumption" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VeterinaryEquipment_Remainder">
+    <End Role="Remainder" Type="Self.Remainder" Multiplicity="1" />
+    <End Role="VeterinaryEquipment" Type="Self.VeterinaryEquipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Remainder">
+        <PropertyRef Name="IdRemainder" />
+      </Principal>
+      <Dependent Role="VeterinaryEquipment">
+        <PropertyRef Name="IdRemainder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VeterinaryEquipment_TypeVeterinaryEquipment">
+    <End Role="TypeVeterinaryEquipment" Type="Self.TypeVeterinaryEquipment" Multiplicity="1" />
+    <End Role="VeterinaryEquipment" Type="Self.VeterinaryEquipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeVeterinaryEquipment">
+        <PropertyRef Name="IdTypeVeterinaryEquipment" />
+      </Principal>
+      <Dependent Role="VeterinaryEquipment">
+        <PropertyRef Name="IdTypeVeterinaryEquipment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище DBModelContainer">
+    <EntitySet Name="Coming" EntityType="Self.Coming" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Consumption" EntityType="Self.Consumption" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Passport" EntityType="Self.Passport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Password" EntityType="Self.Password" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Remainder" EntityType="Self.Remainder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeVeterinaryEquipment" EntityType="Self.TypeVeterinaryEquipment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VeterinaryEquipment" EntityType="Self.VeterinaryEquipment" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Staff_Gender" Association="Self.FK_Staff_Gender">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_Login" Association="Self.FK_Staff_Login">
+      <End Role="Login" EntitySet="Login" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_Passport" Association="Self.FK_Staff_Passport">
+      <End Role="Passport" EntitySet="Passport" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_Password" Association="Self.FK_Staff_Password">
+      <End Role="Password" EntitySet="Password" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Login" Association="Self.FK_User_Login">
+      <End Role="Login" EntitySet="Login" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Password" Association="Self.FK_User_Password">
+      <End Role="Password" EntitySet="Password" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VeterinaryEquipment_Coming" Association="Self.FK_VeterinaryEquipment_Coming">
+      <End Role="Coming" EntitySet="Coming" />
+      <End Role="VeterinaryEquipment" EntitySet="VeterinaryEquipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VeterinaryEquipment_Consumption" Association="Self.FK_VeterinaryEquipment_Consumption">
+      <End Role="Consumption" EntitySet="Consumption" />
+      <End Role="VeterinaryEquipment" EntitySet="VeterinaryEquipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VeterinaryEquipment_Remainder" Association="Self.FK_VeterinaryEquipment_Remainder">
+      <End Role="Remainder" EntitySet="Remainder" />
+      <End Role="VeterinaryEquipment" EntitySet="VeterinaryEquipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VeterinaryEquipment_TypeVeterinaryEquipment" Association="Self.FK_VeterinaryEquipment_TypeVeterinaryEquipment">
+      <End Role="TypeVeterinaryEquipment" EntitySet="TypeVeterinaryEquipment" />
+      <End Role="VeterinaryEquipment" EntitySet="VeterinaryEquipment" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,124 @@
+﻿<Window x:Class="EduvetKonovalov.WindowFolder.AdminWindowFolder.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EduvetKonovalov.WindowFolder.AdminWindowFolder"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    Background="{x:Null}"
+    AllowsTransparency="True"
+    ResizeMode="CanResizeWithGrip"
+    MaxHeight="950" MaxWidth="1400"
+    MinHeight="950" MinWidth="1400"
+        Icon="/EduvetKonovalov;component/ResourceFolder/ImageFolder/Logo.png">
+    <Border Style="{DynamicResource FonBorder}"
+        MouseDown="Border_MouseDown">
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="/EduvetKonovalov;component/ResourceFolder/ImageFolder/Fon.png"></ImageBrush>
+            </Grid.Background>
+            <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border Style="{DynamicResource BorderTop}"
+                Grid.RowSpan="2"/>
+            <Label Style="{DynamicResource LabelLogo}"
+               Content="АДМИНИСТРАТОР СИСТЕМЫ"
+               Grid.Row="1"
+               Foreground="{DynamicResource FillFont}"/>
+            <Image x:Name="CloseIm"
+               Grid.Row="1"
+               Style="{DynamicResource CloseIm}"
+               MouseLeftButtonDown="CloseIm_MouseLeftButtonDown"
+               Margin="0,10,10,26"/>
+            <Image x:Name="LogoIm"
+Grid.Row="1"
+Style="{DynamicResource LogoIm}"
+Margin="10,4,0,14"/>
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="560"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="ListUserBtn"
+    Grid.Row="1"
+    Grid.Column="1"
+    Content="список пользователей"
+    Style="{DynamicResource InvisibleButton}"
+    Click="ListUserBtn_Click"/>
+                <Button x:Name="ListVeterinaryEquipmentBtn"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Content="Список оборудований"
+                    Style="{DynamicResource InvisibleButton}"
+                    Click="ListVeterinaryEquipmentBtn_Click"/>
+                <Button x:Name="ListStaffBtn"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Content="Список сотрудников"
+                    Style="{DynamicResource InvisibleButton}"
+                    Click="ListStaffBtn_Click"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="810"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="BackBtn"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Content="Назад"
+                    Click="BackBtn_Click"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="700"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="1200"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Frame Grid.Row="2"
+                       Grid.Column="1"
+                       x:Name="MainFrame"
+                       Margin="10"
+                       NavigationUIVisibility="Hidden"/>
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Style="{DynamicResource LabelLogo}"
+                       Content="{Binding ElementName=MainFrame,
+                    Path=Content.Title}"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

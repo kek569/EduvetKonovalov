@@ -19,6 +19,7 @@
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="145"/>
             <ColumnDefinition Width="25"/>
+            <ColumnDefinition Width="0"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
@@ -34,11 +35,56 @@
         Grid.Column="3"
                 Content="Поиск"
                 Click="SearchBtn_Click"/>
+        <Button x:Name="ExportBtn"
+                Grid.Column="7"
+                Content="Экспорт"
+                Click="ExportBtn_Click"/>
 
         <Button x:Name="AddBtn"
 Grid.Column="5"
         Content="Добавить"
        Click="AddBtn_Click"/>
+
+        <DataGrid x:Name="ListVeterinaryEquipmentDg"
+    Grid.Column="10"
+    AutoGenerateColumns="False"
+    IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название"
+                Binding="{Binding NameVeterinaryEquipment}"
+                Width="*"/>
+                <DataGridTextColumn Header="Тип оборудование"
+                Binding="{Binding TypeVeterinaryEquipment.NameTypeVeterinaryEquipment}"
+                Width="*"/>
+                <DataGridTextColumn Header="Дата записи"
+                Binding="{Binding RecordingDate, StringFormat={}{0:yyyy.MM.dd}}"
+                Width="*"/>
+                <DataGridTextColumn Header="Откуда поступило"
+                Binding="{Binding WhereDidItComeFrom}"
+                Width="*"/>
+                <DataGridTextColumn Header="Кому отпущено"
+                Binding="{Binding WhoWasReleased}"
+                Width="*"/>
+                <DataGridTextColumn Header="Приход количество"
+                Binding="{Binding Coming.AmountComing}"
+                Width="*"/>
+                <DataGridTextColumn Header="Приход сумма"
+                Binding="{Binding Coming.SumComing}"
+                Width="*"/>
+                <DataGridTextColumn Header="Расход количество"
+                Binding="{Binding Consumption.AmountConsumption}"
+                Width="*"/>
+                <DataGridTextColumn Header="Расход сумма"
+                Binding="{Binding Consumption.SumConsumption}"
+                Width="*"/>
+                <DataGridTextColumn Header="Остаток количество"
+                Binding="{Binding Remainder.AmountRemainder}"
+                Width="*"/>
+                <DataGridTextColumn Header="Остаток сумма"
+                Binding="{Binding Remainder.SumRemainder}"
+                Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
         <ListBox x:Name="VeterinaryEquipmentListB"
                  SelectionMode="Single"

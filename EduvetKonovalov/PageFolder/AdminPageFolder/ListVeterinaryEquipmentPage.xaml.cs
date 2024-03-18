@@ -28,6 +28,9 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             InitializeComponent();
             VeterinaryEquipmentListB.ItemsSource = DBEntities.GetContext()
                 .VeterinaryEquipment.ToList().OrderBy(v => v.NameVeterinaryEquipment);
+
+            ListVeterinaryEquipmentDg.ItemsSource = DBEntities.GetContext()
+                .VeterinaryEquipment.ToList().OrderBy(v => v.NameVeterinaryEquipment);
         }
 
         private void SearchTb_KeyDown(object sender, KeyEventArgs e)
@@ -114,6 +117,19 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
         private void UpdateVeterinaryEquipmentMi_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+        }
+
+        private void ExportBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string selectedFileName = "Excel";
+                ExportClass.ToExcelFile(ListVeterinaryEquipmentDg, selectedFileName);
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
+            }
         }
     }
 }

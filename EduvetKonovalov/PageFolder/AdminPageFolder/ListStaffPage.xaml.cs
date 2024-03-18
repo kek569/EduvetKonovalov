@@ -118,7 +118,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
         {
             try
             {
-                string selectedFileName = "";
+                string selectedFileName = "Excel";
                 ExportClass.ToExcelFile(ListStaffDg, selectedFileName);
             }
             catch (Exception ex)

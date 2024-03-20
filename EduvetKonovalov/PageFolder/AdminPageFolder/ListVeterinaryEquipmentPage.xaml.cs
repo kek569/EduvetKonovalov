@@ -123,8 +123,12 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
         {
             try
             {
+                ListVeterinaryEquipmentDg.SelectAllCells();
+                int colCount = ListVeterinaryEquipmentDg.SelectedCells.Count;
+                ListVeterinaryEquipmentDg.SelectedIndex = ListVeterinaryEquipmentDg.Items.Count - 1;
+                int a = colCount / (ListVeterinaryEquipmentDg.SelectedIndex + 1);
                 string selectedFileName = "Excel";
-                ExportClass.ToExcelFile(ListVeterinaryEquipmentDg, selectedFileName);
+                ExportClass.ToExcelFile(ListVeterinaryEquipmentDg, selectedFileName, a);
             }
             catch (Exception ex)
             {

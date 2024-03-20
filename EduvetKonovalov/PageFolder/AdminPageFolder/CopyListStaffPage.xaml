@@ -1,11 +1,11 @@
-﻿<Page x:Class="EduvetKonovalov.PageFolder.AdminPageFolder.ListStaffPage"
+﻿<Page x:Class="EduvetKonovalov.PageFolder.AdminPageFolder.CopyListStaffPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:EduvetKonovalov.PageFolder.AdminPageFolder"
       mc:Ignorable="d" 
-            d:DesignHeight="700" d:DesignWidth="1200"
+                  d:DesignHeight="700" d:DesignWidth="1200"
       Title="Список сотрудников">
 
     <Grid>
@@ -80,7 +80,7 @@ Grid.Column="7"
                         Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        
+
         <ListBox x:Name="StaffListB"
                  SelectionMode="Single"
                  Grid.Row="3"
@@ -123,19 +123,19 @@ Grid.Column="7"
                             <RowDefinition Height="50"/>
                         </Grid.RowDefinitions>
 
-                        <StackPanel Grid.Column="1"
+                        <StackPanel Grid.Column="2"
                                     Grid.RowSpan="3"
                                     Background="#424242"/>
 
-                        <StackPanel Grid.Column="3"
-            Grid.RowSpan="3"
-            Background="#424242"/>
-                        
-                        <StackPanel Grid.Column="5"
+                        <StackPanel Grid.Column="4"
             Grid.RowSpan="3"
             Background="#424242"/>
 
-                        <StackPanel Grid.Column="7"
+                        <StackPanel Grid.Column="6"
+            Grid.RowSpan="3"
+            Background="#424242"/>
+
+                        <StackPanel Grid.Column="8"
             Grid.RowSpan="3"
             Background="#424242"/>
 

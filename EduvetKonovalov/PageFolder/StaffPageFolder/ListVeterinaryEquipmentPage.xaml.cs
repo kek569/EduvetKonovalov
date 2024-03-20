@@ -114,5 +114,21 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
         {
             NavigationService.Navigate(new ListVeterinaryEquipmentPage());
         }
+
+        private void MoreInfoVeterinaryEquipmentfMi_Click(object sender, RoutedEventArgs e)
+        {
+            if (VeterinaryEquipmentListB.SelectedItem == null)
+            {
+                MBClass.ErrorMB("Выберите строку для редактирование");
+            }
+            else
+            {
+                VeterinaryEquipment veterinaryEquipment = VeterinaryEquipmentListB.
+                    SelectedItem as VeterinaryEquipment;
+                NavigationService.Navigate
+                    (new MoreInfoVeterinaryEquipmentPage(VeterinaryEquipmentListB.
+                    SelectedItem as VeterinaryEquipment));
+            }
+        }
     }
 }

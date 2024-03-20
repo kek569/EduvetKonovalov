@@ -114,7 +114,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                         DBEntities.GetContext().SaveChanges();
                         var staffAdd = new Staff()
                         {
-
+                            
                             LastNameStaff = LastNameStaffTb.Text,
                             FirstNameStaff = FirstNameStaffTb.Text,
                             MiddleNameStaff = MiddleNameStaffTb.Text,

@@ -3,7 +3,6 @@ using EduvetKonovalov.DataFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,11 +18,11 @@ using System.Windows.Shapes;
 namespace EduvetKonovalov.PageFolder.AdminPageFolder
 {
     /// <summary>
-    /// Логика взаимодействия для ListStaffPage.xaml
+    /// Логика взаимодействия для CopyListStaffPage.xaml
     /// </summary>
-    public partial class ListStaffPage : Page
+    public partial class CopyListStaffPage : Page
     {
-        public ListStaffPage()
+        public CopyListStaffPage()
         {
             InitializeComponent();
             StaffListB.ItemsSource = DBEntities.GetContext()
@@ -46,10 +45,6 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             if (SearchTb.Text == "")
             {
                 SearchTb.Text = "Поиск";
-            }
-            if(SearchTb.Text == "1")
-            {
-                NavigationService.Navigate(new CopyListStaffPage());
             }
         }
         Staff staff = new Staff();

@@ -70,5 +70,7 @@ namespace EduvetKonovalov
         public string ListBoxUserSearch { get; set; }
 
         public bool CheckLogin { get; set; }
+
+        public string ColumsExcel { get; set; }
     }
 }

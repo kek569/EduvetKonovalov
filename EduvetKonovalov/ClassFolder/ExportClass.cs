@@ -13,7 +13,7 @@ namespace EduvetKonovalov.ClassFolder
 {
     internal class ExportClass
     {
-        public static void ToExcelFile(DataGrid listDataGrid, string nameList)
+        public static void ToExcelFile(DataGrid listDataGrid, string nameList, int DgLastColumns)
         {
             Microsoft.Office.Interop.Excel.Application app = null;
             Microsoft.Office.Interop.Excel.Workbook wb = null;
@@ -39,11 +39,30 @@ namespace EduvetKonovalov.ClassFolder
                 listDataGrid.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
                 ApplicationCommands.Copy.Execute(null, listDataGrid);
 
+                if (DgLastColumns == 1) { (App.Current as App).ColumsExcel = "A"; }
+                else if (DgLastColumns == 2) { (App.Current as App).ColumsExcel = "B"; }
+                else if (DgLastColumns == 3) { (App.Current as App).ColumsExcel = "C"; }
+                else if (DgLastColumns == 4) { (App.Current as App).ColumsExcel = "D"; }
+                else if (DgLastColumns == 5) { (App.Current as App).ColumsExcel = "E"; }
+                else if (DgLastColumns == 6) { (App.Current as App).ColumsExcel = "F"; }
+                else if (DgLastColumns == 7) { (App.Current as App).ColumsExcel = "G"; }
+                else if (DgLastColumns == 8) { (App.Current as App).ColumsExcel = "H"; }
+                else if (DgLastColumns == 9) { (App.Current as App).ColumsExcel = "I"; }
+                else if (DgLastColumns == 10) { (App.Current as App).ColumsExcel = "J"; }
+                else if (DgLastColumns == 11) { (App.Current as App).ColumsExcel = "K"; }
+                else if (DgLastColumns == 12) { (App.Current as App).ColumsExcel = "L"; }
+                else if (DgLastColumns == 13) { (App.Current as App).ColumsExcel = "M"; }
+                else if (DgLastColumns == 14) { (App.Current as App).ColumsExcel = "N"; }
+                else if (DgLastColumns == 15) { (App.Current as App).ColumsExcel = "O"; }
+                string ColumsExcel = (App.Current as App).ColumsExcel;
+
+                string a = ColumsExcel + "1";
+
                 ws.Paste();
-                ws.Range["A1", "K1"].Font.Bold = true;
+                ws.Range["A1", a].Font.Bold = true;
                 int number = ws.UsedRange.Rows.Count;
 
-                Range myRange = ws.Range["A1", "K" + number];
+                Range myRange = ws.Range["A1", ColumsExcel + number];
                 myRange.Borders.LineStyle = XlLineStyle.xlContinuous;
                 myRange.WrapText = false;
                 ws.Columns.EntireColumn.AutoFit();

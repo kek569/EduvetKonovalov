@@ -134,6 +134,7 @@ SelectedItem="{Binding Password}"
                  Text="{Binding NumberPhoneStaff}"/>
 
         <Image x:Name="PhotoIM"
+               Source="{Binding PhotoStaff}"
        Grid.Row="11"
        Grid.Column="5"
        Grid.ColumnSpan="2"/>

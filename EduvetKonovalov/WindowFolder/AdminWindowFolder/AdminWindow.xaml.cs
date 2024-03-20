@@ -86,10 +86,5 @@ namespace EduvetKonovalov.WindowFolder.AdminWindowFolder
         {
             MainFrame.Navigate(new ListUserPage());
         }
-
-        private void LolBtn_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Navigate(new PageFolder.StaffPageFolder.ListVeterinaryEquipmentPage());
-        }
     }
 }

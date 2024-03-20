@@ -86,6 +86,17 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
 
                 if (userOne == null)
                 {
+                    if(string.IsNullOrWhiteSpace(LastNameStaffTb.Text))
+                    {
+                        MBClass.ErrorMB("Введите фамилию");
+                        LastNameStaffTb.Focus();
+                    }
+                    else if(string.IsNullOrWhiteSpace(FirstNameStaffTb.Text))
+                    {
+                        MBClass.ErrorMB("Введите фамилию");
+                        FirstNameStaffTb.Focus();
+                    }
+
                     if (selectedFileName == "")
                     {
                         Login();

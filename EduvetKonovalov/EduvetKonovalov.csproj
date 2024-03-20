@@ -140,9 +140,6 @@
     <Compile Include="PageFolder\AdminPageFolder\AddVeterinaryEquipmentPage.xaml.cs">
       <DependentUpon>AddVeterinaryEquipmentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageFolder\AdminPageFolder\CopyListStaffPage.xaml.cs">
-      <DependentUpon>CopyListStaffPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PageFolder\AdminPageFolder\EditStaffPage.xaml.cs">
       <DependentUpon>EditStaffPage.xaml</DependentUpon>
     </Compile>
@@ -240,10 +237,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\AdminPageFolder\AddVeterinaryEquipmentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PageFolder\AdminPageFolder\CopyListStaffPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

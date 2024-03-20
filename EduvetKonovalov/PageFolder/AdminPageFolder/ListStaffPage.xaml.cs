@@ -47,10 +47,6 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             {
                 SearchTb.Text = "Поиск";
             }
-            if(SearchTb.Text == "1")
-            {
-                NavigationService.Navigate(new CopyListStaffPage());
-            }
         }
         Staff staff = new Staff();
         private void SearchBtn_Click(object sender, RoutedEventArgs e)

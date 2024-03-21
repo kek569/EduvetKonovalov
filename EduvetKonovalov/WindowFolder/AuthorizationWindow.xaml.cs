@@ -277,8 +277,7 @@ namespace EduvetKonovalov.WindowFolder
                                 this.Close();
                                 break;
                             case 2:
-                                TextBox textBox = LoginTB;
-                                (App.Current as App).DeptName = textBox.Text;
+                                (App.Current as App).DeptName = LoginSave;
                                 new StaffWindowFolder.StaffWindow().Show();
                                 this.Close();
                                 break;

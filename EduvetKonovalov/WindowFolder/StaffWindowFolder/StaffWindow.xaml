@@ -56,9 +56,6 @@ Margin="10,4,0,14"/>
                     <ColumnDefinition Width="250"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Border Style="{DynamicResource BorderTwo}"
-                    Grid.RowSpan="3"
-                        Grid.ColumnSpan="4"/>
                 <Button x:Name="ListVeterinaryEquipmentBtn"
                     Grid.Row="1"
                     Grid.Column="1"

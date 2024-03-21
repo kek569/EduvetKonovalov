@@ -32,11 +32,19 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
             LoginClass.LoginIn(n, textBox);*/
             ProfileListB.ItemsSource = DBEntities.GetContext()
                 .Staff.ToList().OrderBy(s => s.LastNameStaff);
+
+            ListStaffDg.ItemsSource = DBEntities.GetContext()
+                .Staff.ToList().OrderBy(s => s.LastNameStaff);
             try
             {
                 ProfileListB.ItemsSource = DataFolder.DBEntities.GetContext().Staff.
                     Where(s => s.Login.LoginUser.StartsWith(selected_dept)).ToList();
                 if (ProfileListB.Items.Count <= 0)
+                    MBClass.ErrorMB("Error");
+
+                ListStaffDg.ItemsSource = DataFolder.DBEntities.GetContext().Staff.
+                    Where(s => s.Login.LoginUser.StartsWith(selected_dept)).ToList();
+                if (ListStaffDg.Items.Count <= 0)
                     MBClass.ErrorMB("Error");
             }
             catch (Exception ex)
@@ -76,6 +84,23 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                 Staff staff = ProfileListB.SelectedItem as Staff;
                 NavigationService.Navigate
                     (new EditProfilePage(ProfileListB.SelectedItem as Staff));
+            }
+        }
+
+        private void ExportBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ListStaffDg.SelectAllCells();
+                int colCount = ListStaffDg.SelectedCells.Count;
+                ListStaffDg.SelectedIndex = ListStaffDg.Items.Count - 1;
+                int a = colCount / (ListStaffDg.SelectedIndex + 1);
+                string selectedFileName = "Excel";
+                ExportClass.ToExcelFile(ListStaffDg, selectedFileName, a);
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
             }
         }
     }

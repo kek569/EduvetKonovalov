@@ -27,6 +27,9 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
             InitializeComponent();
             VeterinaryEquipmentListB.ItemsSource = DBEntities.GetContext()
                 .VeterinaryEquipment.ToList().OrderBy(v => v.NameVeterinaryEquipment);
+
+            ListVeterinaryEquipmentDg.ItemsSource = DBEntities.GetContext()
+                .VeterinaryEquipment.ToList().OrderBy(v => v.NameVeterinaryEquipment);
         }
 
         private void SearchTb_KeyDown(object sender, KeyEventArgs e)
@@ -128,6 +131,23 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                 NavigationService.Navigate
                     (new MoreInfoVeterinaryEquipmentPage(VeterinaryEquipmentListB.
                     SelectedItem as VeterinaryEquipment));
+            }
+        }
+
+        private void ExportBtn_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ListVeterinaryEquipmentDg.SelectAllCells();
+                int colCount = ListVeterinaryEquipmentDg.SelectedCells.Count;
+                ListVeterinaryEquipmentDg.SelectedIndex = ListVeterinaryEquipmentDg.Items.Count - 1;
+                int a = colCount / (ListVeterinaryEquipmentDg.SelectedIndex + 1);
+                string selectedFileName = "Excel";
+                ExportClass.ToExcelFile(ListVeterinaryEquipmentDg, selectedFileName, a);
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
             }
         }
     }

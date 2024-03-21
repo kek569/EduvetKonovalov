@@ -31,6 +31,9 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                 .Login.ToList().OrderBy(l => l.IdLogin);
             PasswordListB.ItemsSource = DBEntities.GetContext()
                 .Password.ToList().OrderBy(p => p.IdPassword);
+
+            ListUserDg.ItemsSource = DBEntities.GetContext()
+                .User.ToList().OrderBy(u => u.IdLogin);
             /*string selected_CheckUser = (App.Current as App).CheckUser;
             string selected_ListBoxUserSearch =
                         (App.Current as App).ListBoxUserSearch;
@@ -207,7 +210,19 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
 
         private void ExportBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                ListUserDg.SelectAllCells();
+                int colCount = ListUserDg.SelectedCells.Count;
+                ListUserDg.SelectedIndex = ListUserDg.Items.Count - 1;
+                int a = colCount / (ListUserDg.SelectedIndex + 1);
+                string selectedFileName = "Excel";
+                ExportClass.ToExcelFile(ListUserDg, selectedFileName, a);
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
+            }
         }
 
         private void SearchBtn_Click(object sender, RoutedEventArgs e)

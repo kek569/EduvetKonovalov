@@ -572,6 +572,7 @@ Value="{StaticResource FillAccentuation}"/>
         <Setter Property="Foreground" Value="{StaticResource FillFont}"/>
         <Setter Property="Background" 
 Value="{x:Null}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
     </Style>
 
     <Style TargetType="ListBox">

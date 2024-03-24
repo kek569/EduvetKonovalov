@@ -11,14 +11,14 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="650"/>
+            <ColumnDefinition/>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="10"/>1
+            <ColumnDefinition Width="145"/>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="145"/>
+            <ColumnDefinition Width="25"/>
             <ColumnDefinition Width="0"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>

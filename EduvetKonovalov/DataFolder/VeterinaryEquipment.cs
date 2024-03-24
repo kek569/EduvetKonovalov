@@ -19,7 +19,7 @@ namespace EduvetKonovalov.DataFolder
         public int IdTypeVeterinaryEquipment { get; set; }
         public System.DateTime RecordingDate { get; set; }
         public string WhereDidItComeFrom { get; set; }
-        public string WhoWasReleased { get; set; }
+        public int IdStaff { get; set; }
         public int IdComing { get; set; }
         public int IdConsumption { get; set; }
         public int IdRemainder { get; set; }
@@ -28,6 +28,7 @@ namespace EduvetKonovalov.DataFolder
         public virtual Coming Coming { get; set; }
         public virtual Consumption Consumption { get; set; }
         public virtual Remainder Remainder { get; set; }
+        public virtual Staff Staff { get; set; }
         public virtual TypeVeterinaryEquipment TypeVeterinaryEquipment { get; set; }
     }
 }

@@ -10,9 +10,9 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="180"/>
             <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="180"/>
             <ColumnDefinition Width="300"/>
@@ -37,38 +37,38 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Label Content="Фамилия"
-Grid.Row="1" Grid.Column="2"
+Grid.Row="1" Grid.Column="1"
 Style="{DynamicResource LabelNormal}"/>
         <TextBox x:Name="FirstNameStaffTb"
   Grid.Row="1"
-  Grid.Column="3"/>
+  Grid.Column="2"/>
 
         <Label Content="Имя"
-Grid.Row="3" Grid.Column="2"
+Grid.Row="3" Grid.Column="1"
 Style="{DynamicResource LabelNormal}"/>
         <TextBox x:Name="LastNameStaffTb"
   Grid.Row="3"
-  Grid.Column="3"/>
+  Grid.Column="2"/>
 
         <Label Content="Отчество"
-Grid.Row="5" Grid.Column="2"
+Grid.Row="5" Grid.Column="1"
 Style="{DynamicResource LabelNormal}"/>
         <TextBox x:Name="MiddleNameStaffTb"
   Grid.Row="5"
-  Grid.Column="3"/>
+  Grid.Column="2"/>
 
         <Label Content="серия и № паспорта"
-Grid.Row="7" Grid.Column="2"
+Grid.Row="7" Grid.Column="1"
 Style="{DynamicResource LabelNormal}"/>
         <ComboBox x:Name="PassportCb"
   Grid.Row="7"
-  Grid.Column="3"
+  Grid.Column="2"
                   SelectedItem="{Binding Passport}"
           SelectedValuePath="IdPassport"
           DisplayMemberPath="NumberPassport"/>
         <ComboBox x:Name="PassportOneCb"
 Grid.Row="7"
-Grid.Column="3"
+Grid.Column="2"
                 SelectedItem="{Binding Passport}"
         SelectedValuePath="IdPassport"
         DisplayMemberPath="SeriesPassport" 
@@ -77,14 +77,14 @@ Grid.Column="3"
         <Button x:Name="AddPassport"
                 Content="+"
                 Grid.Row="7"
-                Grid.Column="1"
+                Grid.Column="3"
                 Click="AddPassport_Click"/>
 
         <Label Content="Пол"
-    Grid.Row="9" Grid.Column="2"
+    Grid.Row="9" Grid.Column="1"
     Style="{DynamicResource LabelNormal}"/>
         <ComboBox x:Name="GenderCb"
-   Grid.Column="3"
+   Grid.Column="2"
    Grid.Row="9"
 SelectedItem="{Binding Gender}"
           SelectedValuePath="IdGender"
@@ -145,7 +145,7 @@ Grid.Column="6"/>
 
         <Button x:Name="LoadPhotoBtn"
     Content="Загрузить фото"
-    Grid.Column="3"
+    Grid.Column="2"
     Grid.Row="13"
     Click="LoadPhotoBtn_Click"/>
 

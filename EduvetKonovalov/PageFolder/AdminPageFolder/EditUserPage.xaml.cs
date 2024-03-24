@@ -63,42 +63,61 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
         {
             try
             {
-                string selected_LoginOne = (App.Current as App).EditLoginAdminOneName;
 
-                var userOne = DBEntities.GetContext()
-                        .User
-                        .FirstOrDefault(u => u.Login.LoginUser == LoginTb.Text);
-
-                if (userOne == null || LoginTb.Text == selected_LoginOne)
+                if (string.IsNullOrWhiteSpace(LoginTb.Text))
                 {
-                    /*string selected_Login = (App.Current as App).EditLoginAdminName;
-                    string selected_Password = (App.Current as App).EditPasswordAdminName;
-                    string selected_PassportOne = (App.Current as App).EditPassportOneAdminName;
-
-                    login = DBEntities.GetContext().Login
-                        .FirstOrDefault(l => l.IdLogin == login.IdLogin);
-                    login.LoginUser = LoginTb.Text;
-                    DBEntities.GetContext().SaveChanges();
-
-                    password = DBEntities.GetContext().Password
-                        .FirstOrDefault(p => p.IdPassword == password.IdPassword);
-                    password.PasswordUser = PasswordTb.Text;
-                    DBEntities.GetContext().SaveChanges();*/
-
-                    user = DBEntities.GetContext().User
-                        .FirstOrDefault(u => u.IdUser == user.IdUser);
-                    user.Login.LoginUser = LoginTb.Text;
-                    user.Password.PasswordUser = PasswordTb.Text;
-                    /*user.IdLogin = Int32.Parse(selected_Login);
-                    user.IdPassword = Int32.Parse(selected_Password);*/
-                    user.IdRole = Int32.Parse(RoleCb.SelectedValue.ToString());
-                    DBEntities.GetContext().SaveChanges();
-                    MBClass.InfoMB("Информация успешно отредактирована");
-                    NavigationService.Navigate(new ListUserPage());
+                    MBClass.ErrorMB("Введите логин");
+                    LoginTb.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(PasswordTb.Text))
+                {
+                    MBClass.ErrorMB("Введите пароль");
+                    LoginTb.Focus();
+                }
+                else if (RoleCb.SelectedIndex <= -1)
+                {
+                    MBClass.ErrorMB("Введите роль");
+                    RoleCb.Focus();
                 }
                 else
                 {
-                    MBClass.ErrorMB("Данный логин уже существует");
+                    string selected_LoginOne = (App.Current as App).EditLoginAdminOneName;
+
+                    var userOne = DBEntities.GetContext()
+                            .User
+                            .FirstOrDefault(u => u.Login.LoginUser == LoginTb.Text);
+
+                    if (userOne == null || LoginTb.Text == selected_LoginOne)
+                    {
+                        /*string selected_Login = (App.Current as App).EditLoginAdminName;
+                        string selected_Password = (App.Current as App).EditPasswordAdminName;
+                        string selected_PassportOne = (App.Current as App).EditPassportOneAdminName;
+
+                        login = DBEntities.GetContext().Login
+                            .FirstOrDefault(l => l.IdLogin == login.IdLogin);
+                        login.LoginUser = LoginTb.Text;
+                        DBEntities.GetContext().SaveChanges();
+
+                        password = DBEntities.GetContext().Password
+                            .FirstOrDefault(p => p.IdPassword == password.IdPassword);
+                        password.PasswordUser = PasswordTb.Text;
+                        DBEntities.GetContext().SaveChanges();*/
+
+                        user = DBEntities.GetContext().User
+                            .FirstOrDefault(u => u.IdUser == user.IdUser);
+                        user.Login.LoginUser = LoginTb.Text;
+                        user.Password.PasswordUser = PasswordTb.Text;
+                        /*user.IdLogin = Int32.Parse(selected_Login);
+                        user.IdPassword = Int32.Parse(selected_Password);*/
+                        user.IdRole = Int32.Parse(RoleCb.SelectedValue.ToString());
+                        DBEntities.GetContext().SaveChanges();
+                        MBClass.InfoMB("Информация успешно отредактирована");
+                        NavigationService.Navigate(new ListUserPage());
+                    }
+                    else
+                    {
+                        MBClass.ErrorMB("Данный логин уже существует");
+                    }
                 }
             }
             catch (DbEntityValidationException ex)

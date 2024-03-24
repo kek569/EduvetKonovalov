@@ -24,15 +24,26 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
     /// </summary>
     public partial class AddVeterinaryEquipmentPage : Page
     {
+        VeterinaryEquipment veterinaryEquipment = new VeterinaryEquipment();
+
         public AddVeterinaryEquipmentPage()
         {
             InitializeComponent();
+
             TypeVeterinaryEquipmentCb.ItemsSource = DBEntities.
                 GetContext().TypeVeterinaryEquipment.ToList();
+
             ComingCb.ItemsSource = DBEntities.GetContext().Coming.ToList();
+
             ConsumptionCb.ItemsSource = DBEntities.
                 GetContext().Consumption.ToList();
+
             RemainderCb.ItemsSource = DBEntities.GetContext().Remainder.ToList();
+
+            StaffCb.ItemsSource = DBEntities.GetContext().Staff.ToList();
+
+            VeterinaryEquipment veterinaryEquipment = new VeterinaryEquipment();
+            DataContext = veterinaryEquipment;
         }
 
         private void LoadPhotoBtn_Click(object sender, RoutedEventArgs e)
@@ -40,8 +51,6 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             AddPhoto();
         }
 
-        VeterinaryEquipment veterinaryEquipment = 
-            new VeterinaryEquipment();
         string selectedFileName = "";
 
         private void AddPhoto()
@@ -75,131 +84,184 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
         {
             try
             {
-                if (selectedFileName == "")
+                if (string.IsNullOrWhiteSpace(NameVeterinaryEquipmentTb.Text))
                 {
-                    Coming();
-                    Consumption();
-                    Remainder();
-
-                    string selected_Coming = (App.Current as App)
-                        .AddComingAdmin;
-                    string selected_Consumption = (App.Current as App)
-                        .AddConsumptionAdmin;
-                    string selected_Remainder = (App.Current as App)
-                        .AddRemainderAdmin;
-
-                    var сomingAdd = new Coming()
-                    {
-                        AmountComing = Int32.Parse(AmountComingTb.Text),
-                        SumComing = Convert.ToDecimal
-                        (SumComingTb.Text.Replace(@".", @","))
-                    };
-                    DBEntities.GetContext().Coming.Add(сomingAdd);
-                    DBEntities.GetContext().SaveChanges();
-
-                    var consumptionAdd = new Consumption()
-                    {
-                        AmountConsumption = Int32.Parse
-                        (AmountConsumptionTb.Text),
-                        SumConsumption = Convert.ToDecimal
-                        (SumConsumptionTb.Text.Replace(@".", @","))
-                    };
-                    DBEntities.GetContext().Consumption.Add(consumptionAdd);
-                    DBEntities.GetContext().SaveChanges();
-
-                    var remainderAdd = new Remainder()
-                    {
-                        AmountRemainder = Int32.Parse(AmountRemainderTb.Text),
-                        SumRemainder = Convert.ToDecimal
-                        (SumRemainderTb.Text.Replace(@".", @","))
-                    };
-                    DBEntities.GetContext().Remainder.Add(remainderAdd);
-                    DBEntities.GetContext().SaveChanges();
-
-                    DatePicker datePicker = new DatePicker();
-                    datePicker.SelectedDate = DateTime.Now.Date;
-                    var veterinaryEquipmentAdd = new VeterinaryEquipment()
-                    {
-                        NameVeterinaryEquipment = NameVeterinaryEquipmentTb.Text,
-                        IdTypeVeterinaryEquipment = Int32.Parse
-                        (TypeVeterinaryEquipmentCb.SelectedValue.ToString()),
-                        RecordingDate = System.DateTime.Parse(datePicker.Text),
-                        WhereDidItComeFrom = WhereDidItComeFromTb.Text,
-                        WhoWasReleased = WhoWasReleasedTb.Text,
-                        IdComing = Int32.Parse(selected_Coming),
-                        IdConsumption = Int32.Parse(selected_Consumption),
-                        IdRemainder = Int32.Parse(selected_Remainder)
-                    };
-                    DBEntities.GetContext().VeterinaryEquipment.
-                        Add(veterinaryEquipmentAdd);
-                    DBEntities.GetContext().SaveChanges();
-
-                    MBClass.InfoMB("Данные о оборудование успешно добавлены");
-                    NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+                    MBClass.ErrorMB("Введите название оборудование");
+                    NameVeterinaryEquipmentTb.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(WhereDidItComeFromTb.Text))
+                {
+                    MBClass.ErrorMB("Введите откуда поступило");
+                    WhereDidItComeFromTb.Focus();
+                }
+                else if (TypeVeterinaryEquipmentCb.SelectedIndex <= -1)
+                {
+                    MBClass.ErrorMB("Введите тип оборудование");
+                    TypeVeterinaryEquipmentCb.Focus();
+                }
+                else if (StaffCb.SelectedIndex <= -1)
+                {
+                    MBClass.ErrorMB("Введите кому отпущено");
+                    StaffCb.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(AmountComingTb.Text))
+                {
+                    MBClass.ErrorMB("Введите кол-во в приходе");
+                    AmountComingTb.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(SumComingTb.Text))
+                {
+                    MBClass.ErrorMB("Введите сумму в приходе");
+                    SumComingTb.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(AmountConsumptionTb.Text))
+                {
+                    MBClass.ErrorMB("Введите кол-во в расходе");
+                    AmountConsumptionTb.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(SumConsumptionTb.Text))
+                {
+                    MBClass.ErrorMB("Введите сумму в остатке");
+                    SumComingTb.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(AmountRemainderTb.Text))
+                {
+                    MBClass.ErrorMB("Введите кол-во в остатке");
+                    AmountRemainderTb.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(SumRemainderTb.Text))
+                {
+                    MBClass.ErrorMB("Введите сумму в приход");
+                    SumRemainderTb.Focus();
                 }
                 else
                 {
-                    Coming();
-                    Consumption();
-                    Remainder();
-
-                    string selected_Coming = (App.Current as App)
-                        .AddComingAdmin;
-                    string selected_Consumption = (App.Current as App)
-                        .AddConsumptionAdmin;
-                    string selected_Remainder = (App.Current as App)
-                        .AddRemainderAdmin;
-
-                    var сomingAdd = new Coming()
+                    if (selectedFileName == "")
                     {
-                        AmountComing = Int32.Parse(AmountComingTb.Text),
-                        SumComing = Convert.ToDecimal
-                        (SumComingTb.Text.Replace(@".", @","))
-                    };
-                    DBEntities.GetContext().Coming.Add(сomingAdd);
-                    DBEntities.GetContext().SaveChanges();
+                        Coming();
+                        Consumption();
+                        Remainder();
 
-                    var consumptionAdd = new Consumption()
+                        string selected_Coming = (App.Current as App)
+                            .AddComingAdmin;
+                        string selected_Consumption = (App.Current as App)
+                            .AddConsumptionAdmin;
+                        string selected_Remainder = (App.Current as App)
+                            .AddRemainderAdmin;
+
+                        var сomingAdd = new Coming()
+                        {
+                            AmountComing = Int32.Parse(AmountComingTb.Text),
+                            SumComing = Convert.ToDecimal
+                            (SumComingTb.Text.Replace(@".", @","))
+                        };
+                        DBEntities.GetContext().Coming.Add(сomingAdd);
+                        DBEntities.GetContext().SaveChanges();
+
+                        var consumptionAdd = new Consumption()
+                        {
+                            AmountConsumption = Int32.Parse
+                            (AmountConsumptionTb.Text),
+                            SumConsumption = Convert.ToDecimal
+                            (SumConsumptionTb.Text.Replace(@".", @","))
+                        };
+                        DBEntities.GetContext().Consumption.Add(consumptionAdd);
+                        DBEntities.GetContext().SaveChanges();
+
+                        var remainderAdd = new Remainder()
+                        {
+                            AmountRemainder = Int32.Parse(AmountRemainderTb.Text),
+                            SumRemainder = Convert.ToDecimal
+                            (SumRemainderTb.Text.Replace(@".", @","))
+                        };
+                        DBEntities.GetContext().Remainder.Add(remainderAdd);
+                        DBEntities.GetContext().SaveChanges();
+
+                        DatePicker datePicker = new DatePicker();
+                        datePicker.SelectedDate = DateTime.Now.Date;
+                        var veterinaryEquipmentAdd = new VeterinaryEquipment()
+                        {
+                            NameVeterinaryEquipment = NameVeterinaryEquipmentTb.Text,
+                            IdTypeVeterinaryEquipment = Int32.Parse
+                            (TypeVeterinaryEquipmentCb.SelectedValue.ToString()),
+                            RecordingDate = System.DateTime.Parse(datePicker.Text),
+                            WhereDidItComeFrom = WhereDidItComeFromTb.Text,
+                            IdStaff = Int32.Parse(StaffCb.SelectedValue.ToString()),
+                            IdComing = Int32.Parse(selected_Coming),
+                            IdConsumption = Int32.Parse(selected_Consumption),
+                            IdRemainder = Int32.Parse(selected_Remainder)
+                        };
+                        DBEntities.GetContext().VeterinaryEquipment.
+                            Add(veterinaryEquipmentAdd);
+                        DBEntities.GetContext().SaveChanges();
+
+                        MBClass.InfoMB("Данные о оборудование успешно добавлены");
+                        NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+                    }
+                    else
                     {
-                        AmountConsumption = Int32.Parse
-                        (AmountConsumptionTb.Text),
-                        SumConsumption = Convert.ToDecimal
-                        (SumConsumptionTb.Text.Replace(@".", @","))
-                    };
-                    DBEntities.GetContext().Consumption.Add(consumptionAdd);
-                    DBEntities.GetContext().SaveChanges();
+                        Coming();
+                        Consumption();
+                        Remainder();
 
-                    var remainderAdd = new Remainder()
-                    {
-                        AmountRemainder = Int32.Parse(AmountRemainderTb.Text),
-                        SumRemainder = Convert.ToDecimal
-                        (SumRemainderTb.Text.Replace(@".", @","))
-                    };
-                    DBEntities.GetContext().Remainder.Add(remainderAdd);
-                    DBEntities.GetContext().SaveChanges();
+                        string selected_Coming = (App.Current as App)
+                            .AddComingAdmin;
+                        string selected_Consumption = (App.Current as App)
+                            .AddConsumptionAdmin;
+                        string selected_Remainder = (App.Current as App)
+                            .AddRemainderAdmin;
 
-                    DatePicker datePicker = new DatePicker();
-                    datePicker.SelectedDate = DateTime.Now.Date;
-                    var veterinaryEquipmentAdd = new VeterinaryEquipment()
-                    {
-                        NameVeterinaryEquipment = NameVeterinaryEquipmentTb.Text,
-                        IdTypeVeterinaryEquipment = Int32.Parse
-                        (TypeVeterinaryEquipmentCb.SelectedValue.ToString()),
-                        RecordingDate = System.DateTime.Parse(datePicker.Text),
-                        WhereDidItComeFrom = WhereDidItComeFromTb.Text,
-                        WhoWasReleased = WhoWasReleasedTb.Text,
-                        IdComing = Int32.Parse(selected_Coming),
-                        IdConsumption = Int32.Parse(selected_Consumption),
-                        IdRemainder = Int32.Parse(selected_Remainder),
-                        PhotoVeterinaryEquipment = ClassImage
-                        .ConvertImageToArray(selectedFileName)
-                    };
-                    DBEntities.GetContext().VeterinaryEquipment.
-                        Add(veterinaryEquipmentAdd);
-                    DBEntities.GetContext().SaveChanges();
+                        var сomingAdd = new Coming()
+                        {
+                            AmountComing = Int32.Parse(AmountComingTb.Text),
+                            SumComing = Convert.ToDecimal
+                            (SumComingTb.Text.Replace(@".", @","))
+                        };
+                        DBEntities.GetContext().Coming.Add(сomingAdd);
+                        DBEntities.GetContext().SaveChanges();
 
-                    MBClass.InfoMB("Данные о оборудование успешно добавлены");
-                    NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+                        var consumptionAdd = new Consumption()
+                        {
+                            AmountConsumption = Int32.Parse
+                            (AmountConsumptionTb.Text),
+                            SumConsumption = Convert.ToDecimal
+                            (SumConsumptionTb.Text.Replace(@".", @","))
+                        };
+                        DBEntities.GetContext().Consumption.Add(consumptionAdd);
+                        DBEntities.GetContext().SaveChanges();
+
+                        var remainderAdd = new Remainder()
+                        {
+                            AmountRemainder = Int32.Parse(AmountRemainderTb.Text),
+                            SumRemainder = Convert.ToDecimal
+                            (SumRemainderTb.Text.Replace(@".", @","))
+                        };
+                        DBEntities.GetContext().Remainder.Add(remainderAdd);
+                        DBEntities.GetContext().SaveChanges();
+
+                        DatePicker datePicker = new DatePicker();
+                        datePicker.SelectedDate = DateTime.Now.Date;
+                        var veterinaryEquipmentAdd = new VeterinaryEquipment()
+                        {
+                            NameVeterinaryEquipment = NameVeterinaryEquipmentTb.Text,
+                            IdTypeVeterinaryEquipment = Int32.Parse
+                            (TypeVeterinaryEquipmentCb.SelectedValue.ToString()),
+                            RecordingDate = System.DateTime.Parse(datePicker.Text),
+                            WhereDidItComeFrom = WhereDidItComeFromTb.Text,
+                            IdStaff = Int32.Parse(StaffCb.SelectedValue.ToString()),
+                            IdComing = Int32.Parse(selected_Coming),
+                            IdConsumption = Int32.Parse(selected_Consumption),
+                            IdRemainder = Int32.Parse(selected_Remainder),
+                            PhotoVeterinaryEquipment = ClassImage
+                            .ConvertImageToArray(selectedFileName)
+                        };
+                        DBEntities.GetContext().VeterinaryEquipment.
+                            Add(veterinaryEquipmentAdd);
+                        DBEntities.GetContext().SaveChanges();
+
+                        MBClass.InfoMB("Данные о оборудование успешно добавлены");
+                        NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+                    }
                 }
             }
             catch (DbEntityValidationException ex)

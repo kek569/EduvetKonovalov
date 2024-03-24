@@ -14,6 +14,11 @@ namespace EduvetKonovalov.DataFolder
     
     public partial class Staff
     {
+        public Staff()
+        {
+            this.VeterinaryEquipment = new HashSet<VeterinaryEquipment>();
+        }
+    
         public int IdStaff { get; set; }
         public string LastNameStaff { get; set; }
         public string FirstNameStaff { get; set; }
@@ -32,5 +37,6 @@ namespace EduvetKonovalov.DataFolder
         public virtual Login Login { get; set; }
         public virtual Passport Passport { get; set; }
         public virtual Password Password { get; set; }
+        public virtual ICollection<VeterinaryEquipment> VeterinaryEquipment { get; set; }
     }
 }

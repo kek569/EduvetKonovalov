@@ -125,7 +125,7 @@
           <ScalarProperty Name="IdTypeVeterinaryEquipment" ColumnName="IdTypeVeterinaryEquipment" />
           <ScalarProperty Name="RecordingDate" ColumnName="RecordingDate" />
           <ScalarProperty Name="WhereDidItComeFrom" ColumnName="WhereDidItComeFrom" />
-          <ScalarProperty Name="WhoWasReleased" ColumnName="WhoWasReleased" />
+          <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />
           <ScalarProperty Name="IdComing" ColumnName="IdComing" />
           <ScalarProperty Name="IdConsumption" ColumnName="IdConsumption" />
           <ScalarProperty Name="IdRemainder" ColumnName="IdRemainder" />

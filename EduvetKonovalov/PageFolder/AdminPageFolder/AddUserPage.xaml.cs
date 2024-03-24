@@ -41,13 +41,63 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
 
                 if (userOne == null)
                 {
-                    Int32 a = Int32.Parse(RoleCb.SelectedValue.ToString());
-                    if (a == 2)
+                    if (string.IsNullOrWhiteSpace(LoginTb.Text))
                     {
-                        bool ret = MBClass.QestionMB("Вы действительно хотите " +
-                            "добавить сотрудника с пустым личным кабинетом?\n " +
-                            "Потом нельзя будет ему добавить личный кабинет.");
-                        if (ret == true)
+                        MBClass.ErrorMB("Введите логин");
+                        LoginTb.Focus();
+                    }
+                    else if (string.IsNullOrWhiteSpace(PasswordTb.Text))
+                    {
+                        MBClass.ErrorMB("Введите пароль");
+                        LoginTb.Focus();
+                    }
+                    else if (RoleCb.SelectedIndex <= -1)
+                    {
+                        MBClass.ErrorMB("Введите роль");
+                        RoleCb.Focus();
+                    }
+                    else
+                    {
+                        Int32 a = Int32.Parse(RoleCb.SelectedValue.ToString());
+                        if (a == 2)
+                        {
+                            bool ret = MBClass.QestionMB("Вы действительно хотите " +
+                                "добавить сотрудника с пустым личным кабинетом?\n " +
+                                "Потом нельзя будет ему добавить личный кабинет.");
+                            if (ret == true)
+                            {
+                                Login();
+                                Password();
+                                string selected_Login = (App.Current as App).AddLoginName;
+                                string selected_Password = (App.Current as App).AddPasswordName;
+                                var loginAdd = new Login()
+                                {
+                                    LoginUser = LoginTb.Text
+                                };
+                                DBEntities.GetContext().Login.Add(loginAdd);
+                                DBEntities.GetContext().SaveChanges();
+
+                                var passwordAdd = new Password()
+                                {
+                                    PasswordUser = PasswordTb.Text
+                                };
+                                DBEntities.GetContext().Password.Add(passwordAdd);
+                                DBEntities.GetContext().SaveChanges();
+
+                                var userAdd = new User()
+                                {
+                                    IdLogin = Int32.Parse(selected_Login),
+                                    IdPassword = Int32.Parse(selected_Password),
+                                    IdRole = Int32.Parse(RoleCb.SelectedValue.ToString())
+                                };
+                                DBEntities.GetContext().User.Add(userAdd);
+                                DBEntities.GetContext().SaveChanges();
+
+                                MBClass.InfoMB("Данные о пользователе успешно добавлены");
+                                NavigationService.Navigate(new ListUserPage());
+                            }
+                        }
+                        else
                         {
                             Login();
                             Password();
@@ -79,38 +129,6 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                             MBClass.InfoMB("Данные о пользователе успешно добавлены");
                             NavigationService.Navigate(new ListUserPage());
                         }
-                    }
-                    else
-                    {
-                        Login();
-                        Password();
-                        string selected_Login = (App.Current as App).AddLoginName;
-                        string selected_Password = (App.Current as App).AddPasswordName;
-                        var loginAdd = new Login()
-                        {
-                            LoginUser = LoginTb.Text
-                        };
-                        DBEntities.GetContext().Login.Add(loginAdd);
-                        DBEntities.GetContext().SaveChanges();
-
-                        var passwordAdd = new Password()
-                        {
-                            PasswordUser = PasswordTb.Text
-                        };
-                        DBEntities.GetContext().Password.Add(passwordAdd);
-                        DBEntities.GetContext().SaveChanges();
-
-                        var userAdd = new User()
-                        {
-                            IdLogin = Int32.Parse(selected_Login),
-                            IdPassword = Int32.Parse(selected_Password),
-                            IdRole = Int32.Parse(RoleCb.SelectedValue.ToString())
-                        };
-                        DBEntities.GetContext().User.Add(userAdd);
-                        DBEntities.GetContext().SaveChanges();
-
-                        MBClass.InfoMB("Данные о пользователе успешно добавлены");
-                        NavigationService.Navigate(new ListUserPage());
                     }
                 }
                 else

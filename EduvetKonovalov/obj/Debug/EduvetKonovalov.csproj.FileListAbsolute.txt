@@ -492,7 +492,6 @@ C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFol
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\EditVeterinaryEquipmentPage.g.cs
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\ListProfilePage.g.cs
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\ListVeterinaryEquipmentPage.g.cs
-C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\MoreInfoVeterinaryEquipmentPage.g.cs
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\WindowFolder\AdminWindowFolder\AdminWindow.g.cs
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\WindowFolder\AuthorizationWindow.g.cs
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\WindowFolder\StaffWindowFolder\StaffWindow.g.cs
@@ -525,7 +524,6 @@ C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFol
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\EditVeterinaryEquipmentPage.baml
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\ListProfilePage.baml
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\ListVeterinaryEquipmentPage.baml
-C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\MoreInfoVeterinaryEquipmentPage.baml
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\WindowFolder\AdminWindowFolder\AdminWindow.baml
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\WindowFolder\AuthorizationWindow.baml
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\WindowFolder\StaffWindowFolder\StaffWindow.baml

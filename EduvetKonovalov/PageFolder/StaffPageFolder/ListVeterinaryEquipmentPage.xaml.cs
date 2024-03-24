@@ -58,7 +58,7 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                     v.TypeVeterinaryEquipment.NameTypeVeterinaryEquipment.
                     StartsWith(SearchTb.Text) ||
                     v.WhereDidItComeFrom.StartsWith(SearchTb.Text) ||
-                    v.WhoWasReleased.StartsWith(SearchTb.Text)).ToList();
+                    v.Staff.FullName.StartsWith(SearchTb.Text)).ToList();
                 if (VeterinaryEquipmentListB.Items.Count <= 0)
                     MBClass.ErrorMB("Данные отсутствуют");
             }
@@ -116,22 +116,6 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
         private void UpdateVeterinaryEquipmentMi_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new ListVeterinaryEquipmentPage());
-        }
-
-        private void MoreInfoVeterinaryEquipmentfMi_Click(object sender, RoutedEventArgs e)
-        {
-            if (VeterinaryEquipmentListB.SelectedItem == null)
-            {
-                MBClass.ErrorMB("Выберите строку для редактирование");
-            }
-            else
-            {
-                VeterinaryEquipment veterinaryEquipment = VeterinaryEquipmentListB.
-                    SelectedItem as VeterinaryEquipment;
-                NavigationService.Navigate
-                    (new MoreInfoVeterinaryEquipmentPage(VeterinaryEquipmentListB.
-                    SelectedItem as VeterinaryEquipment));
-            }
         }
 
         private void ExportBtn_Click(object sender, RoutedEventArgs e)

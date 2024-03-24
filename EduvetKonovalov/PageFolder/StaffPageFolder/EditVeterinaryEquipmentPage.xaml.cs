@@ -35,10 +35,15 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
 
             TypeVeterinaryEquipmentCb.ItemsSource = DBEntities.
                 GetContext().TypeVeterinaryEquipment.ToList();
+
             ComingCb.ItemsSource = DBEntities.GetContext().Coming.ToList();
+
             ConsumptionCb.ItemsSource = DBEntities.
                 GetContext().Consumption.ToList();
+
             RemainderCb.ItemsSource = DBEntities.GetContext().Remainder.ToList();
+
+            StaffCb.ItemsSource = DBEntities.GetContext().Staff.ToList();
         }
 
         private void LoadPhotoBtn_Click(object sender, RoutedEventArgs e)
@@ -79,67 +84,121 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
         {
             try
             {
-                if (selectedFileName == "")
-                {;
-                    veterinaryEquipment = DBEntities.GetContext().VeterinaryEquipment
-                            .FirstOrDefault(l => l.IdVeterinaryEquipment ==
-                            veterinaryEquipment.IdVeterinaryEquipment);
-                    veterinaryEquipment.Coming.AmountComing =
-                        Int32.Parse(AmountComingTb.Text);
-                    veterinaryEquipment.Coming.SumComing =
-                        Convert.ToDecimal(SumComingTb.Text.Replace(@".", @","));
-                    veterinaryEquipment.Consumption.AmountConsumption =
-                        Int32.Parse
-                       (AmountConsumptionTb.Text);
-                    veterinaryEquipment.Consumption.SumConsumption =
-                        Convert.ToDecimal(SumConsumptionTb.Text.Replace(@".", @","));
-                    veterinaryEquipment.Remainder.AmountRemainder = Int32.Parse
-                        (AmountRemainderTb.Text);
-                    veterinaryEquipment.Remainder.SumRemainder =
-                        Convert.ToDecimal(SumRemainderTb.Text.Replace(@".", @","));
-
-                    veterinaryEquipment.NameVeterinaryEquipment =
-                        NameVeterinaryEquipmentTb.Text;
-                    veterinaryEquipment.IdTypeVeterinaryEquipment = Int32.Parse
-                        (TypeVeterinaryEquipmentCb.SelectedValue.ToString());
-                    veterinaryEquipment.WhereDidItComeFrom = WhereDidItComeFromTb.Text;
-                    veterinaryEquipment.WhoWasReleased = WhoWasReleasedTb.Text;
-                    DBEntities.GetContext().SaveChanges();
-
-                    MBClass.InfoMB("Данные о оборудование успешно отредактированы");
-                    NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+                if (string.IsNullOrWhiteSpace(NameVeterinaryEquipmentTb.Text))
+                {
+                    MBClass.ErrorMB("Введите название оборудование");
+                    NameVeterinaryEquipmentTb.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(WhereDidItComeFromTb.Text))
+                {
+                    MBClass.ErrorMB("Введите откуда поступило");
+                    WhereDidItComeFromTb.Focus();
+                }
+                else if (TypeVeterinaryEquipmentCb.SelectedIndex <= -1)
+                {
+                    MBClass.ErrorMB("Введите тип оборудование");
+                    TypeVeterinaryEquipmentCb.Focus();
+                }
+                else if (StaffCb.SelectedIndex <= -1)
+                {
+                    MBClass.ErrorMB("Введите кому отпущено");
+                    StaffCb.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(AmountComingTb.Text))
+                {
+                    MBClass.ErrorMB("Введите кол-во в приходе");
+                    AmountComingTb.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(SumComingTb.Text))
+                {
+                    MBClass.ErrorMB("Введите сумму в приходе");
+                    SumComingTb.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(AmountConsumptionTb.Text))
+                {
+                    MBClass.ErrorMB("Введите кол-во в расходе");
+                    AmountConsumptionTb.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(SumConsumptionTb.Text))
+                {
+                    MBClass.ErrorMB("Введите сумму в остатке");
+                    SumComingTb.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(AmountRemainderTb.Text))
+                {
+                    MBClass.ErrorMB("Введите кол-во в остатке");
+                    AmountRemainderTb.Focus();
+                }
+                else if (string.IsNullOrWhiteSpace(SumRemainderTb.Text))
+                {
+                    MBClass.ErrorMB("Введите сумму в приход");
+                    SumRemainderTb.Focus();
                 }
                 else
                 {
-                    veterinaryEquipment = DBEntities.GetContext().VeterinaryEquipment
-                            .FirstOrDefault(l => l.IdVeterinaryEquipment ==
-                            veterinaryEquipment.IdVeterinaryEquipment);
-                    veterinaryEquipment.Coming.AmountComing =
-                        Int32.Parse(AmountComingTb.Text);
-                    veterinaryEquipment.Coming.SumComing =
-                        Convert.ToDecimal(SumComingTb.Text.Replace(@".", @","));
-                    veterinaryEquipment.Consumption.AmountConsumption =
-                        Int32.Parse
-                       (AmountConsumptionTb.Text);
-                    veterinaryEquipment.Consumption.SumConsumption =
-                        Convert.ToDecimal(SumConsumptionTb.Text.Replace(@".", @","));
-                    veterinaryEquipment.Remainder.AmountRemainder = Int32.Parse
-                        (AmountRemainderTb.Text);
-                    veterinaryEquipment.Remainder.SumRemainder =
-                        Convert.ToDecimal(SumRemainderTb.Text.Replace(@".", @","));
+                    if (selectedFileName == "")
+                    {
+                        ;
+                        veterinaryEquipment = DBEntities.GetContext().VeterinaryEquipment
+                                .FirstOrDefault(l => l.IdVeterinaryEquipment ==
+                                veterinaryEquipment.IdVeterinaryEquipment);
+                        veterinaryEquipment.Coming.AmountComing =
+                            Int32.Parse(AmountComingTb.Text);
+                        veterinaryEquipment.Coming.SumComing =
+                            Convert.ToDecimal(SumComingTb.Text.Replace(@".", @","));
+                        veterinaryEquipment.Consumption.AmountConsumption =
+                            Int32.Parse
+                           (AmountConsumptionTb.Text);
+                        veterinaryEquipment.Consumption.SumConsumption =
+                            Convert.ToDecimal(SumConsumptionTb.Text.Replace(@".", @","));
+                        veterinaryEquipment.Remainder.AmountRemainder = Int32.Parse
+                            (AmountRemainderTb.Text);
+                        veterinaryEquipment.Remainder.SumRemainder =
+                            Convert.ToDecimal(SumRemainderTb.Text.Replace(@".", @","));
 
-                    veterinaryEquipment.NameVeterinaryEquipment =
-                        NameVeterinaryEquipmentTb.Text;
-                    veterinaryEquipment.IdTypeVeterinaryEquipment = Int32.Parse
-                        (TypeVeterinaryEquipmentCb.SelectedValue.ToString());
-                    veterinaryEquipment.WhereDidItComeFrom = WhereDidItComeFromTb.Text;
-                    veterinaryEquipment.WhoWasReleased = WhoWasReleasedTb.Text;
-                    veterinaryEquipment.PhotoVeterinaryEquipment = ClassImage
-                        .ConvertImageToArray(selectedFileName);
-                    DBEntities.GetContext().SaveChanges();
+                        veterinaryEquipment.NameVeterinaryEquipment =
+                            NameVeterinaryEquipmentTb.Text;
+                        veterinaryEquipment.IdTypeVeterinaryEquipment = Int32.Parse
+                            (TypeVeterinaryEquipmentCb.SelectedValue.ToString());
+                        veterinaryEquipment.WhereDidItComeFrom = WhereDidItComeFromTb.Text;
+                        veterinaryEquipment.IdStaff = Int32.Parse(StaffCb.SelectedValue.ToString());
+                        DBEntities.GetContext().SaveChanges();
 
-                    MBClass.InfoMB("Данные о оборудование успешно отредактированы");
-                    NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+                        MBClass.InfoMB("Данные о оборудование успешно отредактированы");
+                        NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+                    }
+                    else
+                    {
+                        veterinaryEquipment = DBEntities.GetContext().VeterinaryEquipment
+                                .FirstOrDefault(l => l.IdVeterinaryEquipment ==
+                                veterinaryEquipment.IdVeterinaryEquipment);
+                        veterinaryEquipment.Coming.AmountComing =
+                            Int32.Parse(AmountComingTb.Text);
+                        veterinaryEquipment.Coming.SumComing =
+                            Convert.ToDecimal(SumComingTb.Text.Replace(@".", @","));
+                        veterinaryEquipment.Consumption.AmountConsumption =
+                            Int32.Parse
+                           (AmountConsumptionTb.Text);
+                        veterinaryEquipment.Consumption.SumConsumption =
+                            Convert.ToDecimal(SumConsumptionTb.Text.Replace(@".", @","));
+                        veterinaryEquipment.Remainder.AmountRemainder = Int32.Parse
+                            (AmountRemainderTb.Text);
+                        veterinaryEquipment.Remainder.SumRemainder =
+                            Convert.ToDecimal(SumRemainderTb.Text.Replace(@".", @","));
+
+                        veterinaryEquipment.NameVeterinaryEquipment =
+                            NameVeterinaryEquipmentTb.Text;
+                        veterinaryEquipment.IdTypeVeterinaryEquipment = Int32.Parse
+                            (TypeVeterinaryEquipmentCb.SelectedValue.ToString());
+                        veterinaryEquipment.WhereDidItComeFrom = WhereDidItComeFromTb.Text;
+                        veterinaryEquipment.IdStaff = Int32.Parse(StaffCb.SelectedValue.ToString());
+                        veterinaryEquipment.PhotoVeterinaryEquipment = ClassImage
+                            .ConvertImageToArray(selectedFileName);
+                        DBEntities.GetContext().SaveChanges();
+
+                        MBClass.InfoMB("Данные о оборудование успешно отредактированы");
+                        NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+                    }
                 }
             }
             catch (DbEntityValidationException ex)

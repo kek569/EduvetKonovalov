@@ -113,7 +113,7 @@
     <Property Name="IdTypeVeterinaryEquipment" Type="int" Nullable="false" />
     <Property Name="RecordingDate" Type="date" Nullable="false" />
     <Property Name="WhereDidItComeFrom" Type="nvarchar" MaxLength="80" Nullable="false" />
-    <Property Name="WhoWasReleased" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="IdStaff" Type="int" Nullable="false" />
     <Property Name="IdComing" Type="int" Nullable="false" />
     <Property Name="IdConsumption" Type="int" Nullable="false" />
     <Property Name="IdRemainder" Type="int" Nullable="false" />
@@ -239,6 +239,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_VeterinaryEquipment_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="VeterinaryEquipment" Type="Self.VeterinaryEquipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="IdStaff" />
+      </Principal>
+      <Dependent Role="VeterinaryEquipment">
+        <PropertyRef Name="IdStaff" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_VeterinaryEquipment_TypeVeterinaryEquipment">
     <End Role="TypeVeterinaryEquipment" Type="Self.TypeVeterinaryEquipment" Multiplicity="1" />
     <End Role="VeterinaryEquipment" Type="Self.VeterinaryEquipment" Multiplicity="*" />
@@ -303,6 +315,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_VeterinaryEquipment_Remainder" Association="Self.FK_VeterinaryEquipment_Remainder">
       <End Role="Remainder" EntitySet="Remainder" />
+      <End Role="VeterinaryEquipment" EntitySet="VeterinaryEquipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VeterinaryEquipment_Staff" Association="Self.FK_VeterinaryEquipment_Staff">
+      <End Role="Staff" EntitySet="Staff" />
       <End Role="VeterinaryEquipment" EntitySet="VeterinaryEquipment" />
     </AssociationSet>
     <AssociationSet Name="FK_VeterinaryEquipment_TypeVeterinaryEquipment" Association="Self.FK_VeterinaryEquipment_TypeVeterinaryEquipment">

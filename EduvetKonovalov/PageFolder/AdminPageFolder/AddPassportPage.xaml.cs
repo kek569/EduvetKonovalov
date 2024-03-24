@@ -37,7 +37,8 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             DBEntities.GetContext().Passport.Add(passportAdd);
             DBEntities.GetContext().SaveChanges();
             MBClass.InfoMB("Данные о паспорте успешно добавлены");
-            NavigationService.Navigate(new AddStaffPage());
+            this.NavigationService.GoBack();
+            //NavigationService.Navigate(new AddStaffPage());
         }
     }
 }

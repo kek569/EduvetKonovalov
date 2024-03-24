@@ -31,6 +31,9 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
 
             ListStaffDg.ItemsSource = DBEntities.GetContext()
                 .Staff.ToList().OrderBy(s => s.LastNameStaff);
+
+            UserListB.ItemsSource = DBEntities.GetContext()
+                .User.ToList().OrderBy(u => u.IdLogin);
         }
 
         private void SearchTb_KeyDown(object sender, KeyEventArgs e)
@@ -101,7 +104,18 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                 if (ret == true)
                 {
                     Staff staff = StaffListB.SelectedItem as Staff;
+                    User user = UserListB.SelectedItem as User;
+
+                    staff = DBEntities.GetContext().Staff
+                                .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
+                    staff.Login.LoginUser = "";
+                    staff.Password.PasswordUser = "";
+
+                    user = DBEntities.GetContext().User
+                                .FirstOrDefault(u => u.Login.LoginUser == staff.Login.LoginUser);
+
                     DBEntities.GetContext().Staff.Remove(staff);
+                    DBEntities.GetContext().User.Remove(user);
                     DBEntities.GetContext().SaveChanges();
                     MBClass.InfoMB("Данные успешно были удалены!");
                     NavigationService.Navigate(new ListStaffPage());

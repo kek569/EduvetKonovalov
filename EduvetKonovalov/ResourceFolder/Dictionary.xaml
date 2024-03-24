@@ -649,7 +649,6 @@ Value="{StaticResource FillAccentuation}"/>
             </Setter.Value>
         </Setter>
         <Setter Property="Margin" Value="10"/>
-        <Setter Property="SelectedDate" Value="2000.12.31"/>
     </Style>
 
     <Style x:Key="DatePickerTextBoxStyle1" TargetType="{x:Type DatePickerTextBox}">

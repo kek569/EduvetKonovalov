@@ -59,7 +59,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                     v.TypeVeterinaryEquipment.NameTypeVeterinaryEquipment.
                     StartsWith(SearchTb.Text) ||
                     v.WhereDidItComeFrom.StartsWith(SearchTb.Text) ||
-                    v.WhoWasReleased.StartsWith(SearchTb.Text)).ToList();
+                    v.Staff.FullName.StartsWith(SearchTb.Text)).ToList();
                 if (VeterinaryEquipmentListB.Items.Count <= 0)
                     MBClass.ErrorMB("Данные отсутствуют");
             }

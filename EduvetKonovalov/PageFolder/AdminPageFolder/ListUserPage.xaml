@@ -92,8 +92,8 @@ Grid.Column="3"
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="50"/>
-                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
                         </Grid.RowDefinitions>
 
                         <TextBlock Grid.Column="0"
@@ -101,7 +101,8 @@ TextWrapping="WrapWithOverflow"
 FontWeight="Bold"
 Text="Логин"
                        Style="{DynamicResource TBlListBox}"
-                       TextAlignment="Center"/>
+                       TextAlignment="Center"
+                                   VerticalAlignment="Center"/>
                         <TextBlock Grid.Column="1"
 TextWrapping="WrapWithOverflow"
 FontWeight="Bold"
@@ -113,7 +114,8 @@ TextWrapping="WrapWithOverflow"
 FontWeight="Bold"
 Text="Роль"
                        Style="{DynamicResource TBlListBox}"
-                       TextAlignment="Center"/>
+                       TextAlignment="Center"
+                                   VerticalAlignment="Center"/>
 
 
                         <TextBlock x:Name="LoginTb"
@@ -123,7 +125,8 @@ Text="Роль"
                        FontWeight="Bold"
                        Text="{Binding Login.LoginUser}"
                        Style="{DynamicResource TBlListBox}"
-                       TextAlignment="Center"/>
+                       TextAlignment="Center"
+                                   VerticalAlignment="Center"/>
                         <TextBlock Grid.Column="1"
 Grid.RowSpan="4"
 Grid.Row="2"
@@ -131,7 +134,8 @@ TextWrapping="WrapWithOverflow"
 FontWeight="Bold"
 Text="{Binding Password.PasswordUser}"
 Style="{DynamicResource TBlListBox}"
-TextAlignment="Center"/>
+TextAlignment="Center"
+                                   VerticalAlignment="Center"/>
                         <TextBlock Grid.Column="2"
 Grid.RowSpan="4"
 Grid.Row="2"
@@ -139,7 +143,8 @@ TextWrapping="WrapWithOverflow"
 FontWeight="Bold"
 Text="{Binding Role.NameRole}"
 Style="{DynamicResource TBlListBox}"
-TextAlignment="Center"/>
+TextAlignment="Center"
+                                   VerticalAlignment="Center"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

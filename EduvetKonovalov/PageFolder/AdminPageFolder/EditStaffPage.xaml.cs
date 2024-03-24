@@ -46,6 +46,9 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             timer.Tick += (sender, args) =>
             {
                 timer.Stop();
+                staff = DBEntities.GetContext().Staff
+                                .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
+                DateOfBirthStaffDp.Text = staff.DateOfBirthStaff.ToString();
                 (App.Current as App).EditLoginAdminOneName = LoginTb.Text;
             };        
         }
@@ -85,6 +88,9 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             }
         }
 
+        private string MiddleName;
+        private string MiddleNameFull;
+
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -97,52 +103,111 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
 
                 if (userOne == null || LoginTb.Text == selected_LoginOne)
                 {
-                    if (selectedFileName == "")
+                    if (string.IsNullOrWhiteSpace(LastNameStaffTb.Text))
                     {
-                        staff = DBEntities.GetContext().Staff
-                            .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
-                        staff.Login.LoginUser = LoginTb.Text;
-                        staff.Password.PasswordUser = PasswordTb.Text;
-                        staff.Passport.NumberPassport = Int32.Parse(PassportTb.Text);
-                        staff.Passport.SeriesPassport = Int32.Parse(PassportOneTb.Text);
-
-                        staff.LastNameStaff = LastNameStaffTb.Text;
-                        staff.FirstNameStaff = FirstNameStaffTb.Text;
-                        staff.MiddleNameStaff = MiddleNameStaffTb.Text;
-                        staff.FullName = LastNameStaffTb.Text + " " 
-                            + FirstNameStaffTb.Text + " " + MiddleNameStaffTb.Text;
-                        staff.NumberPhoneStaff = NumberPhoneStaffTb.Text;
-                        staff.DateOfBirthStaff = System.DateTime.Parse(DateOfBirthStaffDp.Text);
-                        staff.IdGender = Int32.Parse(GenderCb.SelectedValue.ToString());
-                        staff.AdressStaff = AdressStaffTb.Text;
-                        DBEntities.GetContext().SaveChanges();
-
-                        MBClass.InfoMB("Данные о сотруднике успешно отредактированы");
-                        NavigationService.Navigate(new ListStaffPage());
+                        MBClass.ErrorMB("Введите имя");
+                        LastNameStaffTb.Focus();
+                    }
+                    else if (string.IsNullOrWhiteSpace(FirstNameStaffTb.Text))
+                    {
+                        MBClass.ErrorMB("Введите фамилию");
+                        FirstNameStaffTb.Focus();
+                    }
+                    else if (string.IsNullOrWhiteSpace(NumberPhoneStaffTb.Text))
+                    {
+                        MBClass.ErrorMB("Введите номер телефона");
+                        NumberPhoneStaffTb.Focus();
+                    }
+                    else if (string.IsNullOrWhiteSpace(DateOfBirthStaffDp.Text))
+                    {
+                        MBClass.ErrorMB("Введите дату рождения");
+                        DateOfBirthStaffDp.Focus();
+                    }
+                    else if (string.IsNullOrWhiteSpace(AdressStaffTb.Text))
+                    {
+                        MBClass.ErrorMB("Введите адрес");
+                        AdressStaffTb.Focus();
+                    }
+                    else if (string.IsNullOrWhiteSpace(LoginTb.Text))
+                    {
+                        MBClass.ErrorMB("Введите логин");
+                        LoginTb.Focus();
+                    }
+                    else if (string.IsNullOrWhiteSpace(PasswordTb.Text))
+                    {
+                        MBClass.ErrorMB("Введите пароль");
+                        PasswordTb.Focus();
+                    }
+                    else if (PassportCb.SelectedIndex <= -1)
+                    {
+                        MBClass.ErrorMB("Введите паспорт");
+                        PassportCb.Focus();
+                    }
+                    else if (GenderCb.SelectedIndex <= -1)
+                    {
+                        MBClass.ErrorMB("Введите пол");
+                        GenderCb.Focus();
                     }
                     else
                     {
-                        staff = DBEntities.GetContext().Staff
-                            .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
-                        staff.Login.LoginUser = LoginTb.Text;
-                        staff.Password.PasswordUser = PasswordTb.Text;
-                        staff.Passport.NumberPassport = Int32.Parse(PassportTb.Text);
-                        staff.Passport.SeriesPassport = Int32.Parse(PassportOneTb.Text);
+                        if (string.IsNullOrWhiteSpace(MiddleNameStaffTb.Text))
+                        {
+                            MiddleName = null;
+                            MiddleNameFull = "";
+                        }
+                        else
+                        {
+                            MiddleName = MiddleNameStaffTb.Text;
+                            MiddleNameFull = MiddleNameStaffTb.Text;
+                        }
 
-                        staff.LastNameStaff = LastNameStaffTb.Text;
-                        staff.FirstNameStaff = FirstNameStaffTb.Text;
-                        staff.MiddleNameStaff = MiddleNameStaffTb.Text;
-                        staff.FullName = LastNameStaffTb.Text + " "
-                            + FirstNameStaffTb.Text + " " + MiddleNameStaffTb.Text;
-                        staff.NumberPhoneStaff = NumberPhoneStaffTb.Text;
-                        staff.DateOfBirthStaff = System.DateTime.Parse(DateOfBirthStaffDp.Text);
-                        staff.IdGender = Int32.Parse(GenderCb.SelectedValue.ToString());
-                        staff.AdressStaff = AdressStaffTb.Text;
-                        staff.PhotoStaff = ClassImage.ConvertImageToArray(selectedFileName);
-                        DBEntities.GetContext().SaveChanges();
+                        if (selectedFileName == "")
+                        {
+                            staff = DBEntities.GetContext().Staff
+                                .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
+                            staff.Login.LoginUser = LoginTb.Text;
+                            staff.Password.PasswordUser = PasswordTb.Text;
+                            staff.Passport.NumberPassport = Int32.Parse(PassportTb.Text);
+                            staff.Passport.SeriesPassport = Int32.Parse(PassportOneTb.Text);
 
-                        MBClass.InfoMB("Данные о сотруднике успешно отредактированы");
-                        NavigationService.Navigate(new ListStaffPage());
+                            staff.LastNameStaff = LastNameStaffTb.Text;
+                            staff.FirstNameStaff = FirstNameStaffTb.Text;
+                            staff.MiddleNameStaff = MiddleName;
+                            staff.FullName = FirstNameStaffTb.Text + " "
+                                + LastNameStaffTb.Text + " " + MiddleNameFull;
+                            staff.NumberPhoneStaff = NumberPhoneStaffTb.Text;
+                            staff.DateOfBirthStaff = System.DateTime.Parse(DateOfBirthStaffDp.Text);
+                            staff.IdGender = Int32.Parse(GenderCb.SelectedValue.ToString());
+                            staff.AdressStaff = AdressStaffTb.Text;
+                            DBEntities.GetContext().SaveChanges();
+
+                            MBClass.InfoMB("Данные о сотруднике успешно отредактированы");
+                            NavigationService.Navigate(new ListStaffPage());
+                        }
+                        else
+                        {
+                            staff = DBEntities.GetContext().Staff
+                                .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
+                            staff.Login.LoginUser = LoginTb.Text;
+                            staff.Password.PasswordUser = PasswordTb.Text;
+                            staff.Passport.NumberPassport = Int32.Parse(PassportTb.Text);
+                            staff.Passport.SeriesPassport = Int32.Parse(PassportOneTb.Text);
+
+                            staff.LastNameStaff = LastNameStaffTb.Text;
+                            staff.FirstNameStaff = FirstNameStaffTb.Text;
+                            staff.MiddleNameStaff = MiddleName;
+                            staff.FullName = FirstNameStaffTb.Text + " "
+                                + LastNameStaffTb.Text + " " + MiddleNameFull;
+                            staff.NumberPhoneStaff = NumberPhoneStaffTb.Text;
+                            staff.DateOfBirthStaff = System.DateTime.Parse(DateOfBirthStaffDp.Text);
+                            staff.IdGender = Int32.Parse(GenderCb.SelectedValue.ToString());
+                            staff.AdressStaff = AdressStaffTb.Text;
+                            staff.PhotoStaff = ClassImage.ConvertImageToArray(selectedFileName);
+                            DBEntities.GetContext().SaveChanges();
+
+                            MBClass.InfoMB("Данные о сотруднике успешно отредактированы");
+                            NavigationService.Navigate(new ListStaffPage());
+                        }
                     }
                 }
                 else

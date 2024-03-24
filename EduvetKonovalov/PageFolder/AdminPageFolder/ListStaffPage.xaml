@@ -80,7 +80,81 @@ Grid.Column="7"
                         Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
-        
+
+        <ListBox x:Name="UserListB"
+     SelectionMode="Single"
+     Grid.Column="9"
+     HorizontalContentAlignment="Stretch"
+    ItemsSource="{Binding Path=ResizeItems}" 
+    BorderThickness="0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="380"/>
+                            <ColumnDefinition Width="380"/>
+                            <ColumnDefinition Width="380"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="30"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Column="0"
+TextWrapping="WrapWithOverflow"
+FontWeight="Bold"
+Text="Логин"
+                       Style="{DynamicResource TBlListBox}"
+                       TextAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="1"
+TextWrapping="WrapWithOverflow"
+FontWeight="Bold"
+Text="Пароль"
+                       Style="{DynamicResource TBlListBox}"
+                       TextAlignment="Center"/>
+                        <TextBlock Grid.Column="2"
+TextWrapping="WrapWithOverflow"
+FontWeight="Bold"
+Text="Роль"
+                       Style="{DynamicResource TBlListBox}"
+                       TextAlignment="Center"
+                                   VerticalAlignment="Center"/>
+
+
+                        <TextBlock x:Name="LoginTb"
+                            Grid.RowSpan="4"
+                       Grid.Row="2"
+                       TextWrapping="WrapWithOverflow"
+                       FontWeight="Bold"
+                       Text="{Binding Login.LoginUser}"
+                       Style="{DynamicResource TBlListBox}"
+                       TextAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="1"
+Grid.RowSpan="4"
+Grid.Row="2"
+TextWrapping="WrapWithOverflow"
+FontWeight="Bold"
+Text="{Binding Password.PasswordUser}"
+Style="{DynamicResource TBlListBox}"
+TextAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                        <TextBlock Grid.Column="2"
+Grid.RowSpan="4"
+Grid.Row="2"
+TextWrapping="WrapWithOverflow"
+FontWeight="Bold"
+Text="{Binding Role.NameRole}"
+Style="{DynamicResource TBlListBox}"
+TextAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
         <ListBox x:Name="StaffListB"
                  SelectionMode="Single"
                  Grid.Row="3"

@@ -28,6 +28,7 @@ namespace EduvetKonovalov.DataFolder
         public DbSet<Coming> Coming { get; set; }
         public DbSet<Consumption> Consumption { get; set; }
         public DbSet<Gender> Gender { get; set; }
+        public DbSet<JobTitle> JobTitle { get; set; }
         public DbSet<Login> Login { get; set; }
         public DbSet<Passport> Passport { get; set; }
         public DbSet<Password> Password { get; set; }

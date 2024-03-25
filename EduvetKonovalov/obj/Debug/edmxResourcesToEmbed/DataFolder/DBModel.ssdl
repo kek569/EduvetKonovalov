@@ -23,6 +23,13 @@
     <Property Name="IdGender" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="GenderStaff" Type="nvarchar" MaxLength="30" Nullable="false" />
   </EntityType>
+  <EntityType Name="JobTitle">
+    <Key>
+      <PropertyRef Name="IdJobTitle" />
+    </Key>
+    <Property Name="IdJobTitle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameJobTitle" Type="nvarchar" MaxLength="80" Nullable="false" />
+  </EntityType>
   <EntityType Name="Login">
     <Key>
       <PropertyRef Name="IdLogin" />
@@ -77,6 +84,7 @@
     <Property Name="PhotoStaff" Type="varbinary(max)" />
     <Property Name="AdressStaff" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="FullName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="IdJobTitle" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -128,6 +136,18 @@
       </Principal>
       <Dependent Role="Staff">
         <PropertyRef Name="IdGender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_JobTitle">
+    <End Role="JobTitle" Type="Self.JobTitle" Multiplicity="1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobTitle">
+        <PropertyRef Name="IdJobTitle" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="IdJobTitle" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -267,6 +287,7 @@
     <EntitySet Name="Coming" EntityType="Self.Coming" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Consumption" EntityType="Self.Consumption" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobTitle" EntityType="Self.JobTitle" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Passport" EntityType="Self.Passport" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Password" EntityType="Self.Password" Schema="dbo" store:Type="Tables" />
@@ -279,6 +300,10 @@
     <EntitySet Name="VeterinaryEquipment" EntityType="Self.VeterinaryEquipment" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Staff_Gender" Association="Self.FK_Staff_Gender">
       <End Role="Gender" EntitySet="Gender" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_JobTitle" Association="Self.FK_Staff_JobTitle">
+      <End Role="JobTitle" EntitySet="JobTitle" />
       <End Role="Staff" EntitySet="Staff" />
     </AssociationSet>
     <AssociationSet Name="FK_Staff_Login" Association="Self.FK_Staff_Login">

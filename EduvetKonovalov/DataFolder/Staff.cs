@@ -32,8 +32,10 @@ namespace EduvetKonovalov.DataFolder
         public byte[] PhotoStaff { get; set; }
         public string AdressStaff { get; set; }
         public string FullName { get; set; }
+        public int IdJobTitle { get; set; }
     
         public virtual Gender Gender { get; set; }
+        public virtual JobTitle JobTitle { get; set; }
         public virtual Login Login { get; set; }
         public virtual Passport Passport { get; set; }
         public virtual Password Password { get; set; }

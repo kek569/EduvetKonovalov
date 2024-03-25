@@ -26,6 +26,14 @@
     <Property Name="GenderStaff" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_Gender" FromRole="Gender" ToRole="Staff" />
   </EntityType>
+  <EntityType Name="JobTitle">
+    <Key>
+      <PropertyRef Name="IdJobTitle" />
+    </Key>
+    <Property Name="IdJobTitle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameJobTitle" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_JobTitle" FromRole="JobTitle" ToRole="Staff" />
+  </EntityType>
   <EntityType Name="Login">
     <Key>
       <PropertyRef Name="IdLogin" />
@@ -87,7 +95,9 @@
     <Property Name="PhotoStaff" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="AdressStaff" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdJobTitle" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Gender" Relationship="Self.FK_Staff_Gender" FromRole="Staff" ToRole="Gender" />
+    <NavigationProperty Name="JobTitle" Relationship="Self.FK_Staff_JobTitle" FromRole="Staff" ToRole="JobTitle" />
     <NavigationProperty Name="Login" Relationship="Self.FK_Staff_Login" FromRole="Staff" ToRole="Login" />
     <NavigationProperty Name="Passport" Relationship="Self.FK_Staff_Passport" FromRole="Staff" ToRole="Passport" />
     <NavigationProperty Name="Password" Relationship="Self.FK_Staff_Password" FromRole="Staff" ToRole="Password" />
@@ -176,6 +186,18 @@
       </Principal>
       <Dependent Role="Staff">
         <PropertyRef Name="IdGender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Staff_JobTitle">
+    <End Role="JobTitle" Type="Self.JobTitle" Multiplicity="1" />
+    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobTitle">
+        <PropertyRef Name="IdJobTitle" />
+      </Principal>
+      <Dependent Role="Staff">
+        <PropertyRef Name="IdJobTitle" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -291,6 +313,7 @@
     <EntitySet Name="Coming" EntityType="Self.Coming" />
     <EntitySet Name="Consumption" EntityType="Self.Consumption" />
     <EntitySet Name="Gender" EntityType="Self.Gender" />
+    <EntitySet Name="JobTitle" EntityType="Self.JobTitle" />
     <EntitySet Name="Login" EntityType="Self.Login" />
     <EntitySet Name="Passport" EntityType="Self.Passport" />
     <EntitySet Name="Password" EntityType="Self.Password" />
@@ -311,6 +334,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Staff_Gender" Association="Self.FK_Staff_Gender">
       <End Role="Gender" EntitySet="Gender" />
+      <End Role="Staff" EntitySet="Staff" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Staff_JobTitle" Association="Self.FK_Staff_JobTitle">
+      <End Role="JobTitle" EntitySet="JobTitle" />
       <End Role="Staff" EntitySet="Staff" />
     </AssociationSet>
     <AssociationSet Name="FK_Staff_Login" Association="Self.FK_Staff_Login">

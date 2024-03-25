@@ -27,6 +27,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="JobTitle">
+      <EntityTypeMapping TypeName="DBModel.JobTitle">
+        <MappingFragment StoreEntitySet="JobTitle">
+          <ScalarProperty Name="IdJobTitle" ColumnName="IdJobTitle" />
+          <ScalarProperty Name="NameJobTitle" ColumnName="NameJobTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Login">
       <EntityTypeMapping TypeName="DBModel.Login">
         <MappingFragment StoreEntitySet="Login">
@@ -85,6 +93,7 @@
           <ScalarProperty Name="PhotoStaff" ColumnName="PhotoStaff" />
           <ScalarProperty Name="AdressStaff" ColumnName="AdressStaff" />
           <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="IdJobTitle" ColumnName="IdJobTitle" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

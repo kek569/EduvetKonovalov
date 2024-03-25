@@ -102,6 +102,9 @@
     <Compile Include="DataFolder\Gender.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataFolder\JobTitle.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataFolder\Login.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>

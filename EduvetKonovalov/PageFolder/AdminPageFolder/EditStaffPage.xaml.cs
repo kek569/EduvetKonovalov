@@ -40,15 +40,16 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             LoginCb.ItemsSource = DBEntities.GetContext().Login.ToList();
             PasswordCb.ItemsSource = DBEntities.GetContext().Password.ToList();
 
+            staff = DBEntities.GetContext().Staff
+                                .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
+            DateOfBirthStaffDp.Text = staff.DateOfBirthStaff.ToString();
+
             var timer = new DispatcherTimer 
             { Interval = TimeSpan.FromSeconds(0.5) };
             timer.Start();
             timer.Tick += (sender, args) =>
             {
                 timer.Stop();
-                staff = DBEntities.GetContext().Staff
-                                .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
-                DateOfBirthStaffDp.Text = staff.DateOfBirthStaff.ToString();
                 (App.Current as App).EditLoginAdminOneName = LoginTb.Text;
             };        
         }

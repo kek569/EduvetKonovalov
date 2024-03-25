@@ -349,8 +349,6 @@ C:\Users\Д-03-2ИСП\Documents\Course\EduvetKonovalov\EduvetKonovalov\obj\Debu
 C:\Users\Д-03-2ИСП\Documents\Course\EduvetKonovalov\EduvetKonovalov\obj\Debug\EduvetKonovalov.csproj.CopyComplete
 C:\Users\Д-03-2ИСП\Documents\Course\EduvetKonovalov\EduvetKonovalov\obj\Debug\EduvetKonovalov.exe
 C:\Users\Д-03-2ИСП\Documents\Course\EduvetKonovalov\EduvetKonovalov\obj\Debug\EduvetKonovalov.pdb
-C:\Users\Д-03-2ИСП\Documents\Course\EduvetKonovalov\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\MoreInfoVeterinaryEquipmentPage.g.cs
-C:\Users\Д-03-2ИСП\Documents\Course\EduvetKonovalov\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\MoreInfoVeterinaryEquipmentPage.baml
 C:\Users\Студент\Documents\Lol\EduvetKonovalov\EduvetKonovalov\bin\Debug\EduvetKonovalov.exe.config
 C:\Users\Студент\Documents\Lol\EduvetKonovalov\EduvetKonovalov\bin\Debug\EduvetKonovalov.exe
 C:\Users\Студент\Documents\Lol\EduvetKonovalov\EduvetKonovalov\bin\Debug\EduvetKonovalov.pdb

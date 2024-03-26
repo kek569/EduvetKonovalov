@@ -36,6 +36,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             GenderCb.ItemsSource = DBEntities.GetContext().Gender.ToList();
             LoginCb.ItemsSource = DBEntities.GetContext().Login.ToList();
             PasswordCb.ItemsSource = DBEntities.GetContext().Password.ToList();
+            JobTitleCb.ItemsSource = DBEntities.GetContext().JobTitle.ToList();
 
         }
 
@@ -133,6 +134,11 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                         MBClass.ErrorMB("Введите пол");
                         GenderCb.Focus();
                     }
+                    else if (JobTitleCb.SelectedIndex <= -1)
+                    {
+                        MBClass.ErrorMB("Введите должность");
+                        JobTitleCb.Focus();
+                    }
                     else
                     {
                         if (string.IsNullOrWhiteSpace(MiddleNameStaffTb.Text))
@@ -187,7 +193,8 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                                 IdGender = Int32.Parse(GenderCb.SelectedValue.ToString()),
                                 IdLogin = Int32.Parse(selected_Login),
                                 IdPassword = Int32.Parse(selected_Password),
-                                AdressStaff = AdressStaffTb.Text
+                                AdressStaff = AdressStaffTb.Text,
+                                IdJobTitle = Int32.Parse(JobTitleCb.SelectedValue.ToString())
                             };
                             DBEntities.GetContext().Staff.Add(staffAdd);
                             DBEntities.GetContext().SaveChanges();
@@ -236,6 +243,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                                 IdLogin = Int32.Parse(selected_Login),
                                 IdPassword = Int32.Parse(selected_Password),
                                 AdressStaff = AdressStaffTb.Text,
+                                IdJobTitle = Int32.Parse(JobTitleCb.SelectedValue.ToString()),
                                 PhotoStaff = ClassImage.ConvertImageToArray(selectedFileName)
                             };
                             DBEntities.GetContext().Staff.Add(staffAdd);

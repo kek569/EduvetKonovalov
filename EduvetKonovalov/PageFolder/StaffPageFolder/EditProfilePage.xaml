@@ -31,7 +31,9 @@
             <RowDefinition Height="10"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="160"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="130"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="70"/>
             <RowDefinition/>
@@ -96,6 +98,16 @@ SelectedItem="{Binding Gender}"
           SelectedValuePath="IdGender"
           DisplayMemberPath="GenderStaff"/>
 
+        <Label Content="Должность"
+Grid.Row="11" Grid.Column="2"
+Style="{DynamicResource LabelNormal}"/>
+        <ComboBox x:Name="JobTitleCb"
+Grid.Row="11"
+Grid.Column="3"
+                  SelectedItem="{Binding JobTitle}"
+          SelectedValuePath="IdJobTitle"
+          DisplayMemberPath="NameJobTitle"/>
+
         <ComboBox x:Name="LoginCb"
    Grid.Column="7"
    Grid.Row="14"
@@ -136,7 +148,7 @@ SelectedItem="{Binding Password}"
 
         <Image x:Name="PhotoIM"
                Source="{Binding PhotoStaff}"
-       Grid.Row="11"
+       Grid.Row="13"
        Grid.Column="5"
        Grid.ColumnSpan="2"/>
 
@@ -159,13 +171,13 @@ Grid.Column="6"
         <Button x:Name="LoadPhotoBtn"
     Content="Загрузить фото"
     Grid.Column="3"
-    Grid.Row="13"
+    Grid.Row="15"
     Click="LoadPhotoBtn_Click"/>
 
         <Button x:Name="SaveBtn"
  Content="Сохранить изменения"
  Grid.Column="6"
- Grid.Row="13"
+ Grid.Row="15"
  Click="SaveBtn_Click"/>
     </Grid>
 </Page>

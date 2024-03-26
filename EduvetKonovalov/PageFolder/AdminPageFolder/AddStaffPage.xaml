@@ -31,7 +31,9 @@
             <RowDefinition Height="10"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="160"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="130"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="70"/>
             <RowDefinition/>
@@ -138,21 +140,31 @@ Style="{DynamicResource LabelNormal}"/>
 Grid.Row="9"
 Grid.Column="6"/>
 
+        <Label Content="Должность"
+Grid.Row="11" Grid.Column="1"
+Style="{DynamicResource LabelNormal}"/>
+        <ComboBox x:Name="JobTitleCb"
+Grid.Row="11"
+Grid.Column="2"
+                  SelectedItem="{Binding JobTitle}"
+          SelectedValuePath="IdJobTitle"
+          DisplayMemberPath="NameJobTitle"/>
+
         <Image x:Name="PhotoIM"
-       Grid.Row="11"
+       Grid.Row="13"
        Grid.Column="5"
        Grid.ColumnSpan="2"/>
 
         <Button x:Name="LoadPhotoBtn"
     Content="Загрузить фото"
     Grid.Column="2"
-    Grid.Row="13"
+    Grid.Row="15"
     Click="LoadPhotoBtn_Click"/>
 
         <Button x:Name="AddStaffBtn"
  Content="Добавить сотрудника"
  Grid.Column="6"
- Grid.Row="13"
+ Grid.Row="15"
  Click="AddStaffBtn_Click"/>
     </Grid>
 </Page>

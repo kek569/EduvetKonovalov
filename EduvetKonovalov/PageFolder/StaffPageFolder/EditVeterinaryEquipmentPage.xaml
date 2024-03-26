@@ -57,6 +57,7 @@ DisplayMemberPath="NameTypeVeterinaryEquipment"/>
 
         <Label Content="Приход"
 Grid.Row="5" Grid.Column="0"
+               Grid.ColumnSpan="4"
 Style="{DynamicResource LabelNormal}"/>
 
         <Label Content="Количество"
@@ -69,6 +70,7 @@ Style="{DynamicResource LabelNormal}"/>
 
         <Label Content="Расход"
 Grid.Row="7" Grid.Column="0"
+               Grid.ColumnSpan="4"
 Style="{DynamicResource LabelNormal}"/>
 
         <Label Content="Количество"
@@ -81,10 +83,12 @@ Style="{DynamicResource LabelNormal}"/>
 
         <Label Content="Остаток"
 Grid.Row="9" Grid.Column="0"
+               Grid.ColumnSpan="4"
 Style="{DynamicResource LabelNormal}"/>
 
         <Label Content="Количество"
     Grid.Row="9" Grid.Column="4"
+               
     Style="{DynamicResource LabelNormal}"/>
         <TextBox x:Name="AmountRemainderTb"
    Grid.Column="5"

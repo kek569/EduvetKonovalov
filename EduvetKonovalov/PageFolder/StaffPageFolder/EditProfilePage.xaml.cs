@@ -39,6 +39,7 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
             GenderCb.ItemsSource = DBEntities.GetContext().Gender.ToList();
             LoginCb.ItemsSource = DBEntities.GetContext().Login.ToList();
             PasswordCb.ItemsSource = DBEntities.GetContext().Password.ToList();
+            JobTitleCb.ItemsSource = DBEntities.GetContext().JobTitle.ToList();
 
             var timer = new DispatcherTimer
             { Interval = TimeSpan.FromSeconds(0.5) };
@@ -148,6 +149,11 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                         MBClass.ErrorMB("Введите пол");
                         GenderCb.Focus();
                     }
+                    else if (JobTitleCb.SelectedIndex <= -1)
+                    {
+                        MBClass.ErrorMB("Введите должность");
+                        JobTitleCb.Focus();
+                    }
                     else
                     {
                         if (string.IsNullOrWhiteSpace(MiddleNameStaffTb.Text))
@@ -179,6 +185,7 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                             staff.DateOfBirthStaff = System.DateTime.Parse(DateOfBirthStaffDp.Text);
                             staff.IdGender = Int32.Parse(GenderCb.SelectedValue.ToString());
                             staff.AdressStaff = AdressStaffTb.Text;
+                            staff.IdJobTitle = Int32.Parse(JobTitleCb.SelectedValue.ToString());
                             DBEntities.GetContext().SaveChanges();
 
                             MBClass.InfoMB("Данные о сотруднике успешно отредактированы");
@@ -202,6 +209,7 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                             staff.DateOfBirthStaff = System.DateTime.Parse(DateOfBirthStaffDp.Text);
                             staff.IdGender = Int32.Parse(GenderCb.SelectedValue.ToString());
                             staff.AdressStaff = AdressStaffTb.Text;
+                            staff.IdJobTitle = Int32.Parse(JobTitleCb.SelectedValue.ToString());
                             staff.PhotoStaff = ClassImage.ConvertImageToArray(selectedFileName);
                             DBEntities.GetContext().SaveChanges();
 

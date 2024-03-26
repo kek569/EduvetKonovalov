@@ -151,7 +151,8 @@ Grid.Column="2"
           DisplayMemberPath="NameJobTitle"/>
 
         <Image x:Name="PhotoIM"
-       Grid.Row="13"
+       Grid.Row="11"
+               Grid.RowSpan="3"
        Grid.Column="5"
        Grid.ColumnSpan="2"/>
 

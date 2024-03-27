@@ -250,13 +250,13 @@ namespace EduvetKonovalov.WindowFolder
 
                     if (user == null)
                     {
-                        MBClass.ErrorMB("Введен не правильный логин");
+                        MBClass.ErrorMB("Введен не правильный логин или пароль");
                         LoginTB.Focus();
                         return;
                     }
                     if (user.Password.PasswordUser != PasswordSave)
                     {
-                        MBClass.ErrorMB("Введен не правильный пароль");
+                        MBClass.ErrorMB("Введен не правильный логин или пароль");
                         PasswordPB.Focus();
                         return;
                     }

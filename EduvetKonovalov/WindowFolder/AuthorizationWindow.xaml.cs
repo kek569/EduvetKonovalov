@@ -94,11 +94,12 @@ namespace EduvetKonovalov.WindowFolder
                 if (Fail >= 3 && ActiveTime == false)
                 {
                     ActiveTime = true;
-                    CopyTime = Time;
+                    CopyTime = (int)Time;
+                    double time = (int)Time + 0.5;
                     LogInBtn.IsEnabled = false;
                     Disable = 1;
                     var timer = new DispatcherTimer
-                    { Interval = TimeSpan.FromSeconds(Time) };
+                    { Interval = TimeSpan.FromSeconds(time) };
                     timer.Start();
                     TextTime();
                     timer.Tick += (senders, args) =>
@@ -206,7 +207,7 @@ namespace EduvetKonovalov.WindowFolder
 
         private void TextTime()
         {
-            if (CopyTime > 0.5)
+            if (CopyTime > 0)
             {
                 int a = (int)CopyTime;
                 var timer = new DispatcherTimer

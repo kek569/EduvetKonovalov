@@ -62,25 +62,20 @@ Style="{DynamicResource LabelNormal}"/>
         <Label Content="серия и № паспорта"
 Grid.Row="7" Grid.Column="1"
 Style="{DynamicResource LabelNormal}"/>
+
+        <TextBox x:Name="NumberPassportTb"
+                 Grid.Row="7"
+                 Grid.Column="2" Margin="10,10,10,10"/>
+        <TextBox x:Name="SeriesPassportTb"
+                 Grid.Row="7"
+                 Grid.Column="2" Margin="103,10,10,10"/>
+
         <ComboBox x:Name="PassportCb"
-  Grid.Row="7"
-  Grid.Column="2"
-                  SelectedItem="{Binding Passport}"
-          SelectedValuePath="IdPassport"
-          DisplayMemberPath="NumberPassport"/>
-        <ComboBox x:Name="PassportOneCb"
-Grid.Row="7"
-Grid.Column="2"
+Grid.Row="14"
+Grid.Column="7"
                 SelectedItem="{Binding Passport}"
         SelectedValuePath="IdPassport"
-        DisplayMemberPath="SeriesPassport" 
-                  Margin="95,10,10,10"
-                  IsMouseCapturedChanged="PassportOneCb_IsMouseCapturedChanged"/>
-        <Button x:Name="AddPassport"
-                Content="+"
-                Grid.Row="7"
-                Grid.Column="3"
-                Click="AddPassport_Click"/>
+        DisplayMemberPath="SeriesPassport"/>
 
         <Label Content="Пол"
     Grid.Row="9" Grid.Column="1"

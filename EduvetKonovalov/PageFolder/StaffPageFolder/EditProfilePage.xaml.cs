@@ -41,15 +41,19 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
             PasswordCb.ItemsSource = DBEntities.GetContext().Password.ToList();
             JobTitleCb.ItemsSource = DBEntities.GetContext().JobTitle.ToList();
 
+            staff = DBEntities.GetContext().Staff
+                                .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
+            DateOfBirthStaffDp.Text = staff.DateOfBirthStaff.ToString();
+
+            PassportTb.MaxLength = 4;
+            PassportOneTb.MaxLength = 6;
+
             var timer = new DispatcherTimer
             { Interval = TimeSpan.FromSeconds(0.5) };
             timer.Start();
             timer.Tick += (sender, args) =>
             {
                 timer.Stop();
-                staff = DBEntities.GetContext().Staff
-                                .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
-                DateOfBirthStaffDp.Text = staff.DateOfBirthStaff.ToString();
                 (App.Current as App).EditLoginStaffOneName = LoginTb.Text;
             };
         }
@@ -139,9 +143,14 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                         MBClass.ErrorMB("Введите пароль");
                         PasswordTb.Focus();
                     }
-                    else if (PassportCb.SelectedIndex <= -1)
+                    else if (string.IsNullOrWhiteSpace(PassportTb.Text))
                     {
-                        MBClass.ErrorMB("Введите паспорт");
+                        MBClass.ErrorMB("Введите серию паспорта");
+                        PassportCb.Focus();
+                    }
+                    else if (string.IsNullOrWhiteSpace(PassportOneTb.Text))
+                    {
+                        MBClass.ErrorMB("Введите номер паспорта");
                         PassportCb.Focus();
                     }
                     else if (GenderCb.SelectedIndex <= -1)

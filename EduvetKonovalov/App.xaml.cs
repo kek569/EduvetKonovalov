@@ -72,5 +72,6 @@ namespace EduvetKonovalov
         public bool CheckLogin { get; set; }
 
         public string ColumsExcel { get; set; }
+        public string AddPassportName { get; internal set; }
     }
 }

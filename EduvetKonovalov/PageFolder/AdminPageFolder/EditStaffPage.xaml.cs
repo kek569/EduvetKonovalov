@@ -45,6 +45,9 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                                 .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
             DateOfBirthStaffDp.Text = staff.DateOfBirthStaff.ToString();
 
+            PassportTb.MaxLength = 4;
+            PassportOneTb.MaxLength = 6;
+
             var timer = new DispatcherTimer 
             { Interval = TimeSpan.FromSeconds(0.5) };
             timer.Start();
@@ -140,9 +143,19 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                         MBClass.ErrorMB("Введите пароль");
                         PasswordTb.Focus();
                     }
+                    else if (string.IsNullOrWhiteSpace(PassportTb.Text))
+                    {
+                        MBClass.ErrorMB("Введите серию паспорта");
+                        PassportCb.Focus();
+                    }
+                    else if (string.IsNullOrWhiteSpace(PassportOneTb.Text))
+                    {
+                        MBClass.ErrorMB("Введите номер паспорта");
+                        PassportCb.Focus();
+                    }
                     else if (PassportCb.SelectedIndex <= -1)
                     {
-                        MBClass.ErrorMB("Введите паспорт");
+                        MBClass.ErrorMB("Введите серию паспорта");
                         PassportCb.Focus();
                     }
                     else if (GenderCb.SelectedIndex <= -1)

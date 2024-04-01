@@ -135,9 +135,6 @@
     <Compile Include="DataFolder\VeterinaryEquipment.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="PageFolder\AdminPageFolder\AddPassportPage.xaml.cs">
-      <DependentUpon>AddPassportPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PageFolder\AdminPageFolder\AddStaffPage.xaml.cs">
       <DependentUpon>AddStaffPage.xaml</DependentUpon>
     </Compile>
@@ -228,10 +225,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="PageFolder\AdminPageFolder\AddPassportPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PageFolder\AdminPageFolder\AddStaffPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

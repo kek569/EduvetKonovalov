@@ -9,16 +9,15 @@
     WindowStyle="None"
     Background="{x:Null}"
     AllowsTransparency="True"
-    ResizeMode="CanResizeWithGrip"
-    MaxHeight="950" MaxWidth="1400"
-    MinHeight="950" MinWidth="1400"
-        Icon="/EduvetKonovalov;component/ResourceFolder/ImageFolder/Logo.png">
+    ResizeMode="NoResize"
+    Height="950" Width="1400"
+    Icon="/EduvetKonovalov;component/ResourceFolder/ImageFolder/Logo.png">
     <Border Style="{DynamicResource FonBorder}"
         MouseDown="Border_MouseDown">
+        
+        
         <Grid>
-            <Grid.Background>
-                <ImageBrush ImageSource="/EduvetKonovalov;component/ResourceFolder/ImageFolder/Fon.png"></ImageBrush>
-            </Grid.Background>
+            <Image Source="/EduvetKonovalov;component/ResourceFolder/ImageFolder/Fon.png"/>
             <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="10"/>

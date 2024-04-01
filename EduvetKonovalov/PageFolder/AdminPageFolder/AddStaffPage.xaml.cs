@@ -89,7 +89,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
 
                 if (userOne == null)
                 {
-                    if (string.IsNullOrWhiteSpace(LastNameStaffTb.Text))
+                    /*if (string.IsNullOrWhiteSpace(LastNameStaffTb.Text))
                     {
                         MBClass.ErrorMB("Введите имя");
                         LastNameStaffTb.Focus();
@@ -144,8 +144,8 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                         MBClass.ErrorMB("Введите должность");
                         JobTitleCb.Focus();
                     }
-                    else
-                    {
+                    else*/
+                    //{
                         if (string.IsNullOrWhiteSpace(MiddleNameStaffTb.Text))
                         {
                             MiddleName = null;
@@ -261,7 +261,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                                                 + MiddleNameFull),
                                 NumberPhoneStaff = NumberPhoneStaffTb.Text,
                                 DateOfBirthStaff = System.DateTime.Parse(DateOfBirthStaffDp.Text),
-                                IdPassport = Int32.Parse(PassportCb.SelectedValue.ToString()),
+                                IdPassport = Int32.Parse(selected_Passport),
                                 IdGender = Int32.Parse(GenderCb.SelectedValue.ToString()),
                                 IdLogin = Int32.Parse(selected_Login),
                                 IdPassword = Int32.Parse(selected_Password),
@@ -275,7 +275,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                             MBClass.InfoMB("Данные о сотруднике успешно добавлены");
                             NavigationService.Navigate(new ListStaffPage());
                         }
-                    }
+                    //}
                 }
                 else
                 {

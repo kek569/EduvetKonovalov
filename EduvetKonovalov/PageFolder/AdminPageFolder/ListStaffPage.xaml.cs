@@ -108,8 +108,8 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
 
                     staff = DBEntities.GetContext().Staff
                                 .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
-                    staff.Login.LoginUser = "";
-                    staff.Password.PasswordUser = "";
+                    staff.Login.LoginUser = "1";
+                    staff.Password.PasswordUser = "1";
 
                     user = DBEntities.GetContext().User
                                 .FirstOrDefault(u => u.Login.LoginUser == staff.Login.LoginUser);

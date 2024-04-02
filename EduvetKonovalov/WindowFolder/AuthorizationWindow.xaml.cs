@@ -79,6 +79,7 @@ namespace EduvetKonovalov.WindowFolder
                 else
                 {
                     SaveMe = false;
+                    using (StreamWriter newTask = new StreamWriter("Save.txt", false)) { }
                     Login();
                 }
                 CheckCapcha = false;
@@ -129,7 +130,6 @@ namespace EduvetKonovalov.WindowFolder
         private bool SaveMe = false;
         private string LoginSave;
         private string PasswordSave;
-
 
         private Bitmap CreateCapcha(int Width, int Height)
         {
@@ -315,7 +315,13 @@ namespace EduvetKonovalov.WindowFolder
                     {
                         LoginSave = newTask.ReadLine();
                         PasswordSave = File.ReadLines("Save.txt").Skip(1).First();
-                        Login();
+
+                        LoginTB.Text = LoginSave;
+                        PasswordPB.Password = PasswordSave;
+                        SaveMeCb.IsChecked = true;
+                        CheckTb.Text = text;
+
+                        //Login();
                     }
                 }
             }

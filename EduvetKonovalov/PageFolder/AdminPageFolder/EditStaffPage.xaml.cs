@@ -40,10 +40,16 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             LoginCb.ItemsSource = DBEntities.GetContext().Login.ToList();
             PasswordCb.ItemsSource = DBEntities.GetContext().Password.ToList();
             JobTitleCb.ItemsSource = DBEntities.GetContext().JobTitle.ToList();
+            RoleCb.ItemsSource = DBEntities.GetContext().Role.ToList();
 
             staff = DBEntities.GetContext().Staff
                                 .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
             DateOfBirthStaffDp.Text = staff.DateOfBirthStaff.ToString();
+
+            User user = new User();
+            user = DBEntities.GetContext().User.FirstOrDefault(u => u.IdUser == staff.IdUser);
+
+            //RoleCb.SelectedIndex = Int32.Parse(user.Role.NameRole);
 
             PassportTb.MaxLength = 4;
             PassportOneTb.MaxLength = 6;
@@ -55,6 +61,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             {
                 timer.Stop();
                 (App.Current as App).EditLoginAdminOneName = LoginTb.Text;
+                //RoleCb.SelectedIndex = Int32.Parse(user.Role.NameRole);
             };        
         }
 
@@ -104,7 +111,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
 
                 var userOne = DBEntities.GetContext()
                         .User
-                        .FirstOrDefault(u => u.Login.LoginUser == LoginTb.Text);
+                        .FirstOrDefault(u => u.LoginUser == LoginTb.Text);
 
                 if (userOne == null || LoginTb.Text == selected_LoginOne)
                 {
@@ -185,8 +192,8 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                         {
                             staff = DBEntities.GetContext().Staff
                                 .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
-                            staff.Login.LoginUser = LoginTb.Text;
-                            staff.Password.PasswordUser = PasswordTb.Text;
+                            staff.User.LoginUser = LoginTb.Text;
+                            staff.User.PasswordUser = PasswordTb.Text;
                             staff.Passport.NumberPassport = Int32.Parse(PassportTb.Text);
                             staff.Passport.SeriesPassport = Int32.Parse(PassportOneTb.Text);
 
@@ -209,8 +216,8 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                         {
                             staff = DBEntities.GetContext().Staff
                                 .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
-                            staff.Login.LoginUser = LoginTb.Text;
-                            staff.Password.PasswordUser = PasswordTb.Text;
+                            staff.User.LoginUser = LoginTb.Text;
+                            staff.User.PasswordUser = PasswordTb.Text;
                             staff.Passport.NumberPassport = Int32.Parse(PassportTb.Text);
                             staff.Passport.SeriesPassport = Int32.Parse(PassportOneTb.Text);
 

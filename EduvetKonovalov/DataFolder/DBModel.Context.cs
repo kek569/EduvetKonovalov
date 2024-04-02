@@ -27,6 +27,7 @@ namespace EduvetKonovalov.DataFolder
     
         public DbSet<Coming> Coming { get; set; }
         public DbSet<Consumption> Consumption { get; set; }
+        public DbSet<Courses> Courses { get; set; }
         public DbSet<Gender> Gender { get; set; }
         public DbSet<JobTitle> JobTitle { get; set; }
         public DbSet<Login> Login { get; set; }
@@ -36,6 +37,7 @@ namespace EduvetKonovalov.DataFolder
         public DbSet<Role> Role { get; set; }
         public DbSet<Staff> Staff { get; set; }
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public DbSet<TypeCourses> TypeCourses { get; set; }
         public DbSet<TypeVeterinaryEquipment> TypeVeterinaryEquipment { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<VeterinaryEquipment> VeterinaryEquipment { get; set; }

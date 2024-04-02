@@ -38,12 +38,12 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
             try
             {
                 ProfileListB.ItemsSource = DataFolder.DBEntities.GetContext().Staff.
-                    Where(s => s.Login.LoginUser.StartsWith(selected_dept)).ToList();
+                    Where(s => s.User.LoginUser.StartsWith(selected_dept)).ToList();
                 if (ProfileListB.Items.Count <= 0)
                     MBClass.ErrorMB("Error");
 
                 ListStaffDg.ItemsSource = DataFolder.DBEntities.GetContext().Staff.
-                    Where(s => s.Login.LoginUser.StartsWith(selected_dept)).ToList();
+                    Where(s => s.User.LoginUser.StartsWith(selected_dept)).ToList();
                 if (ListStaffDg.Items.Count <= 0)
                     MBClass.ErrorMB("Error");
             }

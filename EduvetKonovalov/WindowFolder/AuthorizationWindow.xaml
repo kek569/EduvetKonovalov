@@ -7,126 +7,135 @@
         xmlns:forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
         mc:Ignorable="d"
         Title="Авторизация"                  
-    Height="470" Width="400"
     WindowStartupLocation="CenterScreen"
-    WindowStyle="None"
-    ResizeMode="CanMinimize"
-    Background="{x:Null}"
+        WindowStyle="None"
+        Height="470"
+        Width="400"
+        Background="{x:Null}"
+        AllowsTransparency="True"
+        ResizeMode="NoResize"
         Icon="/EduvetKonovalov;component/ResourceFolder/ImageFolder/Logo.png"
         Loaded="Window_Loaded">
-    <Border Style="{DynamicResource FonBorder}"
-        MouseDown="Border_MouseDown">
-        <Grid>
-            <Grid.Background>
+    <Border Background="{StaticResource FillFon}"
+            CornerRadius="20">
+        <Border Style="{DynamicResource FonBorder}"
+        MouseDown="Border_MouseDown"
+            CornerRadius="20">
+            <Border.Background>
                 <ImageBrush ImageSource="/EduvetKonovalov;component/ResourceFolder/ImageFolder/Fon.png"/>
-            </Grid.Background>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="100"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="100"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.RowSpan="2"
-                  Grid.ColumnSpan="2">
+            </Border.Background>
+            <Grid>
+
                 <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="10"/>
-                <ColumnDefinition Width="125"/>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="10"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="60"/>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="10"/>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="10"/>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="110"/>
-                <RowDefinition Height="70"/>
-                <RowDefinition Height="10"/>
-            </Grid.RowDefinitions>
-            <Border Style="{DynamicResource BorderTopAuto}"
-                Grid.ColumnSpan="4"/>
-            <Label Content="АВТОРИЗАЦИЯ"
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.RowSpan="2"
+                  Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="125"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="110"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="10"/>
+                    </Grid.RowDefinitions>
+                    <Border Style="{DynamicResource BorderTopAuto}"
+                Grid.ColumnSpan="4"
+                    CornerRadius="20 20 0 0"/>
+                    <Label Content="АВТОРИЗАЦИЯ"
                Style="{DynamicResource LabelLogo}"
                Grid.Column="1"
                Grid.ColumnSpan="2"
                Foreground="{DynamicResource FillFont}"/>
 
-            <Image Style="{DynamicResource CloseIm}"
+                    <Image Style="{DynamicResource CloseIm}"
             Grid.Column="2"
             MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
-            <Image x:Name="LogoIm"
+                    <Image x:Name="LogoIm"
 Grid.Row="0"
 Style="{DynamicResource LogoIm}"
 Margin="0,10,0,8" Grid.Column="1"/>
 
 
-            <Label Content="Логин"
+                    <Label Content="Логин"
                Grid.Row="1"
                Grid.Column="1"
                Style="{DynamicResource LabelNormal}"/>
-            <TextBox x:Name="LoginTB"
+                    <TextBox x:Name="LoginTB"
                  Grid.Row="1"
                  Grid.Column="2"/>
 
-            <Label Content="Пароль"
+                    <Label Content="Пароль"
                Grid.Row="3"
                Grid.Column="1"
                Style="{DynamicResource LabelNormal}"/>
-            <PasswordBox x:Name="PasswordPB"
+                    <PasswordBox x:Name="PasswordPB"
                  Grid.Row="3"
                  Grid.Column="2"/>
 
-            <Label Content="Запомнить меня"
+                    <Label Content="Запомнить меня"
                Grid.Column="2"
                HorizontalAlignment="Left"
                Grid.Row="5"
                Style="{StaticResource LabelNormal}"/>
-            <CheckBox x:Name="SaveMeCb"
+                    <CheckBox x:Name="SaveMeCb"
               Grid.Column="1"
               Grid.Row="5"
               HorizontalAlignment="Right"
               VerticalAlignment="Center"/>
 
-            <Grid Grid.Row="6" 
+                    <Grid Grid.Row="6" 
       Grid.Column="1" 
       Grid.ColumnSpan="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="10"/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition Height="10"/>
-                </Grid.RowDefinitions>
-                <WindowsFormsHost Grid.RowSpan="4">
-                    <forms:PictureBox x:Name="CapchaPb"
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="10"/>
+                        </Grid.RowDefinitions>
+                        <WindowsFormsHost Grid.RowSpan="4">
+                            <forms:PictureBox x:Name="CapchaPb"
                                       BackColor="Gray"/>
-                </WindowsFormsHost>
-                <TextBox x:Name="CheckTb"
+                        </WindowsFormsHost>
+                        <TextBox x:Name="CheckTb"
                      Grid.Column="2"
                          Grid.Row="1"
                          Margin="7"/>
-                <Button x:Name="UpdateBtn"
+                        <Button x:Name="UpdateBtn"
                     Content="Обновить"
                     Grid.Column="2"
                     Grid.Row="2"
                     Click="UpdateBtn_Click"/>
-            </Grid>
+                    </Grid>
 
-            <Button x:Name="LogInBtn"
+                    <Button x:Name="LogInBtn"
                 Grid.Column="2"
                 Grid.Row="7"
                 Content="Войти"
                 Click="LogInBtn_Click"/>
 
 
+                </Grid>
             </Grid>
-        </Grid>
+        </Border>
+
     </Border>
 </Window>

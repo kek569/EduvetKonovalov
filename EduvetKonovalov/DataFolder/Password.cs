@@ -14,16 +14,7 @@ namespace EduvetKonovalov.DataFolder
     
     public partial class Password
     {
-        public Password()
-        {
-            this.Staff = new HashSet<Staff>();
-            this.User = new HashSet<User>();
-        }
-    
-        public int IdPassword { get; set; }
+        public string IdPassword { get; set; }
         public string PasswordUser { get; set; }
-    
-        public virtual ICollection<Staff> Staff { get; set; }
-        public virtual ICollection<User> User { get; set; }
     }
 }

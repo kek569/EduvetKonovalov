@@ -33,9 +33,9 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             InitializeComponent();
             PassportCb.ItemsSource = DBEntities.GetContext().Passport.ToList();
             GenderCb.ItemsSource = DBEntities.GetContext().Gender.ToList();
-            LoginCb.ItemsSource = DBEntities.GetContext().Login.ToList();
-            PasswordCb.ItemsSource = DBEntities.GetContext().Password.ToList();
+            UserCb.ItemsSource = DBEntities.GetContext().User.ToList();
             JobTitleCb.ItemsSource = DBEntities.GetContext().JobTitle.ToList();
+            RoleCb.ItemsSource = DBEntities.GetContext().Role.ToList();
             NumberPassportTb.MaxLength = 4;
             SeriesPassportTb.MaxLength = 6;
         }
@@ -85,11 +85,11 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             {
                 var userOne = DBEntities.GetContext()
                         .User
-                        .FirstOrDefault(u => u.Login.LoginUser == LoginTb.Text);
+                        .FirstOrDefault(u => u.LoginUser == LoginTb.Text);
 
                 if (userOne == null)
                 {
-                    /*if (string.IsNullOrWhiteSpace(LastNameStaffTb.Text))
+                    if (string.IsNullOrWhiteSpace(LastNameStaffTb.Text))
                     {
                         MBClass.ErrorMB("Введите имя");
                         LastNameStaffTb.Focus();
@@ -144,8 +144,13 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                         MBClass.ErrorMB("Введите должность");
                         JobTitleCb.Focus();
                     }
-                    else*/
-                    //{
+                    else if (RoleCb.SelectedIndex <= -1)
+                    {
+                        MBClass.ErrorMB("Введите роль");
+                        RoleCb.Focus();
+                    }
+                    else
+                    {
                         if (string.IsNullOrWhiteSpace(MiddleNameStaffTb.Text))
                         {
                             MiddleName = null;
@@ -160,28 +165,14 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                         if (selectedFileName == "")
                         {
                             Login();
-                            Password();
                             Passport();
                             string selected_Login = (App.Current as App).AddLoginName;
-                            string selected_Password = (App.Current as App).AddPasswordName;
                             string selected_Passport = (App.Current as App).AddPassportName;
-                            var loginAdd = new Login()
-                            {
-                                LoginUser = LoginTb.Text
-                            };
-                            DBEntities.GetContext().Login.Add(loginAdd);
-                            DBEntities.GetContext().SaveChanges();
-                            var passwordAdd = new Password()
-                            {
-                                PasswordUser = PasswordTb.Text
-                            };
-                            DBEntities.GetContext().Password.Add(passwordAdd);
-                            DBEntities.GetContext().SaveChanges();
                             var userAdd = new User()
                             {
-                                IdLogin = Int32.Parse(selected_Login),
-                                IdPassword = Int32.Parse(selected_Password),
-                                IdRole = 2
+                                LoginUser = LoginTb.Text,
+                                PasswordUser = PasswordTb.Text,
+                                IdRole = Int32.Parse(RoleCb.SelectedValue.ToString())
                             };
                             DBEntities.GetContext().User.Add(userAdd);
                             DBEntities.GetContext().SaveChanges();
@@ -205,8 +196,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                                 DateOfBirthStaff = System.DateTime.Parse(DateOfBirthStaffDp.Text),
                                 IdPassport = Int32.Parse(selected_Passport),
                                 IdGender = Int32.Parse(GenderCb.SelectedValue.ToString()),
-                                IdLogin = Int32.Parse(selected_Login),
-                                IdPassword = Int32.Parse(selected_Password),
+                                IdUser = Int32.Parse(selected_Login),
                                 AdressStaff = AdressStaffTb.Text,
                                 IdJobTitle = Int32.Parse(JobTitleCb.SelectedValue.ToString())
                             };
@@ -219,28 +209,14 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                         else
                         {
                             Login();
-                            Password();
                             Passport();
                             string selected_Login = (App.Current as App).AddLoginName;
-                            string selected_Password = (App.Current as App).AddPasswordName;
                             string selected_Passport = (App.Current as App).AddPassportName;
-                            var loginAdd = new Login()
-                            {
-                                LoginUser = LoginTb.Text
-                            };
-                            DBEntities.GetContext().Login.Add(loginAdd);
-                            DBEntities.GetContext().SaveChanges();
-                            var passwordAdd = new Password()
-                            {
-                                PasswordUser = PasswordTb.Text
-                            };
-                            DBEntities.GetContext().Password.Add(passwordAdd);
-                            DBEntities.GetContext().SaveChanges();
                             var userAdd = new User()
                             {
-                                IdLogin = Int32.Parse(selected_Login),
-                                IdPassword = Int32.Parse(selected_Password),
-                                IdRole = 2
+                                LoginUser = LoginTb.Text,
+                                PasswordUser = PasswordTb.Text,
+                                IdRole = Int32.Parse(RoleCb.SelectedValue.ToString())
                             };
                             DBEntities.GetContext().User.Add(userAdd);
                             DBEntities.GetContext().SaveChanges();
@@ -263,8 +239,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                                 DateOfBirthStaff = System.DateTime.Parse(DateOfBirthStaffDp.Text),
                                 IdPassport = Int32.Parse(selected_Passport),
                                 IdGender = Int32.Parse(GenderCb.SelectedValue.ToString()),
-                                IdLogin = Int32.Parse(selected_Login),
-                                IdPassword = Int32.Parse(selected_Password),
+                                IdUser = Int32.Parse(selected_Login),
                                 AdressStaff = AdressStaffTb.Text,
                                 IdJobTitle = Int32.Parse(JobTitleCb.SelectedValue.ToString()),
                                 PhotoStaff = ClassImage.ConvertImageToArray(selectedFileName)
@@ -275,7 +250,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                             MBClass.InfoMB("Данные о сотруднике успешно добавлены");
                             NavigationService.Navigate(new ListStaffPage());
                         }
-                    //}
+                    }
                 }
                 else
                 {
@@ -292,19 +267,27 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
         {
             try
             {
-                LoginCb.SelectedValue = 1;
+                UserCb.SelectedValue = 1;
 
                 for (Int32 i = 0; i < 9999999; i++)
                 {
-                    if (string.IsNullOrEmpty(LoginCb.Text))
+                    if (string.IsNullOrEmpty(UserCb.Text))
                     {
 
                     }
                     else
                     {
-                        i = Int32.Parse(LoginCb.SelectedValue.ToString());
+                        
+                        if (Int32.Parse(UserCb.SelectedValue.ToString()) == 1)
+                        {
+                            i = 10;
+                        }
+                        else
+                        {
+                            i = Int32.Parse(UserCb.SelectedValue.ToString());
+                        }
                         i = i + 1;
-                        LoginCb.SelectedValue = i;
+                        UserCb.SelectedValue = i;
 
                         //MBClass.InfoMB("" + i);
                         (App.Current as App).AddLoginName = i.ToString();
@@ -318,46 +301,6 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                 {
                     a = 1;
                     (App.Current as App).AddLoginName = a.ToString();
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MBClass.ErrorMB(ex);
-            }
-        }
-
-        public void Password()
-        {
-            try
-            {
-                PasswordCb.SelectedValue = 1;
-
-                for (Int32 i = 0; i < 9999999; i++)
-                {
-                    if (string.IsNullOrEmpty(PasswordCb.Text))
-                    {
-
-                    }
-                    else
-                    {
-                        i = Int32.Parse(PasswordCb.SelectedValue.ToString());
-                        i = i + 1;
-                        PasswordCb.SelectedValue = i;
-                        (App.Current as App).AddPasswordName = i.ToString();
-
-                        //MBClass.InfoMB("" + i);
-                    }
-
-                }
-                /*Int32 b = Int32.Parse(PasswordCb.SelectedValue.ToString());
-                PasswordCb.SelectedValue = b - 1;*/
-                string selected_Password = (App.Current as App).AddPasswordName;
-                Int32 a = Int32.Parse(selected_Password);
-                if (a <= 0)
-                {
-                    a = 1;
-                    (App.Current as App).AddPasswordName = a.ToString();
                 }
 
             }
@@ -381,7 +324,14 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                     }
                     else
                     {
-                        i = Int32.Parse(PassportCb.SelectedValue.ToString());
+                        if (Int32.Parse(PassportCb.SelectedValue.ToString()) == 1)
+                        {
+                            i = 7;
+                        }
+                        else
+                        {
+                            i = Int32.Parse(PassportCb.SelectedValue.ToString());
+                        }
                         i = i + 1;
                         PassportCb.SelectedValue = i;
                         (App.Current as App).AddPassportName = i.ToString();
@@ -405,6 +355,11 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             {
                 MBClass.ErrorMB(ex);
             }
+        }
+
+        private void Lol_Click(object sender, RoutedEventArgs e)
+        {
+            Login();
         }
     }
 }

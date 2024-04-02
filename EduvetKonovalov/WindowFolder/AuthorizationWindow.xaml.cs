@@ -247,7 +247,7 @@ namespace EduvetKonovalov.WindowFolder
                 {
                     var user = DBEntities.GetContext()
                         .User
-                        .FirstOrDefault(u => u.Login.LoginUser == LoginSave);
+                        .FirstOrDefault(u => u.LoginUser == LoginSave);
 
                     if (user == null)
                     {
@@ -255,7 +255,7 @@ namespace EduvetKonovalov.WindowFolder
                         LoginTB.Focus();
                         return;
                     }
-                    if (user.Password.PasswordUser != PasswordSave)
+                    if (user.PasswordUser != PasswordSave)
                     {
                         MBClass.ErrorMB("Введен не правильный логин или пароль");
                         PasswordPB.Focus();

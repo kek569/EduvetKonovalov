@@ -13,11 +13,12 @@
     Height="950" Width="1400"
     Icon="/EduvetKonovalov;component/ResourceFolder/ImageFolder/Logo.png">
     <Border Style="{DynamicResource FonBorder}"
-        MouseDown="Border_MouseDown">
-        
-        
+        MouseDown="Border_MouseDown"
+            CornerRadius="20">
+        <Border.Background>
+            <ImageBrush ImageSource="/EduvetKonovalov;component/ResourceFolder/ImageFolder/Fon.png"/>
+        </Border.Background>
         <Grid>
-            <Image Source="/EduvetKonovalov;component/ResourceFolder/ImageFolder/Fon.png"/>
             <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="10"/>
@@ -54,25 +55,18 @@ Margin="10,4,0,14"/>
                         <ColumnDefinition/>
                         <ColumnDefinition Width="250"/>
                         <ColumnDefinition Width="250"/>
-                        <ColumnDefinition Width="250"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Button x:Name="ListUserBtn"
-    Grid.Row="1"
-    Grid.Column="1"
-    Content="Список пользователей"
-    Style="{DynamicResource InvisibleButton}"
-    Click="ListUserBtn_Click"/>
                 <Button x:Name="ListVeterinaryEquipmentBtn"
                     Grid.Row="1"
-                    Grid.Column="2"
+                    Grid.Column="1"
                     Content="Список оборудований"
                     Style="{DynamicResource InvisibleButton}"
                     Click="ListVeterinaryEquipmentBtn_Click"/>
                     <Button x:Name="ListStaffBtn"
                     Grid.Row="1"
-                    Grid.Column="3"
+                    Grid.Column="2"
                     Content="Список сотрудников"
                     Style="{DynamicResource InvisibleButton}"
                     Click="ListStaffBtn_Click"/>

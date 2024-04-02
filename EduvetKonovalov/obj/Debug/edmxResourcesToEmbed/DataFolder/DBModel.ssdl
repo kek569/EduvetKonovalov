@@ -16,6 +16,19 @@
     <Property Name="AmountConsumption" Type="int" Nullable="false" />
     <Property Name="SumConsumption" Type="decimal" Precision="10" Scale="2" Nullable="false" />
   </EntityType>
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="IdCourses" />
+    </Key>
+    <Property Name="IdCourses" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameCourses" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="PriceCourses" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="IdTypeCourses" Type="int" Nullable="false" />
+    <Property Name="AddressCourses" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ShortDescriptionCourses" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="PhotoCourse" Type="varbinary(max)" />
+    <Property Name="IdStaff" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="Gender">
     <Key>
       <PropertyRef Name="IdGender" />
@@ -34,7 +47,7 @@
     <Key>
       <PropertyRef Name="IdLogin" />
     </Key>
-    <Property Name="IdLogin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdLogin" Type="nvarchar" MaxLength="80" Nullable="false" />
     <Property Name="LoginUser" Type="nvarchar" MaxLength="80" Nullable="false" />
   </EntityType>
   <EntityType Name="Passport">
@@ -49,7 +62,7 @@
     <Key>
       <PropertyRef Name="IdPassword" />
     </Key>
-    <Property Name="IdPassword" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdPassword" Type="nvarchar" MaxLength="80" Nullable="false" />
     <Property Name="PasswordUser" Type="nvarchar" MaxLength="80" Nullable="false" />
   </EntityType>
   <EntityType Name="Remainder">
@@ -79,12 +92,11 @@
     <Property Name="DateOfBirthStaff" Type="date" Nullable="false" />
     <Property Name="IdPassport" Type="int" Nullable="false" />
     <Property Name="IdGender" Type="int" Nullable="false" />
-    <Property Name="IdLogin" Type="int" Nullable="false" />
-    <Property Name="IdPassword" Type="int" Nullable="false" />
     <Property Name="PhotoStaff" Type="varbinary(max)" />
     <Property Name="AdressStaff" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="FullName" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="IdJobTitle" Type="int" Nullable="false" />
+    <Property Name="IdUser" Type="int" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -95,6 +107,13 @@
     <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TypeCourses">
+    <Key>
+      <PropertyRef Name="IdTypeCourses" />
+    </Key>
+    <Property Name="IdTypeCourses" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameTypeCourses" Type="nvarchar" MaxLength="80" Nullable="false" />
   </EntityType>
   <EntityType Name="TypeVeterinaryEquipment">
     <Key>
@@ -108,8 +127,8 @@
       <PropertyRef Name="IdUser" />
     </Key>
     <Property Name="IdUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdLogin" Type="int" Nullable="false" />
-    <Property Name="IdPassword" Type="int" Nullable="false" />
+    <Property Name="LoginUser" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="PasswordUser" Type="nvarchar" MaxLength="80" Nullable="false" />
     <Property Name="IdRole" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="VeterinaryEquipment">
@@ -127,6 +146,30 @@
     <Property Name="IdRemainder" Type="int" Nullable="false" />
     <Property Name="PhotoVeterinaryEquipment" Type="varbinary(max)" />
   </EntityType>
+  <Association Name="FK_Courses_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="IdStaff" />
+      </Principal>
+      <Dependent Role="Courses">
+        <PropertyRef Name="IdStaff" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Courses_TypeCourses">
+    <End Role="TypeCourses" Type="Self.TypeCourses" Multiplicity="1" />
+    <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeCourses">
+        <PropertyRef Name="IdTypeCourses" />
+      </Principal>
+      <Dependent Role="Courses">
+        <PropertyRef Name="IdTypeCourses" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Staff_Gender">
     <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
     <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
@@ -151,18 +194,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Staff_Login">
-    <End Role="Login" Type="Self.Login" Multiplicity="1" />
-    <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Login">
-        <PropertyRef Name="IdLogin" />
-      </Principal>
-      <Dependent Role="Staff">
-        <PropertyRef Name="IdLogin" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Staff_Passport">
     <End Role="Passport" Type="Self.Passport" Multiplicity="1" />
     <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
@@ -175,39 +206,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Staff_Password">
-    <End Role="Password" Type="Self.Password" Multiplicity="1" />
+  <Association Name="FK_Staff_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
     <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Password">
-        <PropertyRef Name="IdPassword" />
+      <Principal Role="User">
+        <PropertyRef Name="IdUser" />
       </Principal>
       <Dependent Role="Staff">
-        <PropertyRef Name="IdPassword" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_User_Login">
-    <End Role="Login" Type="Self.Login" Multiplicity="1" />
-    <End Role="User" Type="Self.User" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Login">
-        <PropertyRef Name="IdLogin" />
-      </Principal>
-      <Dependent Role="User">
-        <PropertyRef Name="IdLogin" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_User_Password">
-    <End Role="Password" Type="Self.Password" Multiplicity="1" />
-    <End Role="User" Type="Self.User" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Password">
-        <PropertyRef Name="IdPassword" />
-      </Principal>
-      <Dependent Role="User">
-        <PropertyRef Name="IdPassword" />
+        <PropertyRef Name="IdUser" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -286,6 +293,7 @@
   <EntityContainer Name="Хранилище DBModelContainer">
     <EntitySet Name="Coming" EntityType="Self.Coming" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Consumption" EntityType="Self.Consumption" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JobTitle" EntityType="Self.JobTitle" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
@@ -295,9 +303,18 @@
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeCourses" EntityType="Self.TypeCourses" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TypeVeterinaryEquipment" EntityType="Self.TypeVeterinaryEquipment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VeterinaryEquipment" EntityType="Self.VeterinaryEquipment" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Courses_Staff" Association="Self.FK_Courses_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="Courses" EntitySet="Courses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Courses_TypeCourses" Association="Self.FK_Courses_TypeCourses">
+      <End Role="TypeCourses" EntitySet="TypeCourses" />
+      <End Role="Courses" EntitySet="Courses" />
+    </AssociationSet>
     <AssociationSet Name="FK_Staff_Gender" Association="Self.FK_Staff_Gender">
       <End Role="Gender" EntitySet="Gender" />
       <End Role="Staff" EntitySet="Staff" />
@@ -306,25 +323,13 @@
       <End Role="JobTitle" EntitySet="JobTitle" />
       <End Role="Staff" EntitySet="Staff" />
     </AssociationSet>
-    <AssociationSet Name="FK_Staff_Login" Association="Self.FK_Staff_Login">
-      <End Role="Login" EntitySet="Login" />
-      <End Role="Staff" EntitySet="Staff" />
-    </AssociationSet>
     <AssociationSet Name="FK_Staff_Passport" Association="Self.FK_Staff_Passport">
       <End Role="Passport" EntitySet="Passport" />
       <End Role="Staff" EntitySet="Staff" />
     </AssociationSet>
-    <AssociationSet Name="FK_Staff_Password" Association="Self.FK_Staff_Password">
-      <End Role="Password" EntitySet="Password" />
+    <AssociationSet Name="FK_Staff_User" Association="Self.FK_Staff_User">
+      <End Role="User" EntitySet="User" />
       <End Role="Staff" EntitySet="Staff" />
-    </AssociationSet>
-    <AssociationSet Name="FK_User_Login" Association="Self.FK_User_Login">
-      <End Role="Login" EntitySet="Login" />
-      <End Role="User" EntitySet="User" />
-    </AssociationSet>
-    <AssociationSet Name="FK_User_Password" Association="Self.FK_User_Password">
-      <End Role="Password" EntitySet="Password" />
-      <End Role="User" EntitySet="User" />
     </AssociationSet>
     <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
       <End Role="Role" EntitySet="Role" />

@@ -25,7 +25,7 @@ namespace EduvetKonovalov.WindowFolder.AdminWindowFolder
         public AdminWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new ListUserPage());
+            MainFrame.Navigate(new ListVeterinaryEquipmentPage());
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -84,7 +84,6 @@ namespace EduvetKonovalov.WindowFolder.AdminWindowFolder
 
         private void ListUserBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new ListUserPage());
         }
     }
 }

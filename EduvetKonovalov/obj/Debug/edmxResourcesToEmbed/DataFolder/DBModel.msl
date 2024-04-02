@@ -19,6 +19,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="DBModel.Courses">
+        <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="IdCourses" ColumnName="IdCourses" />
+          <ScalarProperty Name="NameCourses" ColumnName="NameCourses" />
+          <ScalarProperty Name="PriceCourses" ColumnName="PriceCourses" />
+          <ScalarProperty Name="IdTypeCourses" ColumnName="IdTypeCourses" />
+          <ScalarProperty Name="AddressCourses" ColumnName="AddressCourses" />
+          <ScalarProperty Name="ShortDescriptionCourses" ColumnName="ShortDescriptionCourses" />
+          <ScalarProperty Name="PhotoCourse" ColumnName="PhotoCourse" />
+          <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Gender">
       <EntityTypeMapping TypeName="DBModel.Gender">
         <MappingFragment StoreEntitySet="Gender">
@@ -88,12 +102,11 @@
           <ScalarProperty Name="DateOfBirthStaff" ColumnName="DateOfBirthStaff" />
           <ScalarProperty Name="IdPassport" ColumnName="IdPassport" />
           <ScalarProperty Name="IdGender" ColumnName="IdGender" />
-          <ScalarProperty Name="IdLogin" ColumnName="IdLogin" />
-          <ScalarProperty Name="IdPassword" ColumnName="IdPassword" />
           <ScalarProperty Name="PhotoStaff" ColumnName="PhotoStaff" />
           <ScalarProperty Name="AdressStaff" ColumnName="AdressStaff" />
           <ScalarProperty Name="FullName" ColumnName="FullName" />
           <ScalarProperty Name="IdJobTitle" ColumnName="IdJobTitle" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -105,6 +118,14 @@
           <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeCourses">
+      <EntityTypeMapping TypeName="DBModel.TypeCourses">
+        <MappingFragment StoreEntitySet="TypeCourses">
+          <ScalarProperty Name="IdTypeCourses" ColumnName="IdTypeCourses" />
+          <ScalarProperty Name="NameTypeCourses" ColumnName="NameTypeCourses" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -120,8 +141,8 @@
       <EntityTypeMapping TypeName="DBModel.User">
         <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-          <ScalarProperty Name="IdLogin" ColumnName="IdLogin" />
-          <ScalarProperty Name="IdPassword" ColumnName="IdPassword" />
+          <ScalarProperty Name="LoginUser" ColumnName="LoginUser" />
+          <ScalarProperty Name="PasswordUser" ColumnName="PasswordUser" />
           <ScalarProperty Name="IdRole" ColumnName="IdRole" />
         </MappingFragment>
       </EntityTypeMapping>

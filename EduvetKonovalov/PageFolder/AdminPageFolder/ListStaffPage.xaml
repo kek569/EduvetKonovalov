@@ -76,10 +76,13 @@ Grid.Column="7"
                         Binding="{Binding JobTitle.NameJobTitle}"
                         Width="*"/>
                 <DataGridTextColumn Header="Логин"
-                        Binding="{Binding Login.LoginUser}"
+                        Binding="{Binding User.LoginUser}"
                         Width="*"/>
                 <DataGridTextColumn Header="Пароль"
-                        Binding="{Binding Password.PasswordUser}"
+                        Binding="{Binding User.PasswordUser}"
+                        Width="*"/>
+                <DataGridTextColumn Header="Роль"
+                        Binding="{Binding User.Role.NameRole}"
                         Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
@@ -131,7 +134,7 @@ Text="Роль"
                        Grid.Row="2"
                        TextWrapping="WrapWithOverflow"
                        FontWeight="Bold"
-                       Text="{Binding Login.LoginUser}"
+                       Text="{Binding User.LoginUser}"
                        Style="{DynamicResource TBlListBox}"
                        TextAlignment="Center"
                                    VerticalAlignment="Center"/>
@@ -140,7 +143,7 @@ Grid.RowSpan="4"
 Grid.Row="2"
 TextWrapping="WrapWithOverflow"
 FontWeight="Bold"
-Text="{Binding Password.PasswordUser}"
+Text="{Binding User.PasswordUser}"
 Style="{DynamicResource TBlListBox}"
 TextAlignment="Center"
                                    VerticalAlignment="Center"/>
@@ -149,7 +152,7 @@ Grid.RowSpan="4"
 Grid.Row="2"
 TextWrapping="WrapWithOverflow"
 FontWeight="Bold"
-Text="{Binding Role.NameRole}"
+Text="{Binding User.NameRole}"
 Style="{DynamicResource TBlListBox}"
 TextAlignment="Center"
                                    VerticalAlignment="Center"/>
@@ -198,7 +201,7 @@ TextAlignment="Center"
                             <ColumnDefinition Width="10"/>
                             <ColumnDefinition Width="60"/>
                             <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="120"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
@@ -307,6 +310,12 @@ Text="Должность:"
                                        Style="{DynamicResource TBlListBox}"
                                    TextWrapping="WrapWithOverflow"
                                    TextAlignment="Right"/>
+                        <TextBlock Grid.Column="13"
+                      Grid.Row="2"
+                        Text="Роль:"
+                          Style="{DynamicResource TBlListBox}"
+                      TextWrapping="WrapWithOverflow"
+                      TextAlignment="Right"/>
                         <Image Source="{Binding PhotoStaff}"
                                Width="200" Grid.RowSpan="3"
                                Margin="10"
@@ -371,16 +380,22 @@ Text="Должность:"
                                    TextAlignment="Left"
                                    TextWrapping="WrapWithOverflow"/>
                         <TextBlock Grid.Column="15"
-                                    Text="{Binding Login.LoginUser}"
+                                    Text="{Binding User.LoginUser}"
                                    Style="{DynamicResource TBlListBox}"
                                    TextAlignment="Left"
                                    TextWrapping="WrapWithOverflow"/>
                         <TextBlock Grid.Column="15"
                                    Grid.Row="1"
-                                    Text="{Binding Password.PasswordUser}"
+                                    Text="{Binding User.PasswordUser}"
                                    TextAlignment="Left"
                                    Style="{DynamicResource TBlListBox}"
                                    TextWrapping="WrapWithOverflow"/>
+                        <TextBlock Grid.Column="15"
+                               Grid.Row="2"
+                                Text="{Binding User.Role.NameRole}"
+                               TextAlignment="Left"
+                               Style="{DynamicResource TBlListBox}"
+                               TextWrapping="WrapWithOverflow"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

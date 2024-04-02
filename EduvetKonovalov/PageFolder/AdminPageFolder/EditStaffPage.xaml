@@ -33,7 +33,9 @@
             <RowDefinition Height="10"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="130"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="70"/>
             <RowDefinition/>
@@ -107,6 +109,17 @@ Grid.Column="3"
           SelectedValuePath="IdJobTitle"
           DisplayMemberPath="NameJobTitle"/>
 
+        <Label Content="Роль"
+Grid.Row="13" Grid.Column="2"
+Style="{DynamicResource LabelNormal}"/>
+        <ComboBox x:Name="RoleCb"
+Grid.Row="13"
+Grid.Column="3"
+                  SelectedItem="{Binding User.Role}"
+          SelectedValuePath="IdRole"
+          DisplayMemberPath="NameRole"/>
+
+
         <ComboBox x:Name="LoginCb"
    Grid.Column="7"
    Grid.Row="14"
@@ -148,7 +161,7 @@ SelectedItem="{Binding Password}"
         <Image x:Name="PhotoIM"
                Source="{Binding PhotoStaff}"
        Grid.Row="11"
-               Grid.RowSpan="3"
+               Grid.RowSpan="5"
        Grid.Column="5"
        Grid.ColumnSpan="2"/>
 
@@ -158,7 +171,7 @@ SelectedItem="{Binding Password}"
             <TextBox x:Name="LoginTb"
     Grid.Row="7"
     Grid.Column="6"
-                     Text="{Binding Login.LoginUser}"/>
+                     Text="{Binding User.LoginUser}"/>
 
             <Label Content="Пароль"
 Grid.Row="9" Grid.Column="5"
@@ -166,18 +179,18 @@ Style="{DynamicResource LabelNormal}"/>
             <TextBox x:Name="PasswordTb"
 Grid.Row="9"
 Grid.Column="6"
-                     Text="{Binding Password.PasswordUser}"/>
+                     Text="{Binding User.PasswordUser}"/>
 
             <Button x:Name="LoadPhotoBtn"
     Content="Загрузить фото"
     Grid.Column="3"
-    Grid.Row="15"
+    Grid.Row="17"
     Click="LoadPhotoBtn_Click"/>
 
         <Button x:Name="SaveBtn"
  Content="Сохранить изменения"
  Grid.Column="6"
- Grid.Row="15"
+ Grid.Row="17"
  Click="SaveBtn_Click"/>
     </Grid>
 </Page>

@@ -9,12 +9,13 @@
     WindowStyle="None"
     Background="{x:Null}"
     AllowsTransparency="True"
-    ResizeMode="CanResizeWithGrip"
+    ResizeMode="NoResize"
     MaxHeight="950" MaxWidth="1400"
     MinHeight="950" MinWidth="1400"
         Icon="/EduvetKonovalov;component/ResourceFolder/ImageFolder/Logo.png">
     <Border Style="{DynamicResource FonBorder}"
-        MouseDown="Border_MouseDown">
+        MouseDown="Border_MouseDown"
+            CornerRadius="20">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="10"/>

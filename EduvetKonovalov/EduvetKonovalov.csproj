@@ -84,6 +84,9 @@
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataFolder\ContextClass.cs" />
+    <Compile Include="DataFolder\Courses.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataFolder\DBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -126,6 +129,9 @@
     <Compile Include="DataFolder\sysdiagrams.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataFolder\TypeCourses.cs">
+      <DependentUpon>DBModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataFolder\TypeVeterinaryEquipment.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -138,17 +144,11 @@
     <Compile Include="PageFolder\AdminPageFolder\AddStaffPage.xaml.cs">
       <DependentUpon>AddStaffPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageFolder\AdminPageFolder\AddUserPage.xaml.cs">
-      <DependentUpon>AddUserPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PageFolder\AdminPageFolder\AddVeterinaryEquipmentPage.xaml.cs">
       <DependentUpon>AddVeterinaryEquipmentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageFolder\AdminPageFolder\EditStaffPage.xaml.cs">
       <DependentUpon>EditStaffPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PageFolder\AdminPageFolder\EditUserPage.xaml.cs">
-      <DependentUpon>EditUserPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageFolder\AdminPageFolder\EditVeterinaryEquipmentPage.xaml.cs">
       <DependentUpon>EditVeterinaryEquipmentPage.xaml</DependentUpon>
@@ -156,14 +156,8 @@
     <Compile Include="PageFolder\AdminPageFolder\ListStaffPage.xaml.cs">
       <DependentUpon>ListStaffPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PageFolder\AdminPageFolder\ListUserPage.xaml.cs">
-      <DependentUpon>ListUserPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="PageFolder\AdminPageFolder\ListVeterinaryEquipmentPage.xaml.cs">
       <DependentUpon>ListVeterinaryEquipmentPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PageFolder\AdminPageFolder\LoadingUserPage.xaml.cs">
-      <DependentUpon>LoadingUserPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageFolder\StaffPageFolder\AddVeterinaryEquipmentPage.xaml.cs">
       <DependentUpon>AddVeterinaryEquipmentPage.xaml</DependentUpon>
@@ -229,19 +223,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageFolder\AdminPageFolder\AddUserPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PageFolder\AdminPageFolder\AddVeterinaryEquipmentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\AdminPageFolder\EditStaffPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PageFolder\AdminPageFolder\EditUserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -253,15 +239,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageFolder\AdminPageFolder\ListUserPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="PageFolder\AdminPageFolder\ListVeterinaryEquipmentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PageFolder\AdminPageFolder\LoadingUserPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -342,6 +320,9 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="ResourceFolder\ImageFolder\User.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="DataFolder\DBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBModel.edmx</DependentUpon>
@@ -352,7 +333,6 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
-    <Resource Include="ResourceFolder\ImageFolder\User.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

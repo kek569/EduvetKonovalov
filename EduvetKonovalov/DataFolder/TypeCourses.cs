@@ -12,19 +12,16 @@ namespace EduvetKonovalov.DataFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class TypeCourses
     {
-        public User()
+        public TypeCourses()
         {
-            this.Staff = new HashSet<Staff>();
+            this.Courses = new HashSet<Courses>();
         }
     
-        public int IdUser { get; set; }
-        public string LoginUser { get; set; }
-        public string PasswordUser { get; set; }
-        public int IdRole { get; set; }
+        public int IdTypeCourses { get; set; }
+        public string NameTypeCourses { get; set; }
     
-        public virtual Role Role { get; set; }
-        public virtual ICollection<Staff> Staff { get; set; }
+        public virtual ICollection<Courses> Courses { get; set; }
     }
 }

@@ -33,7 +33,9 @@
             <RowDefinition Height="10"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="130"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="70"/>
             <RowDefinition/>
@@ -87,19 +89,12 @@ SelectedItem="{Binding Gender}"
           SelectedValuePath="IdGender"
           DisplayMemberPath="GenderStaff"/>
 
-        <ComboBox x:Name="LoginCb"
+        <ComboBox x:Name="UserCb"
    Grid.Column="7"
    Grid.Row="14"
-SelectedItem="{Binding Login}"
-          SelectedValuePath="IdLogin"
+SelectedItem="{Binding User}"
+          SelectedValuePath="IdUser"
           DisplayMemberPath="LoginUser"
-                  SelectedIndex="1"/>
-        <ComboBox x:Name="PasswordCb"
-   Grid.Column="7"
-   Grid.Row="14"
-SelectedItem="{Binding Password}"
-          SelectedValuePath="IdPassword"
-          DisplayMemberPath="PasswordUser"
                   SelectedIndex="1"/>
 
         <Label Content="День рождения"
@@ -145,22 +140,32 @@ Grid.Column="2"
           SelectedValuePath="IdJobTitle"
           DisplayMemberPath="NameJobTitle"/>
 
+        <Label Content="Роль"
+Grid.Row="13" Grid.Column="1"
+Style="{DynamicResource LabelNormal}"/>
+        <ComboBox x:Name="RoleCb"
+Grid.Row="13"
+Grid.Column="2"
+                  SelectedItem="{Binding Role}"
+          SelectedValuePath="IdRole"
+          DisplayMemberPath="NameRole"/>
+
         <Image x:Name="PhotoIM"
        Grid.Row="11"
-               Grid.RowSpan="3"
+               Grid.RowSpan="5"
        Grid.Column="5"
        Grid.ColumnSpan="2"/>
 
         <Button x:Name="LoadPhotoBtn"
     Content="Загрузить фото"
     Grid.Column="2"
-    Grid.Row="15"
+    Grid.Row="17"
     Click="LoadPhotoBtn_Click"/>
 
         <Button x:Name="AddStaffBtn"
  Content="Добавить сотрудника"
  Grid.Column="6"
- Grid.Row="15"
+ Grid.Row="17"
  Click="AddStaffBtn_Click"/>
     </Grid>
 </Page>

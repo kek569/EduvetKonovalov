@@ -4,32 +4,33 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f2b9945c47224c9aa4f1052e9e856067" Name="Diagram1">
-        <EntityTypeShape EntityType="DBModel.Coming" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Consumption" Width="1.5" PointX="6" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Gender" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.JobTitle" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Login" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Passport" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Password" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Remainder" Width="1.5" PointX="6" PointY="13.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Role" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.Staff" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.TypeVeterinaryEquipment" Width="1.5" PointX="6" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.User" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBModel.VeterinaryEquipment" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
+      <Diagram DiagramId="33c8006bc90b4db19110c4ceea6874e1" Name="Diagram1">
+        <EntityTypeShape EntityType="DBModel.Coming" Width="1.5" PointX="8.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Consumption" Width="1.5" PointX="8.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Courses" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Gender" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.JobTitle" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Login" Width="1.5" PointX="7.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Passport" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Password" Width="1.5" PointX="9.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Remainder" Width="1.5" PointX="8.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Role" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.Staff" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.TypeCourses" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.TypeVeterinaryEquipment" Width="1.5" PointX="8.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.User" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBModel.VeterinaryEquipment" Width="1.5" PointX="10.5" PointY="3.625" IsExpanded="true" />
         <AssociationConnector Association="DBModel.FK_VeterinaryEquipment_Coming" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_VeterinaryEquipment_Consumption" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Courses_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Courses_TypeCourses" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_Staff_Gender" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_Staff_JobTitle" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Staff_Login" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_User_Login" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_Staff_Passport" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_Staff_Password" ManuallyRouted="false" />
-        <AssociationConnector Association="DBModel.FK_User_Password" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_VeterinaryEquipment_Remainder" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="DBModel.FK_Staff_User" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_VeterinaryEquipment_Staff" ManuallyRouted="false" />
         <AssociationConnector Association="DBModel.FK_VeterinaryEquipment_TypeVeterinaryEquipment" ManuallyRouted="false" />
       </Diagram>

@@ -44,6 +44,11 @@ Grid.Column="3"
                 Grid.Column="7"
                 Click="ExportBtn_Click"/>
 
+        <Image Source="/EduvetKonovalov;component/ResourceFolder/ImageFolder/User.png"
+               Grid.Column="3"
+               Grid.Row="1"
+               Grid.ColumnSpan="6"/>
+
         <DataGrid x:Name="ListUserDg"
     Grid.Column="10"
     AutoGenerateColumns="False"
@@ -65,7 +70,7 @@ Grid.Column="3"
      SelectionMode="Single"
      Grid.Row="3"
      Grid.Column="0"
-     Grid.ColumnSpan="8"
+     Grid.ColumnSpan="3"
      HorizontalContentAlignment="Stretch"
     ItemsSource="{Binding Path=ResizeItems}" 
     BorderThickness="0">
@@ -86,9 +91,9 @@ Grid.Column="3"
                 <DataTemplate>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="380"/>
-                            <ColumnDefinition Width="380"/>
-                            <ColumnDefinition Width="380"/>
+                            <ColumnDefinition Width="230"/>
+                            <ColumnDefinition Width="230"/>
+                            <ColumnDefinition Width="230"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>

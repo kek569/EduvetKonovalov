@@ -12,7 +12,6 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="180"/>
             <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="180"/>
             <ColumnDefinition Width="300"/>
@@ -74,7 +73,7 @@ Style="{DynamicResource LabelNormal}"/>
 
         <ComboBox x:Name="PassportCb"
 Grid.Row="14"
-Grid.Column="7"
+Grid.Column="6"
                 SelectedItem="{Binding Passport}"
         SelectedValuePath="IdPassport"
         DisplayMemberPath="SeriesPassport"/>
@@ -90,7 +89,7 @@ SelectedItem="{Binding Gender}"
           DisplayMemberPath="GenderStaff"/>
 
         <ComboBox x:Name="UserCb"
-   Grid.Column="7"
+   Grid.Column="6"
    Grid.Row="14"
 SelectedItem="{Binding User}"
           SelectedValuePath="IdUser"
@@ -98,37 +97,37 @@ SelectedItem="{Binding User}"
                   SelectedIndex="1"/>
 
         <Label Content="День рождения"
-    Grid.Row="1" Grid.Column="5"
+    Grid.Row="1" Grid.Column="4"
     Style="{DynamicResource LabelNormal}"/>
         <DatePicker x:Name="DateOfBirthStaffDp"
     Grid.Row="1"
-    Grid.Column="6"/>
+    Grid.Column="5"/>
         <Label Content="Адрес"
-    Grid.Row="3" Grid.Column="5"
+    Grid.Row="3" Grid.Column="4"
     Style="{DynamicResource LabelNormal}"/>
         <TextBox x:Name="AdressStaffTb"
     Grid.Row="3"
-    Grid.Column="6"/>
+    Grid.Column="5"/>
 
         <Label Content="Номер телефона"
-    Grid.Row="5" Grid.Column="5"
+    Grid.Row="5" Grid.Column="4"
     Style="{DynamicResource LabelNormal}"/>
         <TextBox x:Name="NumberPhoneStaffTb"
     Grid.Row="5"
-    Grid.Column="6"/>
+    Grid.Column="5"/>
         <Label Content="Логин"
-    Grid.Row="7" Grid.Column="5"
+    Grid.Row="7" Grid.Column="4"
     Style="{DynamicResource LabelNormal}"/>
         <TextBox x:Name="LoginTb"
     Grid.Row="7"
-    Grid.Column="6"/>
+    Grid.Column="5"/>
 
         <Label Content="Пароль"
-Grid.Row="9" Grid.Column="5"
+Grid.Row="9" Grid.Column="4"
 Style="{DynamicResource LabelNormal}"/>
         <TextBox x:Name="PasswordTb"
 Grid.Row="9"
-Grid.Column="6"/>
+Grid.Column="5"/>
 
         <Label Content="Должность"
 Grid.Row="11" Grid.Column="1"
@@ -153,7 +152,7 @@ Grid.Column="2"
         <Image x:Name="PhotoIM"
        Grid.Row="11"
                Grid.RowSpan="5"
-       Grid.Column="5"
+       Grid.Column="4"
        Grid.ColumnSpan="2"/>
 
         <Button x:Name="LoadPhotoBtn"
@@ -164,7 +163,7 @@ Grid.Column="2"
 
         <Button x:Name="AddStaffBtn"
  Content="Добавить сотрудника"
- Grid.Column="6"
+ Grid.Column="5"
  Grid.Row="17"
  Click="AddStaffBtn_Click"/>
     </Grid>

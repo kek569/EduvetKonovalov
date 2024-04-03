@@ -34,20 +34,11 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
             DataContext = staff;
             this.staff.IdStaff = staff.IdStaff;
 
-            PassportCb.ItemsSource = DBEntities.GetContext().Passport.ToList();
-            PassportOneCb.ItemsSource = DBEntities.GetContext().Passport.ToList();
-            GenderCb.ItemsSource = DBEntities.GetContext().Gender.ToList();
             LoginCb.ItemsSource = DBEntities.GetContext().Login.ToList();
             PasswordCb.ItemsSource = DBEntities.GetContext().Password.ToList();
-            JobTitleCb.ItemsSource = DBEntities.GetContext().JobTitle.ToList();
-            RoleCb.ItemsSource = DBEntities.GetContext().Role.ToList();
 
             staff = DBEntities.GetContext().Staff
                                 .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
-            DateOfBirthStaffDp.Text = staff.DateOfBirthStaff.ToString();
-
-            PassportTb.MaxLength = 4;
-            PassportOneTb.MaxLength = 6;
 
             var timer = new DispatcherTimer
             { Interval = TimeSpan.FromSeconds(0.5) };
@@ -124,11 +115,6 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                         MBClass.ErrorMB("Введите номер телефона");
                         NumberPhoneStaffTb.Focus();
                     }
-                    else if (string.IsNullOrWhiteSpace(DateOfBirthStaffDp.Text))
-                    {
-                        MBClass.ErrorMB("Введите дату рождения");
-                        DateOfBirthStaffDp.Focus();
-                    }
                     else if (string.IsNullOrWhiteSpace(AdressStaffTb.Text))
                     {
                         MBClass.ErrorMB("Введите адрес");
@@ -143,26 +129,6 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                     {
                         MBClass.ErrorMB("Введите пароль");
                         PasswordTb.Focus();
-                    }
-                    else if (string.IsNullOrWhiteSpace(PassportTb.Text))
-                    {
-                        MBClass.ErrorMB("Введите серию паспорта");
-                        PassportCb.Focus();
-                    }
-                    else if (string.IsNullOrWhiteSpace(PassportOneTb.Text))
-                    {
-                        MBClass.ErrorMB("Введите номер паспорта");
-                        PassportCb.Focus();
-                    }
-                    else if (GenderCb.SelectedIndex <= -1)
-                    {
-                        MBClass.ErrorMB("Введите пол");
-                        GenderCb.Focus();
-                    }
-                    else if (JobTitleCb.SelectedIndex <= -1)
-                    {
-                        MBClass.ErrorMB("Введите должность");
-                        JobTitleCb.Focus();
                     }
                     else
                     {
@@ -183,8 +149,6 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                                 .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
                             staff.User.LoginUser = LoginTb.Text;
                             staff.User.PasswordUser = PasswordTb.Text;
-                            staff.Passport.NumberPassport = Int32.Parse(PassportTb.Text);
-                            staff.Passport.SeriesPassport = Int32.Parse(PassportOneTb.Text);
 
                             staff.LastNameStaff = LastNameStaffTb.Text;
                             staff.FirstNameStaff = FirstNameStaffTb.Text;
@@ -192,14 +156,11 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                             staff.FullName = FirstNameStaffTb.Text + " "
                                 + LastNameStaffTb.Text + " " + MiddleNameFull;
                             staff.NumberPhoneStaff = NumberPhoneStaffTb.Text;
-                            staff.DateOfBirthStaff = System.DateTime.Parse(DateOfBirthStaffDp.Text);
-                            staff.IdGender = Int32.Parse(GenderCb.SelectedValue.ToString());
                             staff.AdressStaff = AdressStaffTb.Text;
-                            staff.IdJobTitle = Int32.Parse(JobTitleCb.SelectedValue.ToString());
                             DBEntities.GetContext().SaveChanges();
 
-                            MBClass.InfoMB("Данные о сотруднике успешно отредактированы");
-                            NavigationService.Navigate(new ListStaffPage());
+                            MBClass.InfoMB("Данные о профиле успешно отредактированы");
+                            NavigationService.Navigate(new ListProfilePage());
                         }
                         else
                         {
@@ -207,8 +168,6 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                                 .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
                             staff.User.LoginUser = LoginTb.Text;
                             staff.User.PasswordUser = PasswordTb.Text;
-                            staff.Passport.NumberPassport = Int32.Parse(PassportTb.Text);
-                            staff.Passport.SeriesPassport = Int32.Parse(PassportOneTb.Text);
 
                             staff.LastNameStaff = LastNameStaffTb.Text;
                             staff.FirstNameStaff = FirstNameStaffTb.Text;
@@ -216,15 +175,12 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                             staff.FullName = FirstNameStaffTb.Text + " "
                                 + LastNameStaffTb.Text + " " + MiddleNameFull;
                             staff.NumberPhoneStaff = NumberPhoneStaffTb.Text;
-                            staff.DateOfBirthStaff = System.DateTime.Parse(DateOfBirthStaffDp.Text);
-                            staff.IdGender = Int32.Parse(GenderCb.SelectedValue.ToString());
                             staff.AdressStaff = AdressStaffTb.Text;
-                            staff.IdJobTitle = Int32.Parse(JobTitleCb.SelectedValue.ToString());
                             staff.PhotoStaff = ClassImage.ConvertImageToArray(selectedFileName);
                             DBEntities.GetContext().SaveChanges();
 
-                            MBClass.InfoMB("Данные о сотруднике успешно отредактированы");
-                            NavigationService.Navigate(new ListStaffPage());
+                            MBClass.InfoMB("Данные о профиле успешно отредактированы");
+                            NavigationService.Navigate(new ListProfilePage());
                         }
                     }
                 }

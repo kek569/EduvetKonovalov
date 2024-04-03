@@ -13,103 +13,106 @@
     MaxHeight="950" MaxWidth="1400"
     MinHeight="950" MinWidth="1400"
         Icon="/EduvetKonovalov;component/ResourceFolder/ImageFolder/Logo.png">
-    <Border Style="{DynamicResource FonBorder}"
+    <Border Background="{StaticResource FillFon}"
+        CornerRadius="20">
+        <Border Style="{DynamicResource FonBorder}"
         MouseDown="Border_MouseDown"
             CornerRadius="20">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="10"/>
-                <RowDefinition Height="60"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+            <Border.Background>
+                <ImageBrush ImageSource="/EduvetKonovalov;component/ResourceFolder/ImageFolder/Fon.png"/>
+            </Border.Background>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-            <Border Style="{DynamicResource BorderTop}"
+                <Border Style="{DynamicResource BorderTop}"
                 Grid.RowSpan="2"/>
-            <Label Style="{DynamicResource LabelLogo}"
+                <Label Style="{DynamicResource LabelLogo}"
                Content="СОТРУДНИК"
                Grid.Row="1"
                Foreground="{DynamicResource FillFont}"/>
-            <Image x:Name="CloseIm"
+                <Image x:Name="CloseIm"
                Grid.Row="1"
                Style="{DynamicResource CloseIm}"
                MouseLeftButtonDown="CloseIm_MouseLeftButtonDown"
                Margin="0,10,10,26"/>
-            <Image x:Name="LogoIm"
+                <Image x:Name="LogoIm"
 Grid.Row="1"
 Style="{DynamicResource LogoIm}"
 Margin="10,4,0,14"/>
-            <Grid Grid.Row="2">
-                <Grid.Background>
-                    <ImageBrush ImageSource="/EduvetKonovalov;component/ResourceFolder/ImageFolder/Fon.png"/>
-                </Grid.Background>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="10"/>
-                    <RowDefinition Height="30"/>
-                    <RowDefinition Height="10"/>
-                    <RowDefinition Height="560"/>
-                    <RowDefinition Height="10"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="250"/>
-                    <ColumnDefinition Width="250"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Button x:Name="ListVeterinaryEquipmentBtn"
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="560"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition Width="250"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="ListVeterinaryEquipmentBtn"
                     Grid.Row="1"
                     Grid.Column="1"
                     Content="Список оборудований"
                     Style="{DynamicResource InvisibleButton}"
                     Click="ListVeterinaryEquipmentBtn_Click"/>
-                <Button x:Name="ListProfileBtn"
+                    <Button x:Name="ListProfileBtn"
                     Grid.Row="1"
                     Grid.Column="2"
                     Content="Личный кабинет"
                     Style="{DynamicResource InvisibleButton}"
                     Click="ListProfileBtn_Click"/>
-            </Grid>
-            <Grid Grid.Row="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="120"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="810"/>
-                    <RowDefinition Height="10"/>
-                    <RowDefinition Height="50"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Button x:Name="BackBtn"
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="810"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="BackBtn"
                     Grid.Row="2"
                     Grid.Column="1"
                     Content="Назад"
                     Click="BackBtn_Click"/>
-            </Grid>
-            <Grid Grid.Row="3">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="700"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="1200"/>
-                    <ColumnDefinition Width="100"/>
-                </Grid.ColumnDefinitions>
-                <Frame Grid.Row="2"
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="700"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition Width="1200"/>
+                        <ColumnDefinition Width="100"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame Grid.Row="2"
                        Grid.Column="1"
                        x:Name="MainFrame"
                        Margin="10"
                        NavigationUIVisibility="Hidden"/>
-                <Label Grid.Row="1"
+                    <Label Grid.Row="1"
                        Grid.Column="1"
                        Style="{DynamicResource LabelLogo}"
                        Content="{Binding ElementName=MainFrame,
                     Path=Content.Title}"/>
+                </Grid>
             </Grid>
-        </Grid>
+        </Border>
     </Border>
 </Window>

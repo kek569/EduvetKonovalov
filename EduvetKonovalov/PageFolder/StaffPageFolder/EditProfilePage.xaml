@@ -29,15 +29,10 @@
             <RowDefinition Height="10"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="200"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="70"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Label Content="Фамилия"
@@ -64,62 +59,6 @@ Style="{DynamicResource LabelNormal}"/>
   Grid.Column="3"
                  Text="{Binding MiddleNameStaff}"/>
 
-        <Label Content="серия и № паспорта"
-Grid.Row="7" Grid.Column="2"
-Style="{DynamicResource LabelNormal}"/>
-        <ComboBox x:Name="PassportCb"
-  Grid.Row="7"
-  Grid.Column="7"
-                  SelectedItem="{Binding Passport}"
-          SelectedValuePath="IdPassport"
-          DisplayMemberPath="NumberPassport"/>
-        <ComboBox x:Name="PassportOneCb"
-Grid.Row="7"
-Grid.Column="7"
-                SelectedItem="{Binding Passport}"
-        SelectedValuePath="IdPassport"
-        DisplayMemberPath="SeriesPassport"/>
-
-        <TextBox x:Name="PassportTb"
-  Grid.Row="7"
-  Grid.Column="3"
-                 Text="{Binding Passport.NumberPassport}"/>
-        <TextBox x:Name="PassportOneTb"
-Grid.Row="7"
-Grid.Column="3"
-                  Margin="112,10,10,10"
-                 Text="{Binding Passport.SeriesPassport}"/>
-
-        <Label Content="Пол"
-    Grid.Row="9" Grid.Column="2"
-    Style="{DynamicResource LabelNormal}"/>
-        <ComboBox x:Name="GenderCb"
-   Grid.Column="3"
-   Grid.Row="9"
-SelectedItem="{Binding Gender}"
-          SelectedValuePath="IdGender"
-          DisplayMemberPath="GenderStaff"/>
-
-        <Label Content="Должность"
-Grid.Row="11" Grid.Column="2"
-Style="{DynamicResource LabelNormal}"/>
-        <ComboBox x:Name="JobTitleCb"
-Grid.Row="11"
-Grid.Column="3"
-                  SelectedItem="{Binding JobTitle}"
-          SelectedValuePath="IdJobTitle"
-          DisplayMemberPath="NameJobTitle"/>
-
-        <Label Content="Роль"
-Grid.Row="13" Grid.Column="2"
-Style="{DynamicResource LabelNormal}"/>
-        <ComboBox x:Name="RoleCb"
-Grid.Row="13"
-Grid.Column="3"
-                  SelectedItem="{Binding User.Role}"
-          SelectedValuePath="IdRole"
-          DisplayMemberPath="NameRole"/>
-
         <ComboBox x:Name="LoginCb"
    Grid.Column="7"
    Grid.Row="14"
@@ -134,63 +73,56 @@ SelectedItem="{Binding Password}"
           SelectedValuePath="IdPassword"
           DisplayMemberPath="PasswordUser"
                   SelectedIndex="1"/>
-
-        <Label Content="День рождения"
+        
+        <Label Content="Адрес"
     Grid.Row="1" Grid.Column="5"
     Style="{DynamicResource LabelNormal}"/>
-        <DatePicker x:Name="DateOfBirthStaffDp"
-    Grid.Row="1"
-    Grid.Column="6"
-                    Text="{Binding DateOfBirthStaff}"/>
-        <Label Content="Адрес"
-    Grid.Row="3" Grid.Column="5"
-    Style="{DynamicResource LabelNormal}"/>
         <TextBox x:Name="AdressStaffTb"
-    Grid.Row="3"
+    Grid.Row="1"
     Grid.Column="6"
                  Text="{Binding AdressStaff}"/>
 
         <Label Content="Номер телефона"
-    Grid.Row="5" Grid.Column="5"
+    Grid.Row="3" Grid.Column="5"
     Style="{DynamicResource LabelNormal}"/>
         <TextBox x:Name="NumberPhoneStaffTb"
-    Grid.Row="5"
+    Grid.Row="3"
     Grid.Column="6"
                  Text="{Binding NumberPhoneStaff}"/>
 
         <Image x:Name="PhotoIM"
                Source="{Binding PhotoStaff}"
-       Grid.Row="11"
-               Grid.RowSpan="5"
-       Grid.Column="5"
+       Grid.Row="7"
+               Grid.RowSpan="3"
+       Grid.Column="2"
        Grid.ColumnSpan="2"/>
 
         <Label Content="Логин"
-    Grid.Row="7" Grid.Column="5"
+    Grid.Row="5" Grid.Column="5"
     Style="{DynamicResource LabelNormal}"/>
         <TextBox x:Name="LoginTb"
-    Grid.Row="7"
+    Grid.Row="5"
     Grid.Column="6"
                  Text="{Binding User.LoginUser}"/>
 
         <Label Content="Пароль"
-Grid.Row="9" Grid.Column="5"
+Grid.Row="7" Grid.Column="5"
 Style="{DynamicResource LabelNormal}"/>
         <TextBox x:Name="PasswordTb"
-Grid.Row="9"
+Grid.Row="7"
 Grid.Column="6"
                  Text="{Binding User.PasswordUser}"/>
 
         <Button x:Name="LoadPhotoBtn"
     Content="Загрузить фото"
     Grid.Column="3"
-    Grid.Row="17"
+    Grid.Row="11"
     Click="LoadPhotoBtn_Click"/>
 
         <Button x:Name="SaveBtn"
  Content="Сохранить изменения"
  Grid.Column="6"
- Grid.Row="17"
+ Grid.Row="11"
  Click="SaveBtn_Click"/>
     </Grid>
 </Page>

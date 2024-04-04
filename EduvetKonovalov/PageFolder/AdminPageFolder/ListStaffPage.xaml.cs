@@ -42,6 +42,10 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             {
                 SearchTb.Text = "";
             }
+            else
+            {
+                Search();
+            }
         }
 
         private void SearchTb_KeyUp(object sender, KeyEventArgs e)
@@ -49,9 +53,34 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             if (SearchTb.Text == "")
             {
                 SearchTb.Text = "Поиск";
+                StaffListB.ItemsSource = DataFolder.DBEntities.GetContext().Staff.
+                   Where(s => s.LastNameStaff.StartsWith("")).ToList();
+            }
+            else
+            {
+                Search();
             }
         }
+
         Staff staff = new Staff();
+
+        private void Search()
+        {
+            try
+            {
+                StaffListB.ItemsSource = DataFolder.DBEntities.GetContext().Staff.
+                    Where(s => s.LastNameStaff.StartsWith(SearchTb.Text) ||
+                    s.FirstNameStaff.StartsWith(SearchTb.Text) ||
+                    s.MiddleNameStaff.StartsWith(SearchTb.Text) ||
+                    s.NumberPhoneStaff.StartsWith(SearchTb.Text) ||
+                    s.Gender.GenderStaff.StartsWith(SearchTb.Text)).ToList();
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
+            }
+        }
+
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
         {
             try

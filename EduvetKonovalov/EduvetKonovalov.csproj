@@ -186,6 +186,9 @@
     <Compile Include="PageFolder\StaffPageFolder\ListProfilePage.xaml.cs">
       <DependentUpon>ListProfilePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\StaffPageFolder\ListRequestVeterinaryEquipmentPage.xaml.cs">
+      <DependentUpon>ListRequestVeterinaryEquipmentPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageFolder\StaffPageFolder\ListVeterinaryEquipmentPage.xaml.cs">
       <DependentUpon>ListVeterinaryEquipmentPage.xaml</DependentUpon>
     </Compile>
@@ -279,6 +282,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\StaffPageFolder\ListProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\StaffPageFolder\ListRequestVeterinaryEquipmentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

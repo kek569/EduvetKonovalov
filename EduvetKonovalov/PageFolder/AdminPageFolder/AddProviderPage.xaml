@@ -6,9 +6,69 @@
       xmlns:local="clr-namespace:EduvetKonovalov.PageFolder.AdminPageFolder"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddProviderPage">
-
+        Title="Добавление поставщика">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="350"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Наименование"
+           Style="{StaticResource LabelNormal}"
+           Grid.Row="2"
+           Grid.Column="2"/>
+        <TextBox x:Name="NameProviderTb"
+             Text="{Binding NameProvider}"
+             Grid.Row="2"
+             Grid.Column="3"/>
+
+        <Label Content="Номер телефона"
+           Style="{StaticResource LabelNormal}"
+           Grid.Row="4"
+           Grid.Column="2"/>
+        <TextBox x:Name="NumberPhoneProviderTb"
+             Text="{Binding NumberPhoneProvider}"
+             Grid.Row="4"
+             Grid.Column="3"/>
+
+        <Label Content="Элктроная почта"
+           Style="{StaticResource LabelNormal}"
+           Grid.Row="6"
+           Grid.Column="2"/>
+        <TextBox x:Name="EmailProviderTb"
+             Text="{Binding EmailProvider}"
+             Grid.Row="6"
+             Grid.Column="3"/>
+
+        <Button x:Name="AddProviderBtn"
+            Content="Добавить поставщика"
+            Grid.Row="8"
+            Grid.Column="3"
+            Click="AddProviderBtn_Click"/>
+
+        <ComboBox x:Name="ProviderCb"
+                  Grid.Column="5"
+                  Grid.Row="1"
+                  SelectedItem="{Binding Provider}"
+                  SelectedValuePath="IdProvider"
+                  DisplayMemberPath="IdProvider"/>
     </Grid>
 </Page>

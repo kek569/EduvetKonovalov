@@ -34,8 +34,8 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
             DataContext = staff;
             this.staff.IdStaff = staff.IdStaff;
 
-            LoginCb.ItemsSource = DBEntities.GetContext().Login.ToList();
-            PasswordCb.ItemsSource = DBEntities.GetContext().Password.ToList();
+            LoginCb.ItemsSource = DBEntities.GetContext().User.ToList();
+            PasswordCb.ItemsSource = DBEntities.GetContext().User.ToList();
 
             staff = DBEntities.GetContext().Staff
                                 .FirstOrDefault(s => s.IdStaff == staff.IdStaff);

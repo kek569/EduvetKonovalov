@@ -726,3 +726,9 @@ C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debu
 C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debug\EduvetKonovalov.csproj.CopyComplete
 C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debug\EduvetKonovalov.exe
 C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debug\EduvetKonovalov.pdb
+C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\AddProviderPage.g.cs
+C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\ViewProviderPage.g.cs
+C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\ListRequestVeterinaryEquipmentPage.g.cs
+C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\AddProviderPage.baml
+C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\ViewProviderPage.baml
+C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\ListRequestVeterinaryEquipmentPage.baml

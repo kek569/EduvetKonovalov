@@ -21,11 +21,20 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
     /// </summary>
     public partial class ViewProviderPage : Page
     {
-        VeterinaryEquipment veterinaryEquipment = new VeterinaryEquipment();
+        Provider provider = new Provider();
 
         public ViewProviderPage(VeterinaryEquipment veterinaryEquipment)
         {
             InitializeComponent();
+            provider = DBEntities.GetContext().Provider
+                                .FirstOrDefault(p => p.IdProvider ==
+                                veterinaryEquipment.IdProvider);
+            DataContext = provider;
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ListVeterinaryEquipmentPage());
         }
     }
 }

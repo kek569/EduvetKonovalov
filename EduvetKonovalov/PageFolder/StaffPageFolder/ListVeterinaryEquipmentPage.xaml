@@ -38,7 +38,7 @@
 
         <Button x:Name="AddBtn"
 Grid.Column="5"
-        Content="Добавить"
+        Content="Создать запрос"
        Click="AddBtn_Click"/>
 
         <Button x:Name="ExportBtn"
@@ -97,12 +97,6 @@ IsReadOnly="True">
                 BorderThickness="0">
             <ListBox.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Редактирование"
-                          Name="EditVeterinaryEquipmentfMi"
-                          Click="EditVeterinaryEquipmentfMi_Click"/>
-                    <MenuItem Header="Удаление"
-      Name="DeleteVeterinaryEquipmentfMi"
-      Click="DeleteVeterinaryEquipmentfMi_Click"/>
                     <MenuItem Header="Обновить страницу"
                           Name="UpdateVeterinaryEquipmentMi"
                           Click="UpdateVeterinaryEquipmentMi_Click"/>

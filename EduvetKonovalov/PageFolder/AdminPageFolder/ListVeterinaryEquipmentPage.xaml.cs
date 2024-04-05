@@ -147,15 +147,15 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             else
             {
                 var a = VeterinaryEquipmentListB.SelectedItem as VeterinaryEquipment;
-                this.veterinaryEquipment.IdVeterinaryEquipment = a.IdVeterinaryEquipment;
-                if(veterinaryEquipment.IdProvider <= 0)
+                if(a.IdProvider <= 0 || a.IdProvider == null)
                 {
                     bool ret = MBClass.QestionMB("Внимание! Поставщика для данного " +
                         "оборудование не добавлено, вы хотите добавить поставщика для " +
                         "даного оборудование?");
                     if (ret == true)
                     {
-
+                        NavigationService.Navigate(new AddProviderPage(VeterinaryEquipmentListB.
+                                            SelectedItem as VeterinaryEquipment));
                     }
                 }
                 else

@@ -25,11 +25,32 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
         public ListVeterinaryEquipmentPage()
         {
             InitializeComponent();
+            string selected_dept = (App.Current as App).DeptName;
+
             VeterinaryEquipmentListB.ItemsSource = DBEntities.GetContext()
                 .VeterinaryEquipment.ToList().OrderBy(v => v.NameVeterinaryEquipment);
 
             ListVeterinaryEquipmentDg.ItemsSource = DBEntities.GetContext()
                 .VeterinaryEquipment.ToList().OrderBy(v => v.NameVeterinaryEquipment);
+
+            try
+            {
+                VeterinaryEquipmentListB.ItemsSource = DataFolder.DBEntities.GetContext().
+                    VeterinaryEquipment.Where
+                    (v => v.Staff.User.LoginUser.StartsWith(selected_dept)).ToList();
+                if (VeterinaryEquipmentListB.Items.Count <= 0)
+                    MBClass.ErrorMB("Error");
+
+                ListVeterinaryEquipmentDg.ItemsSource = DataFolder.DBEntities.GetContext().
+                    VeterinaryEquipment.Where
+                    (v => v.Staff.User.LoginUser.StartsWith(selected_dept)).ToList();
+                if (ListVeterinaryEquipmentDg.Items.Count <= 0)
+                    MBClass.ErrorMB("Error");
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
+            }
         }
 
         private void SearchTb_KeyDown(object sender, KeyEventArgs e)
@@ -50,15 +71,17 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
 
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
         {
+            string selected_dept = (App.Current as App).DeptName;
             try
             {
                 VeterinaryEquipmentListB.ItemsSource = DataFolder.DBEntities.GetContext().
                     VeterinaryEquipment.Where
-                    (v => v.NameVeterinaryEquipment.StartsWith(SearchTb.Text) ||
+                    (v => (v.NameVeterinaryEquipment.StartsWith(SearchTb.Text) ||
                     v.TypeVeterinaryEquipment.NameTypeVeterinaryEquipment.
                     StartsWith(SearchTb.Text) ||
                     v.WhereDidItComeFrom.StartsWith(SearchTb.Text) ||
-                    v.Staff.FullName.StartsWith(SearchTb.Text)).ToList();
+                    v.Staff.FullName.StartsWith(SearchTb.Text)) && 
+                    v.Staff.User.LoginUser.StartsWith(selected_dept)).ToList();
                 if (VeterinaryEquipmentListB.Items.Count <= 0)
                     MBClass.ErrorMB("Данные отсутствуют");
             }

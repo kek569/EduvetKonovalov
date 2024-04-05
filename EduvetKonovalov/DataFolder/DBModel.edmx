@@ -62,7 +62,7 @@
           </Key>
           <Property Name="IdProvider" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameProvider" Type="nvarchar" MaxLength="80" Nullable="false" />
-          <Property Name="NumberPhoneProvider" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="NumberPhoneProvider" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="EmailProvider" Type="nvarchar" MaxLength="80" Nullable="false" />
         </EntityType>
         <EntityType Name="Remainder">
@@ -564,7 +564,7 @@
           </Key>
           <Property Name="IdProvider" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameProvider" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NumberPhoneProvider" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NumberPhoneProvider" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EmailProvider" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="VeterinaryEquipment" Relationship="Self.FK_VeterinaryEquipment_Provider" FromRole="Provider" ToRole="VeterinaryEquipment" />
         </EntityType>

@@ -29,7 +29,8 @@
                  Grid.Column="1"
                  Text="Поиск"
                  Keyboard.KeyDown="SearchTb_KeyDown"
-                 Keyboard.KeyUp="SearchTb_KeyUp"/>
+                 Keyboard.KeyUp="SearchTb_KeyUp"
+                 PreviewKeyDown="SearchTb_PreviewKeyDown"/>
 
         <Button x:Name="SearchBtn"
         Grid.Column="3"

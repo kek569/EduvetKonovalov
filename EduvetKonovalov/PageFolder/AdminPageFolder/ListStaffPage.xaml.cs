@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace EduvetKonovalov.PageFolder.AdminPageFolder
 {
@@ -41,6 +42,8 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             if (SearchTb.Text == "Поиск")
             {
                 SearchTb.Text = "";
+                StaffListB.ItemsSource = DataFolder.DBEntities.GetContext().Staff.
+                   Where(s => s.LastNameStaff.StartsWith("")).ToList();
             }
             else
             {
@@ -60,6 +63,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             {
                 Search();
             }
+
         }
 
         Staff staff = new Staff();
@@ -68,12 +72,20 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
         {
             try
             {
-                StaffListB.ItemsSource = DataFolder.DBEntities.GetContext().Staff.
-                    Where(s => s.LastNameStaff.StartsWith(SearchTb.Text) ||
-                    s.FirstNameStaff.StartsWith(SearchTb.Text) ||
-                    s.MiddleNameStaff.StartsWith(SearchTb.Text) ||
-                    s.NumberPhoneStaff.StartsWith(SearchTb.Text) ||
-                    s.Gender.GenderStaff.StartsWith(SearchTb.Text)).ToList();
+                if (!string.IsNullOrEmpty(SearchTb.Text) || SearchTb.Text != "Поиск")
+                {
+                    StaffListB.ItemsSource = DataFolder.DBEntities.GetContext().Staff.
+                        Where(s => s.LastNameStaff.StartsWith(SearchTb.Text) ||
+                        s.FirstNameStaff.StartsWith(SearchTb.Text) ||
+                        s.MiddleNameStaff.StartsWith(SearchTb.Text) ||
+                        s.NumberPhoneStaff.StartsWith(SearchTb.Text) ||
+                        s.Gender.GenderStaff.StartsWith(SearchTb.Text)).ToList();
+                }
+                else
+                {
+                    StaffListB.ItemsSource = DataFolder.DBEntities.GetContext().Staff.
+                      Where(s => s.LastNameStaff.StartsWith("")).ToList();
+                }
             }
             catch (Exception ex)
             {
@@ -171,6 +183,39 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             {
                 MBClass.ErrorMB(ex);
             }
+        }
+
+        private void SearchTb_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if ((e.Key == Key.Back || e.Key == Key.Delete ||
+                e.Key == Key.Space || e.Key == Key.LeftShift ||
+                e.Key == Key.LeftAlt || e.Key == Key.LeftCtrl ||
+                e.Key == Key.Tab || e.Key == Key.RightCtrl ||
+                e.Key == Key.RightShift || e.Key == Key.Right ||
+                e.Key == Key.Left || e.Key == Key.Up ||
+                e.Key == Key.Down) 
+                && SearchTb.Text == "Поиск")
+            {
+                e.Handled = true;
+                Update();
+            }
+        }
+
+        private void Update()
+        {
+            var timer = new DispatcherTimer
+            { Interval = TimeSpan.FromSeconds(0.1) };
+            timer.Start();
+            timer.Tick += (sender, args) =>
+            {
+                timer.Stop();
+                if (SearchTb.Text == "Поиск")
+                {
+                    StaffListB.ItemsSource = DataFolder.DBEntities.GetContext().Staff.
+                      Where(s => s.LastNameStaff.StartsWith("")).ToList();
+                }
+                else { }
+            };
         }
     }
 }

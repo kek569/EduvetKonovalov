@@ -49,14 +49,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Login">
-      <EntityTypeMapping TypeName="DBModel.Login">
-        <MappingFragment StoreEntitySet="Login">
-          <ScalarProperty Name="IdLogin" ColumnName="IdLogin" />
-          <ScalarProperty Name="LoginUser" ColumnName="LoginUser" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Passport">
       <EntityTypeMapping TypeName="DBModel.Passport">
         <MappingFragment StoreEntitySet="Passport">
@@ -66,11 +58,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Password">
-      <EntityTypeMapping TypeName="DBModel.Password">
-        <MappingFragment StoreEntitySet="Password">
-          <ScalarProperty Name="IdPassword" ColumnName="IdPassword" />
-          <ScalarProperty Name="PasswordUser" ColumnName="PasswordUser" />
+    <EntitySetMapping Name="Provider">
+      <EntityTypeMapping TypeName="DBModel.Provider">
+        <MappingFragment StoreEntitySet="Provider">
+          <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
+          <ScalarProperty Name="NameProvider" ColumnName="NameProvider" />
+          <ScalarProperty Name="NumberPhoneProvider" ColumnName="NumberPhoneProvider" />
+          <ScalarProperty Name="EmailProvider" ColumnName="EmailProvider" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -80,6 +74,49 @@
           <ScalarProperty Name="IdRemainder" ColumnName="IdRemainder" />
           <ScalarProperty Name="AmountRemainder" ColumnName="AmountRemainder" />
           <ScalarProperty Name="SumRemainder" ColumnName="SumRemainder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestComing">
+      <EntityTypeMapping TypeName="DBModel.RequestComing">
+        <MappingFragment StoreEntitySet="RequestComing">
+          <ScalarProperty Name="IdRequestComing" ColumnName="IdRequestComing" />
+          <ScalarProperty Name="AmountComing" ColumnName="AmountComing" />
+          <ScalarProperty Name="SumComing" ColumnName="SumComing" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestConsumption">
+      <EntityTypeMapping TypeName="DBModel.RequestConsumption">
+        <MappingFragment StoreEntitySet="RequestConsumption">
+          <ScalarProperty Name="IdRequestConsumption" ColumnName="IdRequestConsumption" />
+          <ScalarProperty Name="AmountConsumption" ColumnName="AmountConsumption" />
+          <ScalarProperty Name="SumConsumption" ColumnName="SumConsumption" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestRemainder">
+      <EntityTypeMapping TypeName="DBModel.RequestRemainder">
+        <MappingFragment StoreEntitySet="RequestRemainder">
+          <ScalarProperty Name="IdRequestRemainder" ColumnName="IdRequestRemainder" />
+          <ScalarProperty Name="AmountRemainder" ColumnName="AmountRemainder" />
+          <ScalarProperty Name="SumRemainder" ColumnName="SumRemainder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RequestVeterinaryEquipment">
+      <EntityTypeMapping TypeName="DBModel.RequestVeterinaryEquipment">
+        <MappingFragment StoreEntitySet="RequestVeterinaryEquipment">
+          <ScalarProperty Name="IdRequestVeterinaryEquipment" ColumnName="IdRequestVeterinaryEquipment" />
+          <ScalarProperty Name="NameVeterinaryEquipment" ColumnName="NameVeterinaryEquipment" />
+          <ScalarProperty Name="IdTypeVeterinaryEquipment" ColumnName="IdTypeVeterinaryEquipment" />
+          <ScalarProperty Name="RecordingDate" ColumnName="RecordingDate" />
+          <ScalarProperty Name="WhereDidItComeFrom" ColumnName="WhereDidItComeFrom" />
+          <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />
+          <ScalarProperty Name="IdRequestComing" ColumnName="IdRequestComing" />
+          <ScalarProperty Name="IdRequestConsumption" ColumnName="IdRequestConsumption" />
+          <ScalarProperty Name="IdRequestRemainder" ColumnName="IdRequestRemainder" />
+          <ScalarProperty Name="PhotoVeterinaryEquipment" ColumnName="PhotoVeterinaryEquipment" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -160,6 +197,7 @@
           <ScalarProperty Name="IdConsumption" ColumnName="IdConsumption" />
           <ScalarProperty Name="IdRemainder" ColumnName="IdRemainder" />
           <ScalarProperty Name="PhotoVeterinaryEquipment" ColumnName="PhotoVeterinaryEquipment" />
+          <ScalarProperty Name="IdProvider" ColumnName="IdProvider" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

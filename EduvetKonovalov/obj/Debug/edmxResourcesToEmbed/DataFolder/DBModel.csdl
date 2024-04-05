@@ -49,13 +49,6 @@
     <Property Name="NameJobTitle" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_JobTitle" FromRole="JobTitle" ToRole="Staff" />
   </EntityType>
-  <EntityType Name="Login">
-    <Key>
-      <PropertyRef Name="IdLogin" />
-    </Key>
-    <Property Name="IdLogin" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="LoginUser" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
   <EntityType Name="Passport">
     <Key>
       <PropertyRef Name="IdPassport" />
@@ -65,12 +58,15 @@
     <Property Name="SeriesPassport" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Staff" Relationship="Self.FK_Staff_Passport" FromRole="Passport" ToRole="Staff" />
   </EntityType>
-  <EntityType Name="Password">
+  <EntityType Name="Provider">
     <Key>
-      <PropertyRef Name="IdPassword" />
+      <PropertyRef Name="IdProvider" />
     </Key>
-    <Property Name="IdPassword" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="PasswordUser" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdProvider" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameProvider" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NumberPhoneProvider" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmailProvider" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="VeterinaryEquipment" Relationship="Self.FK_VeterinaryEquipment_Provider" FromRole="Provider" ToRole="VeterinaryEquipment" />
   </EntityType>
   <EntityType Name="Remainder">
     <Key>
@@ -80,6 +76,53 @@
     <Property Name="AmountRemainder" Type="Int32" Nullable="false" />
     <Property Name="SumRemainder" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
     <NavigationProperty Name="VeterinaryEquipment" Relationship="Self.FK_VeterinaryEquipment_Remainder" FromRole="Remainder" ToRole="VeterinaryEquipment" />
+  </EntityType>
+  <EntityType Name="RequestComing">
+    <Key>
+      <PropertyRef Name="IdRequestComing" />
+    </Key>
+    <Property Name="IdRequestComing" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AmountComing" Type="Int32" Nullable="false" />
+    <Property Name="SumComing" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="RequestVeterinaryEquipment" Relationship="Self.FK_RequestVeterinaryEquipment_RequestComing" FromRole="RequestComing" ToRole="RequestVeterinaryEquipment" />
+  </EntityType>
+  <EntityType Name="RequestConsumption">
+    <Key>
+      <PropertyRef Name="IdRequestConsumption" />
+    </Key>
+    <Property Name="IdRequestConsumption" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AmountConsumption" Type="Int32" Nullable="false" />
+    <Property Name="SumConsumption" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="RequestVeterinaryEquipment" Relationship="Self.FK_RequestVeterinaryEquipment_RequestConsumption" FromRole="RequestConsumption" ToRole="RequestVeterinaryEquipment" />
+  </EntityType>
+  <EntityType Name="RequestRemainder">
+    <Key>
+      <PropertyRef Name="IdRequestRemainder" />
+    </Key>
+    <Property Name="IdRequestRemainder" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AmountRemainder" Type="Int32" Nullable="false" />
+    <Property Name="SumRemainder" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="RequestVeterinaryEquipment" Relationship="Self.FK_RequestVeterinaryEquipment_RequestRemainder" FromRole="RequestRemainder" ToRole="RequestVeterinaryEquipment" />
+  </EntityType>
+  <EntityType Name="RequestVeterinaryEquipment">
+    <Key>
+      <PropertyRef Name="IdRequestVeterinaryEquipment" />
+    </Key>
+    <Property Name="IdRequestVeterinaryEquipment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameVeterinaryEquipment" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdTypeVeterinaryEquipment" Type="Int32" Nullable="false" />
+    <Property Name="RecordingDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="WhereDidItComeFrom" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IdStaff" Type="Int32" Nullable="false" />
+    <Property Name="IdRequestComing" Type="Int32" Nullable="false" />
+    <Property Name="IdRequestConsumption" Type="Int32" Nullable="false" />
+    <Property Name="IdRequestRemainder" Type="Int32" Nullable="false" />
+    <Property Name="PhotoVeterinaryEquipment" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="RequestComing" Relationship="Self.FK_RequestVeterinaryEquipment_RequestComing" FromRole="RequestVeterinaryEquipment" ToRole="RequestComing" />
+    <NavigationProperty Name="RequestConsumption" Relationship="Self.FK_RequestVeterinaryEquipment_RequestConsumption" FromRole="RequestVeterinaryEquipment" ToRole="RequestConsumption" />
+    <NavigationProperty Name="RequestRemainder" Relationship="Self.FK_RequestVeterinaryEquipment_RequestRemainder" FromRole="RequestVeterinaryEquipment" ToRole="RequestRemainder" />
+    <NavigationProperty Name="Staff" Relationship="Self.FK_RequestVeterinaryEquipment_Staff" FromRole="RequestVeterinaryEquipment" ToRole="Staff" />
+    <NavigationProperty Name="TypeVeterinaryEquipment" Relationship="Self.FK_RequestVeterinaryEquipment_TypeVeterinaryEquipment" FromRole="RequestVeterinaryEquipment" ToRole="TypeVeterinaryEquipment" />
   </EntityType>
   <EntityType Name="Role">
     <Key>
@@ -105,11 +148,12 @@
     <Property Name="AdressStaff" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IdJobTitle" Type="Int32" Nullable="false" />
-    <Property Name="IdUser" Type="Int32" />
+    <Property Name="IdUser" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Courses" Relationship="Self.FK_Courses_Staff" FromRole="Staff" ToRole="Courses" />
     <NavigationProperty Name="Gender" Relationship="Self.FK_Staff_Gender" FromRole="Staff" ToRole="Gender" />
     <NavigationProperty Name="JobTitle" Relationship="Self.FK_Staff_JobTitle" FromRole="Staff" ToRole="JobTitle" />
     <NavigationProperty Name="Passport" Relationship="Self.FK_Staff_Passport" FromRole="Staff" ToRole="Passport" />
+    <NavigationProperty Name="RequestVeterinaryEquipment" Relationship="Self.FK_RequestVeterinaryEquipment_Staff" FromRole="Staff" ToRole="RequestVeterinaryEquipment" />
     <NavigationProperty Name="User" Relationship="Self.FK_Staff_User" FromRole="Staff" ToRole="User" />
     <NavigationProperty Name="VeterinaryEquipment" Relationship="Self.FK_VeterinaryEquipment_Staff" FromRole="Staff" ToRole="VeterinaryEquipment" />
   </EntityType>
@@ -137,6 +181,7 @@
     </Key>
     <Property Name="IdTypeVeterinaryEquipment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NameTypeVeterinaryEquipment" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="RequestVeterinaryEquipment" Relationship="Self.FK_RequestVeterinaryEquipment_TypeVeterinaryEquipment" FromRole="TypeVeterinaryEquipment" ToRole="RequestVeterinaryEquipment" />
     <NavigationProperty Name="VeterinaryEquipment" Relationship="Self.FK_VeterinaryEquipment_TypeVeterinaryEquipment" FromRole="TypeVeterinaryEquipment" ToRole="VeterinaryEquipment" />
   </EntityType>
   <EntityType Name="User">
@@ -164,8 +209,10 @@
     <Property Name="IdConsumption" Type="Int32" Nullable="false" />
     <Property Name="IdRemainder" Type="Int32" Nullable="false" />
     <Property Name="PhotoVeterinaryEquipment" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="IdProvider" Type="Int32" />
     <NavigationProperty Name="Coming" Relationship="Self.FK_VeterinaryEquipment_Coming" FromRole="VeterinaryEquipment" ToRole="Coming" />
     <NavigationProperty Name="Consumption" Relationship="Self.FK_VeterinaryEquipment_Consumption" FromRole="VeterinaryEquipment" ToRole="Consumption" />
+    <NavigationProperty Name="Provider" Relationship="Self.FK_VeterinaryEquipment_Provider" FromRole="VeterinaryEquipment" ToRole="Provider" />
     <NavigationProperty Name="Remainder" Relationship="Self.FK_VeterinaryEquipment_Remainder" FromRole="VeterinaryEquipment" ToRole="Remainder" />
     <NavigationProperty Name="Staff" Relationship="Self.FK_VeterinaryEquipment_Staff" FromRole="VeterinaryEquipment" ToRole="Staff" />
     <NavigationProperty Name="TypeVeterinaryEquipment" Relationship="Self.FK_VeterinaryEquipment_TypeVeterinaryEquipment" FromRole="VeterinaryEquipment" ToRole="TypeVeterinaryEquipment" />
@@ -254,6 +301,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_VeterinaryEquipment_Provider">
+    <End Role="Provider" Type="Self.Provider" Multiplicity="0..1" />
+    <End Role="VeterinaryEquipment" Type="Self.VeterinaryEquipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provider">
+        <PropertyRef Name="IdProvider" />
+      </Principal>
+      <Dependent Role="VeterinaryEquipment">
+        <PropertyRef Name="IdProvider" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_VeterinaryEquipment_Remainder">
     <End Role="Remainder" Type="Self.Remainder" Multiplicity="1" />
     <End Role="VeterinaryEquipment" Type="Self.VeterinaryEquipment" Multiplicity="*" />
@@ -263,6 +322,66 @@
       </Principal>
       <Dependent Role="VeterinaryEquipment">
         <PropertyRef Name="IdRemainder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequestVeterinaryEquipment_RequestComing">
+    <End Role="RequestComing" Type="Self.RequestComing" Multiplicity="1" />
+    <End Role="RequestVeterinaryEquipment" Type="Self.RequestVeterinaryEquipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequestComing">
+        <PropertyRef Name="IdRequestComing" />
+      </Principal>
+      <Dependent Role="RequestVeterinaryEquipment">
+        <PropertyRef Name="IdRequestComing" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequestVeterinaryEquipment_RequestConsumption">
+    <End Role="RequestConsumption" Type="Self.RequestConsumption" Multiplicity="1" />
+    <End Role="RequestVeterinaryEquipment" Type="Self.RequestVeterinaryEquipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequestConsumption">
+        <PropertyRef Name="IdRequestConsumption" />
+      </Principal>
+      <Dependent Role="RequestVeterinaryEquipment">
+        <PropertyRef Name="IdRequestConsumption" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequestVeterinaryEquipment_RequestRemainder">
+    <End Role="RequestRemainder" Type="Self.RequestRemainder" Multiplicity="1" />
+    <End Role="RequestVeterinaryEquipment" Type="Self.RequestVeterinaryEquipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RequestRemainder">
+        <PropertyRef Name="IdRequestRemainder" />
+      </Principal>
+      <Dependent Role="RequestVeterinaryEquipment">
+        <PropertyRef Name="IdRequestRemainder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequestVeterinaryEquipment_Staff">
+    <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+    <End Role="RequestVeterinaryEquipment" Type="Self.RequestVeterinaryEquipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Staff">
+        <PropertyRef Name="IdStaff" />
+      </Principal>
+      <Dependent Role="RequestVeterinaryEquipment">
+        <PropertyRef Name="IdStaff" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RequestVeterinaryEquipment_TypeVeterinaryEquipment">
+    <End Role="TypeVeterinaryEquipment" Type="Self.TypeVeterinaryEquipment" Multiplicity="1" />
+    <End Role="RequestVeterinaryEquipment" Type="Self.RequestVeterinaryEquipment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeVeterinaryEquipment">
+        <PropertyRef Name="IdTypeVeterinaryEquipment" />
+      </Principal>
+      <Dependent Role="RequestVeterinaryEquipment">
+        <PropertyRef Name="IdTypeVeterinaryEquipment" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -279,7 +398,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Staff_User">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="1" />
     <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="User">
@@ -320,10 +439,13 @@
     <EntitySet Name="Courses" EntityType="Self.Courses" />
     <EntitySet Name="Gender" EntityType="Self.Gender" />
     <EntitySet Name="JobTitle" EntityType="Self.JobTitle" />
-    <EntitySet Name="Login" EntityType="Self.Login" />
     <EntitySet Name="Passport" EntityType="Self.Passport" />
-    <EntitySet Name="Password" EntityType="Self.Password" />
+    <EntitySet Name="Provider" EntityType="Self.Provider" />
     <EntitySet Name="Remainder" EntityType="Self.Remainder" />
+    <EntitySet Name="RequestComing" EntityType="Self.RequestComing" />
+    <EntitySet Name="RequestConsumption" EntityType="Self.RequestConsumption" />
+    <EntitySet Name="RequestRemainder" EntityType="Self.RequestRemainder" />
+    <EntitySet Name="RequestVeterinaryEquipment" EntityType="Self.RequestVeterinaryEquipment" />
     <EntitySet Name="Role" EntityType="Self.Role" />
     <EntitySet Name="Staff" EntityType="Self.Staff" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
@@ -359,9 +481,33 @@
       <End Role="Passport" EntitySet="Passport" />
       <End Role="Staff" EntitySet="Staff" />
     </AssociationSet>
+    <AssociationSet Name="FK_VeterinaryEquipment_Provider" Association="Self.FK_VeterinaryEquipment_Provider">
+      <End Role="Provider" EntitySet="Provider" />
+      <End Role="VeterinaryEquipment" EntitySet="VeterinaryEquipment" />
+    </AssociationSet>
     <AssociationSet Name="FK_VeterinaryEquipment_Remainder" Association="Self.FK_VeterinaryEquipment_Remainder">
       <End Role="Remainder" EntitySet="Remainder" />
       <End Role="VeterinaryEquipment" EntitySet="VeterinaryEquipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequestVeterinaryEquipment_RequestComing" Association="Self.FK_RequestVeterinaryEquipment_RequestComing">
+      <End Role="RequestComing" EntitySet="RequestComing" />
+      <End Role="RequestVeterinaryEquipment" EntitySet="RequestVeterinaryEquipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequestVeterinaryEquipment_RequestConsumption" Association="Self.FK_RequestVeterinaryEquipment_RequestConsumption">
+      <End Role="RequestConsumption" EntitySet="RequestConsumption" />
+      <End Role="RequestVeterinaryEquipment" EntitySet="RequestVeterinaryEquipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequestVeterinaryEquipment_RequestRemainder" Association="Self.FK_RequestVeterinaryEquipment_RequestRemainder">
+      <End Role="RequestRemainder" EntitySet="RequestRemainder" />
+      <End Role="RequestVeterinaryEquipment" EntitySet="RequestVeterinaryEquipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequestVeterinaryEquipment_Staff" Association="Self.FK_RequestVeterinaryEquipment_Staff">
+      <End Role="Staff" EntitySet="Staff" />
+      <End Role="RequestVeterinaryEquipment" EntitySet="RequestVeterinaryEquipment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RequestVeterinaryEquipment_TypeVeterinaryEquipment" Association="Self.FK_RequestVeterinaryEquipment_TypeVeterinaryEquipment">
+      <End Role="TypeVeterinaryEquipment" EntitySet="TypeVeterinaryEquipment" />
+      <End Role="RequestVeterinaryEquipment" EntitySet="RequestVeterinaryEquipment" />
     </AssociationSet>
     <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
       <End Role="Role" EntitySet="Role" />

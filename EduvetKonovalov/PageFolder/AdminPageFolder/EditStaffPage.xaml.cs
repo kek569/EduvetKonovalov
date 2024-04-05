@@ -37,8 +37,8 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             PassportCb.ItemsSource = DBEntities.GetContext().Passport.ToList();
             PassportOneCb.ItemsSource = DBEntities.GetContext().Passport.ToList();
             GenderCb.ItemsSource = DBEntities.GetContext().Gender.ToList();
-            LoginCb.ItemsSource = DBEntities.GetContext().Login.ToList();
-            PasswordCb.ItemsSource = DBEntities.GetContext().Password.ToList();
+            LoginCb.ItemsSource = DBEntities.GetContext().User.ToList();
+            PasswordCb.ItemsSource = DBEntities.GetContext().User.ToList();
             JobTitleCb.ItemsSource = DBEntities.GetContext().JobTitle.ToList();
             RoleCb.ItemsSource = DBEntities.GetContext().Role.ToList();
 

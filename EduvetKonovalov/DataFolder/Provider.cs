@@ -12,9 +12,18 @@ namespace EduvetKonovalov.DataFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class Login
+    public partial class Provider
     {
-        public string IdLogin { get; set; }
-        public string LoginUser { get; set; }
+        public Provider()
+        {
+            this.VeterinaryEquipment = new HashSet<VeterinaryEquipment>();
+        }
+    
+        public int IdProvider { get; set; }
+        public string NameProvider { get; set; }
+        public string NumberPhoneProvider { get; set; }
+        public string EmailProvider { get; set; }
+    
+        public virtual ICollection<VeterinaryEquipment> VeterinaryEquipment { get; set; }
     }
 }

@@ -12,9 +12,17 @@ namespace EduvetKonovalov.DataFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class Password
+    public partial class RequestRemainder
     {
-        public string IdPassword { get; set; }
-        public string PasswordUser { get; set; }
+        public RequestRemainder()
+        {
+            this.RequestVeterinaryEquipment = new HashSet<RequestVeterinaryEquipment>();
+        }
+    
+        public int IdRequestRemainder { get; set; }
+        public int AmountRemainder { get; set; }
+        public decimal SumRemainder { get; set; }
+    
+        public virtual ICollection<RequestVeterinaryEquipment> RequestVeterinaryEquipment { get; set; }
     }
 }

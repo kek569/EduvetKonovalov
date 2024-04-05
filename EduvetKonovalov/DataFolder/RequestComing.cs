@@ -12,18 +12,17 @@ namespace EduvetKonovalov.DataFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class TypeVeterinaryEquipment
+    public partial class RequestComing
     {
-        public TypeVeterinaryEquipment()
+        public RequestComing()
         {
             this.RequestVeterinaryEquipment = new HashSet<RequestVeterinaryEquipment>();
-            this.VeterinaryEquipment = new HashSet<VeterinaryEquipment>();
         }
     
-        public int IdTypeVeterinaryEquipment { get; set; }
-        public string NameTypeVeterinaryEquipment { get; set; }
+        public int IdRequestComing { get; set; }
+        public int AmountComing { get; set; }
+        public decimal SumComing { get; set; }
     
         public virtual ICollection<RequestVeterinaryEquipment> RequestVeterinaryEquipment { get; set; }
-        public virtual ICollection<VeterinaryEquipment> VeterinaryEquipment { get; set; }
     }
 }

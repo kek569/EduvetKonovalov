@@ -12,24 +12,22 @@ namespace EduvetKonovalov.DataFolder
     using System;
     using System.Collections.Generic;
     
-    public partial class VeterinaryEquipment
+    public partial class RequestVeterinaryEquipment
     {
-        public int IdVeterinaryEquipment { get; set; }
+        public int IdRequestVeterinaryEquipment { get; set; }
         public string NameVeterinaryEquipment { get; set; }
         public int IdTypeVeterinaryEquipment { get; set; }
         public System.DateTime RecordingDate { get; set; }
         public string WhereDidItComeFrom { get; set; }
         public int IdStaff { get; set; }
-        public int IdComing { get; set; }
-        public int IdConsumption { get; set; }
-        public int IdRemainder { get; set; }
+        public int IdRequestComing { get; set; }
+        public int IdRequestConsumption { get; set; }
+        public int IdRequestRemainder { get; set; }
         public byte[] PhotoVeterinaryEquipment { get; set; }
-        public Nullable<int> IdProvider { get; set; }
     
-        public virtual Coming Coming { get; set; }
-        public virtual Consumption Consumption { get; set; }
-        public virtual Provider Provider { get; set; }
-        public virtual Remainder Remainder { get; set; }
+        public virtual RequestComing RequestComing { get; set; }
+        public virtual RequestConsumption RequestConsumption { get; set; }
+        public virtual RequestRemainder RequestRemainder { get; set; }
         public virtual Staff Staff { get; set; }
         public virtual TypeVeterinaryEquipment TypeVeterinaryEquipment { get; set; }
     }

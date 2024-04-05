@@ -108,6 +108,14 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder {
         
         #line 106 "..\..\..\..\PageFolder\AdminPageFolder\ListVeterinaryEquipmentPage.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.MenuItem ViewProviderMi;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 109 "..\..\..\..\PageFolder\AdminPageFolder\ListVeterinaryEquipmentPage.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.MenuItem UpdateVeterinaryEquipmentMi;
         
         #line default
@@ -211,9 +219,18 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder {
             #line hidden
             return;
             case 9:
-            this.UpdateVeterinaryEquipmentMi = ((System.Windows.Controls.MenuItem)(target));
+            this.ViewProviderMi = ((System.Windows.Controls.MenuItem)(target));
             
             #line 107 "..\..\..\..\PageFolder\AdminPageFolder\ListVeterinaryEquipmentPage.xaml"
+            this.ViewProviderMi.Click += new System.Windows.RoutedEventHandler(this.ViewProviderMi_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 10:
+            this.UpdateVeterinaryEquipmentMi = ((System.Windows.Controls.MenuItem)(target));
+            
+            #line 110 "..\..\..\..\PageFolder\AdminPageFolder\ListVeterinaryEquipmentPage.xaml"
             this.UpdateVeterinaryEquipmentMi.Click += new System.Windows.RoutedEventHandler(this.UpdateVeterinaryEquipmentMi_Click);
             
             #line default

@@ -135,5 +135,35 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                 MBClass.ErrorMB(ex);
             }
         }
+
+        VeterinaryEquipment veterinaryEquipment = new VeterinaryEquipment();
+
+        private void ViewProviderMi_Click(object sender, RoutedEventArgs e)
+        {
+            if (VeterinaryEquipmentListB.SelectedItem == null)
+            {
+                MBClass.ErrorMB("Выберите строку для редактирование");
+            }
+            else
+            {
+                var a = VeterinaryEquipmentListB.SelectedItem as VeterinaryEquipment;
+                this.veterinaryEquipment.IdVeterinaryEquipment = a.IdVeterinaryEquipment;
+                if(veterinaryEquipment.IdProvider <= 0)
+                {
+                    bool ret = MBClass.QestionMB("Внимание! Поставщика для данного " +
+                        "оборудование не добавлено, вы хотите добавить поставщика для " +
+                        "даного оборудование?");
+                    if (ret == true)
+                    {
+
+                    }
+                }
+                else
+                {
+                    NavigationService.Navigate(new ViewProviderPage(VeterinaryEquipmentListB.
+                                            SelectedItem as VeterinaryEquipment));
+                }
+            }
+        }
     }
 }

@@ -165,6 +165,12 @@
     <Compile Include="PageFolder\AdminPageFolder\EditVeterinaryEquipmentPage.xaml.cs">
       <DependentUpon>EditVeterinaryEquipmentPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\AdminPageFolder\LisRequestVeterinaryEquipmentPage.xaml.cs">
+      <DependentUpon>LisRequestVeterinaryEquipmentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFolder\AdminPageFolder\ListRequestVeterinaryEquipmentPage.xaml.cs">
+      <DependentUpon>ListRequestVeterinaryEquipmentPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageFolder\AdminPageFolder\ListStaffPage.xaml.cs">
       <DependentUpon>ListStaffPage.xaml</DependentUpon>
     </Compile>
@@ -183,11 +189,11 @@
     <Compile Include="PageFolder\StaffPageFolder\EditVeterinaryEquipmentPage.xaml.cs">
       <DependentUpon>EditVeterinaryEquipmentPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\StaffPageFolder\ListMyRequestPage.xaml.cs">
+      <DependentUpon>ListMyRequestPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageFolder\StaffPageFolder\ListProfilePage.xaml.cs">
       <DependentUpon>ListProfilePage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PageFolder\StaffPageFolder\ListRequestVeterinaryEquipmentPage.xaml.cs">
-      <DependentUpon>ListRequestVeterinaryEquipmentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageFolder\StaffPageFolder\ListVeterinaryEquipmentPage.xaml.cs">
       <DependentUpon>ListVeterinaryEquipmentPage.xaml</DependentUpon>
@@ -257,6 +263,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageFolder\AdminPageFolder\LisRequestVeterinaryEquipmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\AdminPageFolder\ListRequestVeterinaryEquipmentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageFolder\AdminPageFolder\ListStaffPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -281,11 +295,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageFolder\StaffPageFolder\ListProfilePage.xaml">
+    <Page Include="PageFolder\StaffPageFolder\ListMyRequestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageFolder\StaffPageFolder\ListRequestVeterinaryEquipmentPage.xaml">
+    <Page Include="PageFolder\StaffPageFolder\ListProfilePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -363,7 +377,6 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
-    <Content Include="ResourceFolder\Eduvet.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

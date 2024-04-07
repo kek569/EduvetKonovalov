@@ -10,6 +10,5 @@
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("datafolder/dbmodel.context.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("datafolder/dbmodel.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resourcefolder/eduvet.sql")]
 
 

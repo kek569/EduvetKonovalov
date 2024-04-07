@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debug\
+C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\
 EduvetKonovalov
 none
 false
 DEBUG;TRACE
-C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\App.xaml
-182076444986
-31148624210
-49-955922971
-24-437680780
-PageFolder\AdminPageFolder\AddProviderPage.xaml;PageFolder\AdminPageFolder\AddStaffPage.xaml;PageFolder\AdminPageFolder\AddVeterinaryEquipmentPage.xaml;PageFolder\AdminPageFolder\EditStaffPage.xaml;PageFolder\AdminPageFolder\EditVeterinaryEquipmentPage.xaml;PageFolder\AdminPageFolder\ListStaffPage.xaml;PageFolder\AdminPageFolder\ListVeterinaryEquipmentPage.xaml;PageFolder\AdminPageFolder\ViewProviderPage.xaml;PageFolder\StaffPageFolder\AddVeterinaryEquipmentPage.xaml;PageFolder\StaffPageFolder\EditProfilePage.xaml;PageFolder\StaffPageFolder\EditVeterinaryEquipmentPage.xaml;PageFolder\StaffPageFolder\ListProfilePage.xaml;PageFolder\StaffPageFolder\ListRequestVeterinaryEquipmentPage.xaml;PageFolder\StaffPageFolder\ListVeterinaryEquipmentPage.xaml;ResourceFolder\Dictionary.xaml;WindowFolder\AdminWindowFolder\AdminWindow.xaml;WindowFolder\AuthorizationWindow.xaml;WindowFolder\StaffWindowFolder\StaffWindow.xaml;
+C:\Users\user\Documents\Cource\EduvetKonovalov\App.xaml
+20-451118899
+2-40832093
+51-2142593190
+25180269584
+PageFolder\AdminPageFolder\AddProviderPage.xaml;PageFolder\AdminPageFolder\AddStaffPage.xaml;PageFolder\AdminPageFolder\AddVeterinaryEquipmentPage.xaml;PageFolder\AdminPageFolder\EditStaffPage.xaml;PageFolder\AdminPageFolder\EditVeterinaryEquipmentPage.xaml;PageFolder\AdminPageFolder\LisRequestVeterinaryEquipmentPage.xaml;PageFolder\AdminPageFolder\ListRequestVeterinaryEquipmentPage.xaml;PageFolder\AdminPageFolder\ListStaffPage.xaml;PageFolder\AdminPageFolder\ListVeterinaryEquipmentPage.xaml;PageFolder\AdminPageFolder\ViewProviderPage.xaml;PageFolder\StaffPageFolder\AddVeterinaryEquipmentPage.xaml;PageFolder\StaffPageFolder\EditProfilePage.xaml;PageFolder\StaffPageFolder\EditVeterinaryEquipmentPage.xaml;PageFolder\StaffPageFolder\ListMyRequestPage.xaml;PageFolder\StaffPageFolder\ListProfilePage.xaml;PageFolder\StaffPageFolder\ListVeterinaryEquipmentPage.xaml;ResourceFolder\Dictionary.xaml;WindowFolder\AdminWindowFolder\AdminWindow.xaml;WindowFolder\AuthorizationWindow.xaml;WindowFolder\StaffWindowFolder\StaffWindow.xaml;
 
-False
+True
 

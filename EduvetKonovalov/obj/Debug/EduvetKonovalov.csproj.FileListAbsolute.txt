@@ -474,17 +474,12 @@ C:\Users\Д-03-2ИСП\Documents\Course\Lol\EduvetKonovalov\EduvetKonovalov\obj\
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\EduvetKonovalov.csproj.AssemblyReference.cache
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\EduvetKonovalov.csproj.ResolveComReference.cache
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\ResourceFolder\Dictionary.baml
-C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\AddPassportPage.g.cs
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\AddStaffPage.g.cs
-C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\AddUserPage.g.cs
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\AddVeterinaryEquipmentPage.g.cs
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\EditStaffPage.g.cs
-C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\EditUserPage.g.cs
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\EditVeterinaryEquipmentPage.g.cs
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\ListStaffPage.g.cs
-C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\ListUserPage.g.cs
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\ListVeterinaryEquipmentPage.g.cs
-C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\LoadingUserPage.g.cs
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\AddVeterinaryEquipmentPage.g.cs
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\EditProfilePage.g.cs
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\EditVeterinaryEquipmentPage.g.cs
@@ -506,17 +501,12 @@ C:\Users\user\Documents\Cource\EduvetKonovalov\bin\Debug\EntityFramework.dll
 C:\Users\user\Documents\Cource\EduvetKonovalov\bin\Debug\EntityFramework.xml
 C:\Users\user\Documents\Cource\EduvetKonovalov\bin\Debug\ru\EntityFramework.resources.dll
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\App.baml
-C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\AddPassportPage.baml
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\AddStaffPage.baml
-C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\AddUserPage.baml
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\AddVeterinaryEquipmentPage.baml
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\EditStaffPage.baml
-C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\EditUserPage.baml
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\EditVeterinaryEquipmentPage.baml
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\ListStaffPage.baml
-C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\ListUserPage.baml
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\ListVeterinaryEquipmentPage.baml
-C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\LoadingUserPage.baml
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\AddVeterinaryEquipmentPage.baml
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\EditProfilePage.baml
 C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\EditVeterinaryEquipmentPage.baml
@@ -732,3 +722,11 @@ C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debu
 C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\AddProviderPage.baml
 C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\ViewProviderPage.baml
 C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\ListRequestVeterinaryEquipmentPage.baml
+C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\AddProviderPage.g.cs
+C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\ViewProviderPage.g.cs
+C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\ListRequestVeterinaryEquipmentPage.g.cs
+C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\AddProviderPage.baml
+C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\ViewProviderPage.baml
+C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\ListRequestVeterinaryEquipmentPage.baml
+C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\LisRequestVeterinaryEquipmentPage.g.cs
+C:\Users\user\Documents\Cource\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\ListMyRequestPage.g.cs

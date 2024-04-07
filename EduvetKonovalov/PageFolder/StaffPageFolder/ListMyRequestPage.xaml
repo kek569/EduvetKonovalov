@@ -1,0 +1,244 @@
+﻿<Page x:Class="EduvetKonovalov.PageFolder.StaffPageFolder.ListMyRequestPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EduvetKonovalov.PageFolder.StaffPageFolder"
+      mc:Ignorable="d" 
+                  d:DesignHeight="700" d:DesignWidth="1200"
+      Title="Мои запросы">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="700"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="145"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="145"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="145"/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition Width="0"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="SearchTb"
+                 Grid.Column="1"
+                 Text="Поиск"
+                 Keyboard.KeyDown="SearchTb_KeyDown"
+                 Keyboard.KeyUp="SearchTb_KeyUp"/>
+
+        <Button x:Name="SearchBtn"
+        Grid.Column="3"
+                Content="Поиск"
+                Click="SearchBtn_Click"/>
+
+        <Button x:Name="AddBtn"
+Grid.Column="5"
+        Content="Создать запрос"
+       Click="AddBtn_Click"/>
+
+        <Button x:Name="ExportBtn"
+        Grid.Column="7"
+        Content="Экспорт"
+        Click="ExportBtn_Click"/>
+
+        <DataGrid x:Name="ListVeterinaryEquipmentDg"
+Grid.Column="9"
+AutoGenerateColumns="False"
+IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название"
+            Binding="{Binding NameVeterinaryEquipment}"
+            Width="*"/>
+                <DataGridTextColumn Header="Тип оборудование"
+            Binding="{Binding TypeVeterinaryEquipment.NameTypeVeterinaryEquipment}"
+            Width="*"/>
+                <DataGridTextColumn Header="Дата запроса"
+            Binding="{Binding RecordingDate, StringFormat={}{0:yyyy.MM.dd}}"
+            Width="*"/>
+                <DataGridTextColumn Header="Количество запрашиваемого оборудования"
+            Binding="{Binding AmountRequest}"
+            Width="*"/>
+                <DataGridTextColumn Header="Сумма запрашиваемого оборудования"
+            Binding="{Binding SumRequest}"
+            Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <ListBox x:Name="VeterinaryEquipmentListB"
+                 SelectionMode="Single"
+                 Grid.Row="3"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="8"
+                 HorizontalContentAlignment="Stretch"
+                ItemsSource="{Binding Path=ResizeItems}" 
+                BorderThickness="0">
+            <ListBox.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Редактировать запрос"
+                          Name="EditeMyRequestMi"
+                          Click="EditeMyRequestMi_Click"/>
+                    <MenuItem Header="Удалить запрос"
+                          Name="DeleteMyRequestMi"
+                          Click="DeleteMyRequestMi_Click"/>
+                    <MenuItem Header="Обновить страницу"
+                          Name="UpdateVeterinaryEquipmentMi"
+                          Click="UpdateVeterinaryEquipmentMi_Click"/>
+                </ContextMenu>
+            </ListBox.ContextMenu>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="145"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Column="1"
+                            Grid.RowSpan="3"
+                            Background="#1C1D22"/>
+                        <StackPanel Grid.Column="5"
+    Grid.RowSpan="3"
+    Background="#1C1D22"/>
+                        <StackPanel Grid.Column="9"
+    Grid.RowSpan="2"
+                                Grid.Row="1"
+    Background="#1C1D22"/>
+
+                        <StackPanel Grid.Column="9"
+                                    Grid.ColumnSpan="4"
+Background="#0D0737"/>
+
+                        <StackPanel Grid.Column="2"
+                        Grid.ColumnSpan="3"
+                        Grid.RowSpan="3"
+                        Background="{StaticResource FillFon}"/>
+
+                        <StackPanel Grid.Column="6"
+Grid.ColumnSpan="3"
+Grid.RowSpan="3"
+Background="{StaticResource FillFon}"/>
+
+                        <StackPanel Grid.Column="10"
+Grid.ColumnSpan="3"
+Grid.RowSpan="2"
+                                    Grid.Row="1"
+Background="{StaticResource FillFon}"/>
+
+                        <TextBlock Grid.Column="1"
+            TextWrapping="WrapWithOverflow"
+            Text="Название:"
+                                   Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Right"/>
+                        <TextBlock Grid.Column="1"
+                                   Grid.Row="1"
+                                   TextWrapping="WrapWithOverflow"
+            Text="Тип оборудование:"
+                                       Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Right"/>
+                        <TextBlock Grid.Column="1"
+                                   Grid.Row="2"
+                                   TextWrapping="WrapWithOverflow"
+            Text="Дата запроса:"
+                                       Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Right"/>
+                        <TextBlock Grid.Column="5"
+Text="Откуда поступило:"
+                          Style="{DynamicResource TBlListBox}"
+                      TextWrapping="WrapWithOverflow"
+                      TextAlignment="Right"/>
+                        <TextBlock Grid.Column="5"
+                                   Grid.Row="1"
+             Text="Кому отпущено:"
+                                       Style="{DynamicResource TBlListBox}"
+                                   TextWrapping="WrapWithOverflow"
+                                   TextAlignment="Right"/>
+                        <TextBlock Grid.Column="9"
+                                   Grid.ColumnSpan="4"
+Text="Количество и сумма запрашиваемого оборудования"
+                          Style="{DynamicResource TBlListBox}"
+                      TextWrapping="WrapWithOverflow"
+                      TextAlignment="Center"/>
+                        <TextBlock Grid.Column="9"
+                                   Grid.Row="1"
+Text="Количество:"
+                          Style="{DynamicResource TBlListBox}"
+                      TextWrapping="WrapWithOverflow"
+                      TextAlignment="Right"/>
+                        <TextBlock Grid.Column="9"
+                                   Grid.Row="2"
+             Text="Сумма:"
+                                       Style="{DynamicResource TBlListBox}"
+                                   TextWrapping="WrapWithOverflow"
+                                   TextAlignment="Right"/>
+                       
+                        <Image Source="{Binding PhotoVeterinaryEquipment}"
+                               Width="200" Grid.RowSpan="3"
+                               Margin="10"
+                               Stretch="Uniform"/>
+                        <TextBlock Grid.Column="3"
+                                   Text="{Binding NameVeterinaryEquipment}"
+                                   Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Left"
+                                   TextWrapping="WrapWithOverflow"/>
+                        <TextBlock Grid.Column="3"
+                                   Grid.Row="1"
+                                   Text="{Binding TypeVeterinaryEquipment.NameTypeVeterinaryEquipment}"
+                                   Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Left"
+                                   TextWrapping="WrapWithOverflow"/>
+                        <TextBlock Grid.Column="3"
+                                   Grid.Row="2"
+                                   Text="{Binding RecordingDate, StringFormat={}{0:yyyy.MM.dd}}"
+                                   Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Left"
+                                   TextWrapping="WrapWithOverflow"/>
+                        <TextBlock Grid.Column="7"
+           Text="{Binding WhereDidItComeFrom}"
+           Style="{DynamicResource TBlListBox}"
+           TextAlignment="Left"
+           TextWrapping="WrapWithOverflow"/>
+                        <TextBlock Grid.Column="7"
+                                   Grid.Row="1"
+                                    Text="{Binding Staff.FullName}"
+                                   Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Left"
+                                   TextWrapping="WrapWithOverflow"/>
+                        <TextBlock Grid.Column="11"
+           Grid.Row="1"
+            Text="{Binding AmountRequest}"
+           Style="{DynamicResource TBlListBox}"
+           TextAlignment="Left"
+           TextWrapping="WrapWithOverflow"/>
+                        <TextBlock Grid.Column="11"
+                                   Grid.Row="2"
+                                    Text="{Binding SumRequest}"
+                                   Style="{DynamicResource TBlListBox}"
+                                   TextAlignment="Left"
+                                   TextWrapping="WrapWithOverflow"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Page>

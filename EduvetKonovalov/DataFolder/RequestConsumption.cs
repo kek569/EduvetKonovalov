@@ -19,7 +19,7 @@ namespace EduvetKonovalov.DataFolder
             this.RequestVeterinaryEquipment = new HashSet<RequestVeterinaryEquipment>();
         }
     
-        public int IdRequestConsumption { get; set; }
+        public decimal IdRequestConsumption { get; set; }
         public int AmountConsumption { get; set; }
         public decimal SumConsumption { get; set; }
     

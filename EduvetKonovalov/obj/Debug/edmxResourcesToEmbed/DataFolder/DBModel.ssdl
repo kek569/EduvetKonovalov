@@ -80,7 +80,7 @@
     <Key>
       <PropertyRef Name="IdRequestConsumption" />
     </Key>
-    <Property Name="IdRequestConsumption" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdRequestConsumption" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="AmountConsumption" Type="int" Nullable="false" />
     <Property Name="SumConsumption" Type="decimal" Precision="10" Scale="2" Nullable="false" />
   </EntityType>
@@ -102,9 +102,8 @@
     <Property Name="RecordingDate" Type="date" Nullable="false" />
     <Property Name="WhereDidItComeFrom" Type="nvarchar" MaxLength="80" Nullable="false" />
     <Property Name="IdStaff" Type="int" Nullable="false" />
-    <Property Name="IdRequestComing" Type="int" Nullable="false" />
-    <Property Name="IdRequestConsumption" Type="int" Nullable="false" />
-    <Property Name="IdRequestRemainder" Type="int" Nullable="false" />
+    <Property Name="AmountRequest" Type="int" Nullable="false" />
+    <Property Name="SumRequest" Type="decimal" Precision="10" Scale="2" Nullable="false" />
     <Property Name="PhotoVeterinaryEquipment" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Role">
@@ -213,7 +212,7 @@
         <PropertyRef Name="IdRequestComing" />
       </Principal>
       <Dependent Role="RequestVeterinaryEquipment">
-        <PropertyRef Name="IdRequestComing" />
+        <PropertyRef Name="AmountRequest" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -225,19 +224,7 @@
         <PropertyRef Name="IdRequestConsumption" />
       </Principal>
       <Dependent Role="RequestVeterinaryEquipment">
-        <PropertyRef Name="IdRequestConsumption" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_RequestVeterinaryEquipment_RequestRemainder">
-    <End Role="RequestRemainder" Type="Self.RequestRemainder" Multiplicity="1" />
-    <End Role="RequestVeterinaryEquipment" Type="Self.RequestVeterinaryEquipment" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RequestRemainder">
-        <PropertyRef Name="IdRequestRemainder" />
-      </Principal>
-      <Dependent Role="RequestVeterinaryEquipment">
-        <PropertyRef Name="IdRequestRemainder" />
+        <PropertyRef Name="SumRequest" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -431,10 +418,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_RequestVeterinaryEquipment_RequestConsumption" Association="Self.FK_RequestVeterinaryEquipment_RequestConsumption">
       <End Role="RequestConsumption" EntitySet="RequestConsumption" />
-      <End Role="RequestVeterinaryEquipment" EntitySet="RequestVeterinaryEquipment" />
-    </AssociationSet>
-    <AssociationSet Name="FK_RequestVeterinaryEquipment_RequestRemainder" Association="Self.FK_RequestVeterinaryEquipment_RequestRemainder">
-      <End Role="RequestRemainder" EntitySet="RequestRemainder" />
       <End Role="RequestVeterinaryEquipment" EntitySet="RequestVeterinaryEquipment" />
     </AssociationSet>
     <AssociationSet Name="FK_RequestVeterinaryEquipment_Staff" Association="Self.FK_RequestVeterinaryEquipment_Staff">

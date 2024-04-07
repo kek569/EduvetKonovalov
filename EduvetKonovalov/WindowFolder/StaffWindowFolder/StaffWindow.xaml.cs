@@ -72,5 +72,10 @@ namespace EduvetKonovalov.WindowFolder.StaffWindowFolder
                 }
             }
         }
+
+        private void ListMyRequestBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new ListMyRequestPage());
+        }
     }
 }

@@ -14,15 +14,8 @@ namespace EduvetKonovalov.DataFolder
     
     public partial class RequestRemainder
     {
-        public RequestRemainder()
-        {
-            this.RequestVeterinaryEquipment = new HashSet<RequestVeterinaryEquipment>();
-        }
-    
         public int IdRequestRemainder { get; set; }
         public int AmountRemainder { get; set; }
         public decimal SumRemainder { get; set; }
-    
-        public virtual ICollection<RequestVeterinaryEquipment> RequestVeterinaryEquipment { get; set; }
     }
 }

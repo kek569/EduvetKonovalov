@@ -57,6 +57,7 @@ Margin="10,4,0,14"/>
                             <ColumnDefinition/>
                             <ColumnDefinition Width="250"/>
                             <ColumnDefinition Width="250"/>
+                            <ColumnDefinition Width="350"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
@@ -72,6 +73,12 @@ Margin="10,4,0,14"/>
                     Content="Список сотрудников"
                     Style="{DynamicResource InvisibleButton}"
                     Click="ListStaffBtn_Click"/>
+                        <Button x:Name="LisRequestVeterinaryEquipmentBtn"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Content="Список запращиваемого обородование"
+                    Style="{DynamicResource InvisibleButton}"
+                    Click="LisRequestVeterinaryEquipmentBtn_Click"/>
                     </Grid>
                     <Grid Grid.Row="2">
                         <Grid.ColumnDefinitions>

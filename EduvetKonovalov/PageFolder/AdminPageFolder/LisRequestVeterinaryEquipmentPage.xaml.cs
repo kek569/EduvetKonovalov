@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EduvetKonovalov.PageFolder.StaffPageFolder
+namespace EduvetKonovalov.PageFolder.AdminPageFolder
 {
     /// <summary>
-    /// Логика взаимодействия для ListRequestVeterinaryEquipmentPage.xaml
+    /// Логика взаимодействия для LisRequestVeterinaryEquipmentPage.xaml
     /// </summary>
-    public partial class ListRequestVeterinaryEquipmentPage : Page
+    public partial class LisRequestVeterinaryEquipmentPage : Page
     {
-        public ListRequestVeterinaryEquipmentPage()
+        public LisRequestVeterinaryEquipmentPage()
         {
             InitializeComponent();
         }

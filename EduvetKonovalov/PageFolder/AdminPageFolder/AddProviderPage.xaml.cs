@@ -36,24 +36,42 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
 
         private void AddProviderBtn_Click(object sender, RoutedEventArgs e)
         {
-            ProviderLastId();
-            var providerAdd = new Provider()
+            if (string.IsNullOrWhiteSpace(NameProviderTb.Text))
             {
-                NameProvider = NameProviderTb.Text,
-                NumberPhoneProvider = NumberPhoneProviderTb.Text,
-                EmailProvider = EmailProviderTb.Text
-            };
-            DBEntities.GetContext().Provider.Add(providerAdd);
-            DBEntities.GetContext().SaveChanges();
+                MBClass.ErrorMB("Введите наименование поставщика");
+                NameProviderTb.Focus();
+            }
+            else if (string.IsNullOrWhiteSpace(NumberPhoneProviderTb.Text))
+            {
+                MBClass.ErrorMB("Введите номер телефона");
+                NumberPhoneProviderTb.Focus();
+            }
+            else if (string.IsNullOrWhiteSpace(EmailProviderTb.Text))
+            {
+                MBClass.ErrorMB("Введите электроную почту");
+                EmailProviderTb.Focus();
+            }
+            else
+            {
+                ProviderLastId();
+                var providerAdd = new Provider()
+                {
+                    NameProvider = NameProviderTb.Text,
+                    NumberPhoneProvider = NumberPhoneProviderTb.Text,
+                    EmailProvider = EmailProviderTb.Text
+                };
+                DBEntities.GetContext().Provider.Add(providerAdd);
+                DBEntities.GetContext().SaveChanges();
 
-            veterinaryEquipment = DBEntities.GetContext().VeterinaryEquipment
-                                .FirstOrDefault(l => l.IdVeterinaryEquipment ==
-                                veterinaryEquipment.IdVeterinaryEquipment);
-            veterinaryEquipment.IdProvider = Int32.Parse(Lastid);
-            DBEntities.GetContext().SaveChanges();
+                veterinaryEquipment = DBEntities.GetContext().VeterinaryEquipment
+                                    .FirstOrDefault(l => l.IdVeterinaryEquipment ==
+                                    veterinaryEquipment.IdVeterinaryEquipment);
+                veterinaryEquipment.IdProvider = Int32.Parse(Lastid);
+                DBEntities.GetContext().SaveChanges();
 
-            MBClass.InfoMB("Поставщик был добавлин");
-            NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+                MBClass.InfoMB("Поставщик был добавлин");
+                NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+            }
         }
 
         public void ProviderLastId()

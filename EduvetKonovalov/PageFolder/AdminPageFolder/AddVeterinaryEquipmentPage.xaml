@@ -37,6 +37,20 @@
             <RowDefinition Height="70"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <StackPanel Grid.Row="5"
+                    Grid.ColumnSpan="10"
+                    Background="#0D0737"
+                    Opacity="0.5"/>
+        <StackPanel Grid.Row="7"
+            Grid.ColumnSpan="10"
+            Background="#01393D"
+                    Opacity="0.5"/>
+        <StackPanel Grid.Row="9"
+    Grid.ColumnSpan="10"
+    Background="#0E3012"
+                    Opacity="0.5"/>
+
+
         <Label Content="Название"
 Grid.Row="1" Grid.Column="4"
 Style="{DynamicResource LabelNormal}"/>

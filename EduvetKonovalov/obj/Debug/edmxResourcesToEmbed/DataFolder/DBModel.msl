@@ -113,9 +113,8 @@
           <ScalarProperty Name="RecordingDate" ColumnName="RecordingDate" />
           <ScalarProperty Name="WhereDidItComeFrom" ColumnName="WhereDidItComeFrom" />
           <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />
-          <ScalarProperty Name="IdRequestComing" ColumnName="IdRequestComing" />
-          <ScalarProperty Name="IdRequestConsumption" ColumnName="IdRequestConsumption" />
-          <ScalarProperty Name="IdRequestRemainder" ColumnName="IdRequestRemainder" />
+          <ScalarProperty Name="AmountRequest" ColumnName="AmountRequest" />
+          <ScalarProperty Name="SumRequest" ColumnName="SumRequest" />
           <ScalarProperty Name="PhotoVeterinaryEquipment" ColumnName="PhotoVeterinaryEquipment" />
         </MappingFragment>
       </EntityTypeMapping>

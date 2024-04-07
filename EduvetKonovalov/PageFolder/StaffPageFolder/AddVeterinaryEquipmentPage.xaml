@@ -28,10 +28,6 @@
             <RowDefinition Height="10"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="10"/>
             <RowDefinition Height="160"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="70"/>
@@ -54,11 +50,6 @@ Style="{DynamicResource LabelNormal}"/>
 SelectedValuePath="IdTypeVeterinaryEquipment"
 DisplayMemberPath="NameTypeVeterinaryEquipment"/>
 
-        <Label Content="Приход"
-Grid.Row="5" Grid.Column="0"
-               Grid.ColumnSpan="4"
-Style="{DynamicResource LabelNormal}"/>
-
         <Label Content="Количество"
 Grid.Row="5" Grid.Column="4"
 Style="{DynamicResource LabelNormal}"/>
@@ -66,108 +57,36 @@ Style="{DynamicResource LabelNormal}"/>
   Grid.Row="5"
   Grid.Column="5"/>
 
-        <Label Content="Расход"
-Grid.Row="7" Grid.Column="0"
-               Grid.ColumnSpan="4"
-Style="{DynamicResource LabelNormal}"/>
-
-        <Label Content="Количество"
-Grid.Row="7" Grid.Column="4"
-Style="{DynamicResource LabelNormal}"/>
-        <TextBox x:Name="AmountConsumptionTb"
-  Grid.Row="7"
-  Grid.Column="5"/>
-
-        <Label Content="Остаток"
-Grid.Row="9" Grid.Column="0"
-               Grid.ColumnSpan="4"
-Style="{DynamicResource LabelNormal}"/>
-
-        <Label Content="Количество"
-    Grid.Row="9" Grid.Column="4"
-    Style="{DynamicResource LabelNormal}"/>
-        <TextBox x:Name="AmountRemainderTb"
-   Grid.Column="5"
-   Grid.Row="9"/>
-
         <Label Content="Откуда поступило"
     Grid.Row="1" Grid.Column="7"
     Style="{DynamicResource LabelNormal}"/>
         <TextBox x:Name="WhereDidItComeFromTb"
     Grid.Row="1"
     Grid.Column="8"/>
-        <Label Content="Кому отпущено"
+
+
+        <Label Content="Сумма"
     Grid.Row="3" Grid.Column="7"
     Style="{DynamicResource LabelNormal}"/>
-
-        <ComboBox x:Name="StaffCb"
-    Grid.Row="3"
-    Grid.Column="8"
-                    SelectedItem="{Binding Staff}"
-SelectedValuePath="IdStaff"
-DisplayMemberPath="FullName"/>
-
-
-        <Label Content="Сумма"
-    Grid.Row="5" Grid.Column="7"
-    Style="{DynamicResource LabelNormal}"/>
         <TextBox x:Name="SumComingTb"
-    Grid.Row="5"
+    Grid.Row="3"
     Grid.Column="8"/>
-        <Label Content="Сумма"
-    Grid.Row="7" Grid.Column="7"
-    Style="{DynamicResource LabelNormal}"/>
-        <TextBox x:Name="SumConsumptionTb"
-    Grid.Row="7"
-    Grid.Column="8"/>
-
-        <Label Content="Сумма"
-Grid.Row="9" Grid.Column="7"
-Style="{DynamicResource LabelNormal}"/>
-        <TextBox x:Name="SumRemainderTb"
-Grid.Row="9"
-Grid.Column="8"/>
-
-        <ComboBox x:Name="ComingCb"
-  Grid.Row="14"
-  Grid.Column="1"
-  SelectedItem="{Binding Coming}"
-SelectedValuePath="IdComing"
-DisplayMemberPath="SumComing"/>
-        <ComboBox x:Name="ConsumptionCb"
-  Grid.Row="14"
-  Grid.Column="1"
-  SelectedItem="{Binding Consumption}"
-SelectedValuePath="IdConsumption"
-DisplayMemberPath="SumConsumption"/>
-        <ComboBox x:Name="RemainderCb"
-  Grid.Row="14"
-  Grid.Column="1"
-  SelectedItem="{Binding Remainder}"
-SelectedValuePath="IdRemainder"
-DisplayMemberPath="SumRemainder"/>
 
         <Image x:Name="PhotoIM"
-       Grid.Row="11"
+       Grid.Row="7"
        Grid.Column="7"
        Grid.ColumnSpan="2"/>
-
-        <Image x:Name="PhotoStaffIM"
-        Source="{Binding Staff.PhotoStaff}"
-Grid.Row="11"
-Grid.Column="3"
-Grid.ColumnSpan="3"/>
 
         <Button x:Name="LoadPhotoBtn"
     Content="Загрузить фото"
     Grid.Column="5"
-    Grid.Row="13"
+    Grid.Row="9"
     Click="LoadPhotoBtn_Click"/>
 
         <Button x:Name="AddVeterinaryEquipmentBtn"
- Content="Добаваить оборудование"
+ Content="Добаваить запрос"
  Grid.Column="8"
- Grid.Row="13"
+ Grid.Row="9"
  Click="AddVeterinaryEquipmentBtn_Click"/>
     </Grid>
 </Page>

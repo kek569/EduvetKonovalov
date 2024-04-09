@@ -795,3 +795,5 @@ C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debu
 C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debug\PageFolder\StaffPageFolder\ListMyRequestPage.baml
 C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\AddRequestVeterinaryEquipmentPage.g.cs
 C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\AddRequestVeterinaryEquipmentPage.baml
+C:\Users\Д-03-2ИСП\Documents\Course\Новая папка\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\AddRequestVeterinaryEquipmentPage.g.cs
+C:\Users\Д-03-2ИСП\Documents\Course\Новая папка\EduvetKonovalov\obj\Debug\PageFolder\AdminPageFolder\AddRequestVeterinaryEquipmentPage.baml

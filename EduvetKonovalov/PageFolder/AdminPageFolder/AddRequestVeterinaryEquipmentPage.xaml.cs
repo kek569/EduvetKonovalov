@@ -203,7 +203,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                             Remove(save);
                         DBEntities.GetContext().SaveChanges();
                         MBClass.InfoMB("Данные о оборудование успешно добавлены");
-                        NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+                        NavigationService.Navigate(new ListRequestVeterinaryEquipmentPage());
                     }
                     else
                     {
@@ -267,7 +267,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                         DBEntities.GetContext().SaveChanges();
 
                         MBClass.InfoMB("Данные о оборудование успешно добавлены");
-                        NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+                        NavigationService.Navigate(new ListRequestVeterinaryEquipmentPage());
                     }
                 }
             }

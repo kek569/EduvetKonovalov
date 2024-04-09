@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\obj\Debug\
+C:\Users\Д-03-2ИСП\Documents\Course\Новая папка\EduvetKonovalov\obj\Debug\
 EduvetKonovalov
 none
 false
 DEBUG;TRACE
-C:\Users\Студент\Documents\Новая папка\EduvetKonovalov\App.xaml
+C:\Users\Д-03-2ИСП\Documents\Course\Новая папка\EduvetKonovalov\App.xaml
 21-1326861130
 2-40832093
 46415215643
-24-437680780
+241829000574
 PageFolder\AdminPageFolder\AddProviderPage.xaml;PageFolder\AdminPageFolder\AddRequestVeterinaryEquipmentPage.xaml;PageFolder\AdminPageFolder\AddStaffPage.xaml;PageFolder\AdminPageFolder\AddVeterinaryEquipmentPage.xaml;PageFolder\AdminPageFolder\BringExisting.xaml;PageFolder\AdminPageFolder\EditStaffPage.xaml;PageFolder\AdminPageFolder\EditVeterinaryEquipmentPage.xaml;PageFolder\AdminPageFolder\ListRequestVeterinaryEquipmentPage.xaml;PageFolder\AdminPageFolder\ListStaffPage.xaml;PageFolder\AdminPageFolder\ListVeterinaryEquipmentPage.xaml;PageFolder\AdminPageFolder\ViewProviderPage.xaml;PageFolder\StaffPageFolder\AddVeterinaryEquipmentPage.xaml;PageFolder\StaffPageFolder\EditProfilePage.xaml;PageFolder\StaffPageFolder\EditVeterinaryEquipmentPage.xaml;PageFolder\StaffPageFolder\ListMyRequestPage.xaml;PageFolder\StaffPageFolder\ListProfilePage.xaml;PageFolder\StaffPageFolder\ListVeterinaryEquipmentPage.xaml;ResourceFolder\Dictionary.xaml;WindowFolder\AdminWindowFolder\AdminWindow.xaml;WindowFolder\AuthorizationWindow.xaml;WindowFolder\StaffWindowFolder\StaffWindow.xaml;
 
 False

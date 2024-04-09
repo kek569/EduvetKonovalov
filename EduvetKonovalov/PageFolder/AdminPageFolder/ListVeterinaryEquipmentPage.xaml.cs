@@ -33,42 +33,6 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                 .VeterinaryEquipment.ToList().OrderBy(v => v.NameVeterinaryEquipment);
         }
 
-        private void SearchTb_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (SearchTb.Text == "Поиск")
-            {
-                SearchTb.Text = "";
-            }
-        }
-
-        private void SearchTb_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (SearchTb.Text == "")
-            {
-                SearchTb.Text = "Поиск";
-            }
-        }
-
-        private void SearchBtn_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                VeterinaryEquipmentListB.ItemsSource = DataFolder.DBEntities.GetContext().
-                    VeterinaryEquipment.Where
-                    (v => v.NameVeterinaryEquipment.StartsWith(SearchTb.Text) ||
-                    v.TypeVeterinaryEquipment.NameTypeVeterinaryEquipment.
-                    StartsWith(SearchTb.Text) ||
-                    v.WhereDidItComeFrom.StartsWith(SearchTb.Text) ||
-                    v.Staff.FullName.StartsWith(SearchTb.Text)).ToList();
-                if (VeterinaryEquipmentListB.Items.Count <= 0)
-                    MBClass.ErrorMB("Данные отсутствуют");
-            }
-            catch (Exception ex)
-            {
-                MBClass.ErrorMB(ex);
-            }
-        }
-
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AddVeterinaryEquipmentPage());
@@ -163,6 +127,24 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                     NavigationService.Navigate(new ViewProviderPage(VeterinaryEquipmentListB.
                                             SelectedItem as VeterinaryEquipment));
                 }
+            }
+        }
+
+        private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                VeterinaryEquipmentListB.ItemsSource = DataFolder.DBEntities.GetContext().
+                    VeterinaryEquipment.Where
+                    (v => v.NameVeterinaryEquipment.StartsWith(SearchTb.Text) ||
+                    v.TypeVeterinaryEquipment.NameTypeVeterinaryEquipment.
+                        StartsWith(SearchTb.Text) ||
+                    v.WhereDidItComeFrom.StartsWith(SearchTb.Text) ||
+                    v.Staff.FullName.StartsWith(SearchTb.Text)).ToList();
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
             }
         }
     }

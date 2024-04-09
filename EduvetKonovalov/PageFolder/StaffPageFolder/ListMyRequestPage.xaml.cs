@@ -1,5 +1,6 @@
 ﻿using EduvetKonovalov.ClassFolder;
 using EduvetKonovalov.DataFolder;
+using EduvetKonovalov.PageFolder.AdminPageFolder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -95,7 +96,7 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                         Remove(veterinaryEquipment);
                     DBEntities.GetContext().SaveChanges();
                     MBClass.InfoMB("Данные успешно были удалены!");
-                    NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+                    NavigationService.Navigate(new ListRequestVeterinaryEquipmentPage());
                 }
             }
         }
@@ -118,7 +119,7 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
 
         private void UpdateVeterinaryEquipmentMi_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+            NavigationService.Navigate(new ListRequestVeterinaryEquipmentPage());
         }
 
         private void ExportBtn_Click(object sender, RoutedEventArgs e)

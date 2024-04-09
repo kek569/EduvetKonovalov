@@ -17,7 +17,7 @@
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="25"/>
+            <ColumnDefinition Width="0"/>
             <ColumnDefinition Width="0"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -86,7 +86,7 @@ IsReadOnly="True">
                  SelectionMode="Single"
                  Grid.Row="3"
                  Grid.Column="0"
-                 Grid.ColumnSpan="7"
+                 Grid.ColumnSpan="8"
                  HorizontalContentAlignment="Stretch"
                 ItemsSource="{Binding Path=ResizeItems}" 
                 BorderThickness="0">

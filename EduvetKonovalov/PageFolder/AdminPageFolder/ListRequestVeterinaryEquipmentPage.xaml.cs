@@ -51,14 +51,14 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                         Remove(veterinaryEquipment);
                     DBEntities.GetContext().SaveChanges();
                     MBClass.InfoMB("Данные успешно были удалены!");
-                    NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+                    NavigationService.Navigate(new ListRequestVeterinaryEquipmentPage());
                 }
             }
         }
 
         private void UpdateVeterinaryEquipmentMi_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+            NavigationService.Navigate(new ListRequestVeterinaryEquipmentPage());
         }
 
         private void ExportBtn_Click(object sender, RoutedEventArgs e)

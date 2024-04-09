@@ -21,19 +21,6 @@
           <Property Name="AmountConsumption" Type="int" Nullable="false" />
           <Property Name="SumConsumption" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
-        <EntityType Name="Courses">
-          <Key>
-            <PropertyRef Name="IdCourses" />
-          </Key>
-          <Property Name="IdCourses" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NameCourses" Type="nvarchar" MaxLength="80" Nullable="false" />
-          <Property Name="PriceCourses" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="IdTypeCourses" Type="int" Nullable="false" />
-          <Property Name="AddressCourses" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="ShortDescriptionCourses" Type="nvarchar" MaxLength="150" Nullable="false" />
-          <Property Name="PhotoCourse" Type="varbinary(max)" />
-          <Property Name="IdStaff" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="Gender">
           <Key>
             <PropertyRef Name="IdGender" />
@@ -73,30 +60,6 @@
           <Property Name="AmountRemainder" Type="int" Nullable="false" />
           <Property Name="SumRemainder" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
-        <EntityType Name="RequestComing">
-          <Key>
-            <PropertyRef Name="IdRequestComing" />
-          </Key>
-          <Property Name="IdRequestComing" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AmountComing" Type="int" Nullable="false" />
-          <Property Name="SumComing" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-        </EntityType>
-        <EntityType Name="RequestConsumption">
-          <Key>
-            <PropertyRef Name="IdRequestConsumption" />
-          </Key>
-          <Property Name="IdRequestConsumption" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="AmountConsumption" Type="int" Nullable="false" />
-          <Property Name="SumConsumption" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-        </EntityType>
-        <EntityType Name="RequestRemainder">
-          <Key>
-            <PropertyRef Name="IdRequestRemainder" />
-          </Key>
-          <Property Name="IdRequestRemainder" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AmountRemainder" Type="int" Nullable="false" />
-          <Property Name="SumRemainder" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-        </EntityType>
         <EntityType Name="RequestVeterinaryEquipment">
           <Key>
             <PropertyRef Name="IdRequestVeterinaryEquipment" />
@@ -105,7 +68,6 @@
           <Property Name="NameVeterinaryEquipment" Type="nvarchar" MaxLength="80" Nullable="false" />
           <Property Name="IdTypeVeterinaryEquipment" Type="int" Nullable="false" />
           <Property Name="RecordingDate" Type="date" Nullable="false" />
-          <Property Name="WhereDidItComeFrom" Type="nvarchar" MaxLength="80" Nullable="false" />
           <Property Name="IdStaff" Type="int" Nullable="false" />
           <Property Name="AmountRequest" Type="int" Nullable="false" />
           <Property Name="SumRequest" Type="decimal" Precision="10" Scale="2" Nullable="false" />
@@ -146,13 +108,6 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <EntityType Name="TypeCourses">
-          <Key>
-            <PropertyRef Name="IdTypeCourses" />
-          </Key>
-          <Property Name="IdTypeCourses" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NameTypeCourses" Type="nvarchar" MaxLength="80" Nullable="false" />
-        </EntityType>
         <EntityType Name="TypeVeterinaryEquipment">
           <Key>
             <PropertyRef Name="IdTypeVeterinaryEquipment" />
@@ -185,54 +140,6 @@
           <Property Name="PhotoVeterinaryEquipment" Type="varbinary(max)" />
           <Property Name="IdProvider" Type="int" />
         </EntityType>
-        <Association Name="FK_Courses_Staff">
-          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
-          <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Staff">
-              <PropertyRef Name="IdStaff" />
-            </Principal>
-            <Dependent Role="Courses">
-              <PropertyRef Name="IdStaff" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Courses_TypeCourses">
-          <End Role="TypeCourses" Type="Self.TypeCourses" Multiplicity="1" />
-          <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypeCourses">
-              <PropertyRef Name="IdTypeCourses" />
-            </Principal>
-            <Dependent Role="Courses">
-              <PropertyRef Name="IdTypeCourses" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RequestVeterinaryEquipment_RequestComing">
-          <End Role="RequestComing" Type="Self.RequestComing" Multiplicity="1" />
-          <End Role="RequestVeterinaryEquipment" Type="Self.RequestVeterinaryEquipment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RequestComing">
-              <PropertyRef Name="IdRequestComing" />
-            </Principal>
-            <Dependent Role="RequestVeterinaryEquipment">
-              <PropertyRef Name="AmountRequest" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RequestVeterinaryEquipment_RequestConsumption">
-          <End Role="RequestConsumption" Type="Self.RequestConsumption" Multiplicity="1" />
-          <End Role="RequestVeterinaryEquipment" Type="Self.RequestVeterinaryEquipment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RequestConsumption">
-              <PropertyRef Name="IdRequestConsumption" />
-            </Principal>
-            <Dependent Role="RequestVeterinaryEquipment">
-              <PropertyRef Name="SumRequest" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_RequestVeterinaryEquipment_Staff">
           <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
           <End Role="RequestVeterinaryEquipment" Type="Self.RequestVeterinaryEquipment" Multiplicity="*" />
@@ -392,39 +299,18 @@
         <EntityContainer Name="Хранилище DBModelContainer">
           <EntitySet Name="Coming" EntityType="Self.Coming" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Consumption" EntityType="Self.Consumption" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="JobTitle" EntityType="Self.JobTitle" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Passport" EntityType="Self.Passport" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Provider" EntityType="Self.Provider" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Remainder" EntityType="Self.Remainder" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RequestComing" EntityType="Self.RequestComing" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RequestConsumption" EntityType="Self.RequestConsumption" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="RequestRemainder" EntityType="Self.RequestRemainder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RequestVeterinaryEquipment" EntityType="Self.RequestVeterinaryEquipment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TypeCourses" EntityType="Self.TypeCourses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TypeVeterinaryEquipment" EntityType="Self.TypeVeterinaryEquipment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="VeterinaryEquipment" EntityType="Self.VeterinaryEquipment" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Courses_Staff" Association="Self.FK_Courses_Staff">
-            <End Role="Staff" EntitySet="Staff" />
-            <End Role="Courses" EntitySet="Courses" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Courses_TypeCourses" Association="Self.FK_Courses_TypeCourses">
-            <End Role="TypeCourses" EntitySet="TypeCourses" />
-            <End Role="Courses" EntitySet="Courses" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RequestVeterinaryEquipment_RequestComing" Association="Self.FK_RequestVeterinaryEquipment_RequestComing">
-            <End Role="RequestComing" EntitySet="RequestComing" />
-            <End Role="RequestVeterinaryEquipment" EntitySet="RequestVeterinaryEquipment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RequestVeterinaryEquipment_RequestConsumption" Association="Self.FK_RequestVeterinaryEquipment_RequestConsumption">
-            <End Role="RequestConsumption" EntitySet="RequestConsumption" />
-            <End Role="RequestVeterinaryEquipment" EntitySet="RequestVeterinaryEquipment" />
-          </AssociationSet>
           <AssociationSet Name="FK_RequestVeterinaryEquipment_Staff" Association="Self.FK_RequestVeterinaryEquipment_Staff">
             <End Role="Staff" EntitySet="Staff" />
             <End Role="RequestVeterinaryEquipment" EntitySet="RequestVeterinaryEquipment" />
@@ -501,21 +387,6 @@
           <Property Name="SumConsumption" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <NavigationProperty Name="VeterinaryEquipment" Relationship="Self.FK_VeterinaryEquipment_Consumption" FromRole="Consumption" ToRole="VeterinaryEquipment" />
         </EntityType>
-        <EntityType Name="Courses">
-          <Key>
-            <PropertyRef Name="IdCourses" />
-          </Key>
-          <Property Name="IdCourses" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameCourses" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PriceCourses" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="IdTypeCourses" Type="Int32" Nullable="false" />
-          <Property Name="AddressCourses" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ShortDescriptionCourses" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="PhotoCourse" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="IdStaff" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Staff" Relationship="Self.FK_Courses_Staff" FromRole="Courses" ToRole="Staff" />
-          <NavigationProperty Name="TypeCourses" Relationship="Self.FK_Courses_TypeCourses" FromRole="Courses" ToRole="TypeCourses" />
-        </EntityType>
         <EntityType Name="Gender">
           <Key>
             <PropertyRef Name="IdGender" />
@@ -560,32 +431,6 @@
           <Property Name="SumRemainder" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <NavigationProperty Name="VeterinaryEquipment" Relationship="Self.FK_VeterinaryEquipment_Remainder" FromRole="Remainder" ToRole="VeterinaryEquipment" />
         </EntityType>
-        <EntityType Name="RequestComing">
-          <Key>
-            <PropertyRef Name="IdRequestComing" />
-          </Key>
-          <Property Name="IdRequestComing" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AmountComing" Type="Int32" Nullable="false" />
-          <Property Name="SumComing" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <NavigationProperty Name="RequestVeterinaryEquipment" Relationship="Self.FK_RequestVeterinaryEquipment_RequestComing" FromRole="RequestComing" ToRole="RequestVeterinaryEquipment" />
-        </EntityType>
-        <EntityType Name="RequestConsumption">
-          <Key>
-            <PropertyRef Name="IdRequestConsumption" />
-          </Key>
-          <Property Name="IdRequestConsumption" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="AmountConsumption" Type="Int32" Nullable="false" />
-          <Property Name="SumConsumption" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <NavigationProperty Name="RequestVeterinaryEquipment" Relationship="Self.FK_RequestVeterinaryEquipment_RequestConsumption" FromRole="RequestConsumption" ToRole="RequestVeterinaryEquipment" />
-        </EntityType>
-        <EntityType Name="RequestRemainder">
-          <Key>
-            <PropertyRef Name="IdRequestRemainder" />
-          </Key>
-          <Property Name="IdRequestRemainder" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="AmountRemainder" Type="Int32" Nullable="false" />
-          <Property Name="SumRemainder" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-        </EntityType>
         <EntityType Name="RequestVeterinaryEquipment">
           <Key>
             <PropertyRef Name="IdRequestVeterinaryEquipment" />
@@ -594,13 +439,10 @@
           <Property Name="NameVeterinaryEquipment" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdTypeVeterinaryEquipment" Type="Int32" Nullable="false" />
           <Property Name="RecordingDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="WhereDidItComeFrom" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdStaff" Type="Int32" Nullable="false" />
           <Property Name="AmountRequest" Type="Int32" Nullable="false" />
           <Property Name="SumRequest" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="PhotoVeterinaryEquipment" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="RequestComing" Relationship="Self.FK_RequestVeterinaryEquipment_RequestComing" FromRole="RequestVeterinaryEquipment" ToRole="RequestComing" />
-          <NavigationProperty Name="RequestConsumption" Relationship="Self.FK_RequestVeterinaryEquipment_RequestConsumption" FromRole="RequestVeterinaryEquipment" ToRole="RequestConsumption" />
           <NavigationProperty Name="Staff" Relationship="Self.FK_RequestVeterinaryEquipment_Staff" FromRole="RequestVeterinaryEquipment" ToRole="Staff" />
           <NavigationProperty Name="TypeVeterinaryEquipment" Relationship="Self.FK_RequestVeterinaryEquipment_TypeVeterinaryEquipment" FromRole="RequestVeterinaryEquipment" ToRole="TypeVeterinaryEquipment" />
         </EntityType>
@@ -629,7 +471,6 @@
           <Property Name="FullName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdJobTitle" Type="Int32" Nullable="false" />
           <Property Name="IdUser" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Courses" Relationship="Self.FK_Courses_Staff" FromRole="Staff" ToRole="Courses" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_Staff_Gender" FromRole="Staff" ToRole="Gender" />
           <NavigationProperty Name="JobTitle" Relationship="Self.FK_Staff_JobTitle" FromRole="Staff" ToRole="JobTitle" />
           <NavigationProperty Name="Passport" Relationship="Self.FK_Staff_Passport" FromRole="Staff" ToRole="Passport" />
@@ -646,14 +487,6 @@
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="TypeCourses">
-          <Key>
-            <PropertyRef Name="IdTypeCourses" />
-          </Key>
-          <Property Name="IdTypeCourses" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameTypeCourses" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Courses" Relationship="Self.FK_Courses_TypeCourses" FromRole="TypeCourses" ToRole="Courses" />
         </EntityType>
         <EntityType Name="TypeVeterinaryEquipment">
           <Key>
@@ -721,30 +554,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Courses_Staff">
-          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
-          <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Staff">
-              <PropertyRef Name="IdStaff" />
-            </Principal>
-            <Dependent Role="Courses">
-              <PropertyRef Name="IdStaff" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Courses_TypeCourses">
-          <End Role="TypeCourses" Type="Self.TypeCourses" Multiplicity="1" />
-          <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypeCourses">
-              <PropertyRef Name="IdTypeCourses" />
-            </Principal>
-            <Dependent Role="Courses">
-              <PropertyRef Name="IdTypeCourses" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Staff_Gender">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
           <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
@@ -802,30 +611,6 @@
             </Principal>
             <Dependent Role="VeterinaryEquipment">
               <PropertyRef Name="IdRemainder" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RequestVeterinaryEquipment_RequestComing">
-          <End Role="RequestComing" Type="Self.RequestComing" Multiplicity="1" />
-          <End Role="RequestVeterinaryEquipment" Type="Self.RequestVeterinaryEquipment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RequestComing">
-              <PropertyRef Name="IdRequestComing" />
-            </Principal>
-            <Dependent Role="RequestVeterinaryEquipment">
-              <PropertyRef Name="AmountRequest" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RequestVeterinaryEquipment_RequestConsumption">
-          <End Role="RequestConsumption" Type="Self.RequestConsumption" Multiplicity="1" />
-          <End Role="RequestVeterinaryEquipment" Type="Self.RequestVeterinaryEquipment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RequestConsumption">
-              <PropertyRef Name="IdRequestConsumption" />
-            </Principal>
-            <Dependent Role="RequestVeterinaryEquipment">
-              <PropertyRef Name="SumRequest" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -904,20 +689,15 @@
         <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Coming" EntityType="Self.Coming" />
           <EntitySet Name="Consumption" EntityType="Self.Consumption" />
-          <EntitySet Name="Courses" EntityType="Self.Courses" />
           <EntitySet Name="Gender" EntityType="Self.Gender" />
           <EntitySet Name="JobTitle" EntityType="Self.JobTitle" />
           <EntitySet Name="Passport" EntityType="Self.Passport" />
           <EntitySet Name="Provider" EntityType="Self.Provider" />
           <EntitySet Name="Remainder" EntityType="Self.Remainder" />
-          <EntitySet Name="RequestComing" EntityType="Self.RequestComing" />
-          <EntitySet Name="RequestConsumption" EntityType="Self.RequestConsumption" />
-          <EntitySet Name="RequestRemainder" EntityType="Self.RequestRemainder" />
           <EntitySet Name="RequestVeterinaryEquipment" EntityType="Self.RequestVeterinaryEquipment" />
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="Staff" EntityType="Self.Staff" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="TypeCourses" EntityType="Self.TypeCourses" />
           <EntitySet Name="TypeVeterinaryEquipment" EntityType="Self.TypeVeterinaryEquipment" />
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="VeterinaryEquipment" EntityType="Self.VeterinaryEquipment" />
@@ -928,14 +708,6 @@
           <AssociationSet Name="FK_VeterinaryEquipment_Consumption" Association="Self.FK_VeterinaryEquipment_Consumption">
             <End Role="Consumption" EntitySet="Consumption" />
             <End Role="VeterinaryEquipment" EntitySet="VeterinaryEquipment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Courses_Staff" Association="Self.FK_Courses_Staff">
-            <End Role="Staff" EntitySet="Staff" />
-            <End Role="Courses" EntitySet="Courses" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Courses_TypeCourses" Association="Self.FK_Courses_TypeCourses">
-            <End Role="TypeCourses" EntitySet="TypeCourses" />
-            <End Role="Courses" EntitySet="Courses" />
           </AssociationSet>
           <AssociationSet Name="FK_Staff_Gender" Association="Self.FK_Staff_Gender">
             <End Role="Gender" EntitySet="Gender" />
@@ -956,14 +728,6 @@
           <AssociationSet Name="FK_VeterinaryEquipment_Remainder" Association="Self.FK_VeterinaryEquipment_Remainder">
             <End Role="Remainder" EntitySet="Remainder" />
             <End Role="VeterinaryEquipment" EntitySet="VeterinaryEquipment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RequestVeterinaryEquipment_RequestComing" Association="Self.FK_RequestVeterinaryEquipment_RequestComing">
-            <End Role="RequestComing" EntitySet="RequestComing" />
-            <End Role="RequestVeterinaryEquipment" EntitySet="RequestVeterinaryEquipment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RequestVeterinaryEquipment_RequestConsumption" Association="Self.FK_RequestVeterinaryEquipment_RequestConsumption">
-            <End Role="RequestConsumption" EntitySet="RequestConsumption" />
-            <End Role="RequestVeterinaryEquipment" EntitySet="RequestVeterinaryEquipment" />
           </AssociationSet>
           <AssociationSet Name="FK_RequestVeterinaryEquipment_Staff" Association="Self.FK_RequestVeterinaryEquipment_Staff">
             <End Role="Staff" EntitySet="Staff" />
@@ -1014,20 +778,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Courses">
-            <EntityTypeMapping TypeName="DBModel.Courses">
-              <MappingFragment StoreEntitySet="Courses">
-                <ScalarProperty Name="IdCourses" ColumnName="IdCourses" />
-                <ScalarProperty Name="NameCourses" ColumnName="NameCourses" />
-                <ScalarProperty Name="PriceCourses" ColumnName="PriceCourses" />
-                <ScalarProperty Name="IdTypeCourses" ColumnName="IdTypeCourses" />
-                <ScalarProperty Name="AddressCourses" ColumnName="AddressCourses" />
-                <ScalarProperty Name="ShortDescriptionCourses" ColumnName="ShortDescriptionCourses" />
-                <ScalarProperty Name="PhotoCourse" ColumnName="PhotoCourse" />
-                <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Gender">
             <EntityTypeMapping TypeName="DBModel.Gender">
               <MappingFragment StoreEntitySet="Gender">
@@ -1072,33 +822,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="RequestComing">
-            <EntityTypeMapping TypeName="DBModel.RequestComing">
-              <MappingFragment StoreEntitySet="RequestComing">
-                <ScalarProperty Name="IdRequestComing" ColumnName="IdRequestComing" />
-                <ScalarProperty Name="AmountComing" ColumnName="AmountComing" />
-                <ScalarProperty Name="SumComing" ColumnName="SumComing" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RequestConsumption">
-            <EntityTypeMapping TypeName="DBModel.RequestConsumption">
-              <MappingFragment StoreEntitySet="RequestConsumption">
-                <ScalarProperty Name="IdRequestConsumption" ColumnName="IdRequestConsumption" />
-                <ScalarProperty Name="AmountConsumption" ColumnName="AmountConsumption" />
-                <ScalarProperty Name="SumConsumption" ColumnName="SumConsumption" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RequestRemainder">
-            <EntityTypeMapping TypeName="DBModel.RequestRemainder">
-              <MappingFragment StoreEntitySet="RequestRemainder">
-                <ScalarProperty Name="IdRequestRemainder" ColumnName="IdRequestRemainder" />
-                <ScalarProperty Name="AmountRemainder" ColumnName="AmountRemainder" />
-                <ScalarProperty Name="SumRemainder" ColumnName="SumRemainder" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="RequestVeterinaryEquipment">
             <EntityTypeMapping TypeName="DBModel.RequestVeterinaryEquipment">
               <MappingFragment StoreEntitySet="RequestVeterinaryEquipment">
@@ -1106,7 +829,6 @@
                 <ScalarProperty Name="NameVeterinaryEquipment" ColumnName="NameVeterinaryEquipment" />
                 <ScalarProperty Name="IdTypeVeterinaryEquipment" ColumnName="IdTypeVeterinaryEquipment" />
                 <ScalarProperty Name="RecordingDate" ColumnName="RecordingDate" />
-                <ScalarProperty Name="WhereDidItComeFrom" ColumnName="WhereDidItComeFrom" />
                 <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />
                 <ScalarProperty Name="AmountRequest" ColumnName="AmountRequest" />
                 <ScalarProperty Name="SumRequest" ColumnName="SumRequest" />
@@ -1149,14 +871,6 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TypeCourses">
-            <EntityTypeMapping TypeName="DBModel.TypeCourses">
-              <MappingFragment StoreEntitySet="TypeCourses">
-                <ScalarProperty Name="IdTypeCourses" ColumnName="IdTypeCourses" />
-                <ScalarProperty Name="NameTypeCourses" ColumnName="NameTypeCourses" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

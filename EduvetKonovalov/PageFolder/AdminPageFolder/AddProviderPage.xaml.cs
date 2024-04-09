@@ -27,12 +27,15 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
         public AddProviderPage(VeterinaryEquipment veterinaryEquipment)
         {
             InitializeComponent();
+            BringExisting = veterinaryEquipment;
+
             this.veterinaryEquipment.IdVeterinaryEquipment =
                 veterinaryEquipment.IdVeterinaryEquipment;
             ProviderCb.ItemsSource = DBEntities.GetContext().Provider.ToList();
         }
 
         private string Lastid;
+        private VeterinaryEquipment BringExisting;
 
         private void AddProviderBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -111,6 +114,11 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             {
                 MBClass.ErrorMB(ex);
             }
+        }
+
+        private void BringExistingBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new BringExisting(BringExisting));
         }
     }
 }

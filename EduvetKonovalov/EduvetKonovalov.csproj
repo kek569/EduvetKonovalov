@@ -84,9 +84,6 @@
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataFolder\ContextClass.cs" />
-    <Compile Include="DataFolder\Courses.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DataFolder\DBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -117,15 +114,6 @@
     <Compile Include="DataFolder\Remainder.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="DataFolder\RequestComing.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataFolder\RequestConsumption.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataFolder\RequestRemainder.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="DataFolder\RequestVeterinaryEquipment.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
@@ -136,9 +124,6 @@
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataFolder\sysdiagrams.cs">
-      <DependentUpon>DBModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataFolder\TypeCourses.cs">
       <DependentUpon>DBModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataFolder\TypeVeterinaryEquipment.cs">
@@ -159,14 +144,14 @@
     <Compile Include="PageFolder\AdminPageFolder\AddVeterinaryEquipmentPage.xaml.cs">
       <DependentUpon>AddVeterinaryEquipmentPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\AdminPageFolder\BringExisting.xaml.cs">
+      <DependentUpon>BringExisting.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageFolder\AdminPageFolder\EditStaffPage.xaml.cs">
       <DependentUpon>EditStaffPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageFolder\AdminPageFolder\EditVeterinaryEquipmentPage.xaml.cs">
       <DependentUpon>EditVeterinaryEquipmentPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PageFolder\AdminPageFolder\LisRequestVeterinaryEquipmentPage.xaml.cs">
-      <DependentUpon>LisRequestVeterinaryEquipmentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="PageFolder\AdminPageFolder\ListRequestVeterinaryEquipmentPage.xaml.cs">
       <DependentUpon>ListRequestVeterinaryEquipmentPage.xaml</DependentUpon>
@@ -255,15 +240,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PageFolder\AdminPageFolder\BringExisting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PageFolder\AdminPageFolder\EditStaffPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PageFolder\AdminPageFolder\EditVeterinaryEquipmentPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="PageFolder\AdminPageFolder\LisRequestVeterinaryEquipmentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

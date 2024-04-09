@@ -11,9 +11,8 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="700"/>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="145"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="145"/>
             <ColumnDefinition Width="10"/>
@@ -25,25 +24,20 @@
             <RowDefinition Height="70"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Label Content="Поиск"
+               Style="{StaticResource LabelNormal}"
+               Grid.Column="1"/>
         <TextBox x:Name="SearchTb"
-                 Grid.Column="1"
-                 Text="Поиск"
-                 Keyboard.KeyDown="SearchTb_KeyDown"
-                 Keyboard.KeyUp="SearchTb_KeyUp"
-                 PreviewKeyDown="SearchTb_PreviewKeyDown"/>
-
-        <Button x:Name="SearchBtn"
-        Grid.Column="3"
-                Content="Поиск"
-                Click="SearchBtn_Click"/>
+                 Grid.Column="2"
+                 TextChanged="SearchTb_TextChanged"/>
 
         <Button x:Name="AddBtn"
-Grid.Column="5"
+Grid.Column="4"
         Content="Добавить"
        Click="AddBtn_Click"/>
 
         <Button x:Name="ExportBtn"
-Grid.Column="7"
+Grid.Column="6"
         Content="Экспорт"
        Click="ExportBtn_Click"/>
 
@@ -166,7 +160,7 @@ TextAlignment="Center"
                  SelectionMode="Single"
                  Grid.Row="3"
                  Grid.Column="0"
-                 Grid.ColumnSpan="8"
+                 Grid.ColumnSpan="7"
                  HorizontalContentAlignment="Stretch"
                 ItemsSource="{Binding Path=ResizeItems}" 
                 BorderThickness="0">

@@ -79,11 +79,6 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                     MBClass.ErrorMB("Введите название оборудование");
                     NameVeterinaryEquipmentTb.Focus();
                 }
-                else if (string.IsNullOrWhiteSpace(WhereDidItComeFromTb.Text))
-                {
-                    MBClass.ErrorMB("Введите откуда поступит оборудование");
-                    WhereDidItComeFromTb.Focus();
-                }
                 else if (TypeVeterinaryEquipmentCb.SelectedIndex <= -1)
                 {
                     MBClass.ErrorMB("Введите тип оборудование");
@@ -116,7 +111,6 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                             IdTypeVeterinaryEquipment = Int32.Parse
                             (TypeVeterinaryEquipmentCb.SelectedValue.ToString()),
                             RecordingDate = System.DateTime.Parse(datePicker.Text),
-                            WhereDidItComeFrom = WhereDidItComeFromTb.Text,
                             IdStaff = Int32.Parse(veterinaryEquipment.IdStaff.ToString()),
                             AmountRequest = Int32.Parse(AmountComingTb.Text),
                             SumRequest = Int32.Parse(SumComingTb.Text.Replace(@".", @","))
@@ -125,8 +119,8 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                             Add(RequestVeterinaryEquipmentAdd);
                         DBEntities.GetContext().SaveChanges();
 
-                        MBClass.InfoMB("Запрос был создан, расмотрим его в ближайщие время!");
-                        NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+                        MBClass.InfoMB("Запрос был создан, рассмотрим его в ближайшее время!");
+                        NavigationService.Navigate(new ListMyRequestPage());
                     }
                     else
                     {
@@ -138,7 +132,6 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                             IdTypeVeterinaryEquipment = Int32.Parse
                             (TypeVeterinaryEquipmentCb.SelectedValue.ToString()),
                             RecordingDate = System.DateTime.Parse(datePicker.Text),
-                            WhereDidItComeFrom = WhereDidItComeFromTb.Text,
                             IdStaff = Int32.Parse(veterinaryEquipment.IdStaff.ToString()),
                             AmountRequest = Int32.Parse(AmountComingTb.Text),
                             SumRequest = Int32.Parse(SumComingTb.Text.Replace(@".", @",")),
@@ -149,8 +142,8 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                             Add(RequestVeterinaryEquipmentAdd);
                         DBEntities.GetContext().SaveChanges();
 
-                        MBClass.InfoMB("Запрос был создан, расмотрим его в ближайщие время!");
-                        NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+                        MBClass.InfoMB("Запрос был создан, рассмотрим его в ближайшее время!");
+                        NavigationService.Navigate(new ListMyRequestPage());
                     }
                 } 
             }

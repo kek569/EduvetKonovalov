@@ -18,14 +18,11 @@ namespace EduvetKonovalov.DataFolder
         public string NameVeterinaryEquipment { get; set; }
         public int IdTypeVeterinaryEquipment { get; set; }
         public System.DateTime RecordingDate { get; set; }
-        public string WhereDidItComeFrom { get; set; }
         public int IdStaff { get; set; }
         public int AmountRequest { get; set; }
         public decimal SumRequest { get; set; }
         public byte[] PhotoVeterinaryEquipment { get; set; }
     
-        public virtual RequestComing RequestComing { get; set; }
-        public virtual RequestConsumption RequestConsumption { get; set; }
         public virtual Staff Staff { get; set; }
         public virtual TypeVeterinaryEquipment TypeVeterinaryEquipment { get; set; }
     }

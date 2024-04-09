@@ -16,7 +16,6 @@ namespace EduvetKonovalov.DataFolder
     {
         public Staff()
         {
-            this.Courses = new HashSet<Courses>();
             this.RequestVeterinaryEquipment = new HashSet<RequestVeterinaryEquipment>();
             this.VeterinaryEquipment = new HashSet<VeterinaryEquipment>();
         }
@@ -35,7 +34,6 @@ namespace EduvetKonovalov.DataFolder
         public int IdJobTitle { get; set; }
         public int IdUser { get; set; }
     
-        public virtual ICollection<Courses> Courses { get; set; }
         public virtual Gender Gender { get; set; }
         public virtual JobTitle JobTitle { get; set; }
         public virtual Passport Passport { get; set; }

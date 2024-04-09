@@ -37,80 +37,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                 .User.ToList().OrderBy(u => u.LoginUser);
         }
 
-        private void SearchTb_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (SearchTb.Text == "Поиск")
-            {
-                SearchTb.Text = "";
-                StaffListB.ItemsSource = DataFolder.DBEntities.GetContext().Staff.
-                   Where(s => s.LastNameStaff.StartsWith("")).ToList();
-            }
-            else
-            {
-                Search();
-            }
-        }
-
-        private void SearchTb_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (SearchTb.Text == "")
-            {
-                SearchTb.Text = "Поиск";
-                StaffListB.ItemsSource = DataFolder.DBEntities.GetContext().Staff.
-                   Where(s => s.LastNameStaff.StartsWith("")).ToList();
-            }
-            else
-            {
-                Search();
-            }
-
-        }
-
         Staff staff = new Staff();
-
-        private void Search()
-        {
-            try
-            {
-                if (!string.IsNullOrEmpty(SearchTb.Text) || SearchTb.Text != "Поиск")
-                {
-                    StaffListB.ItemsSource = DataFolder.DBEntities.GetContext().Staff.
-                        Where(s => s.LastNameStaff.StartsWith(SearchTb.Text) ||
-                        s.FirstNameStaff.StartsWith(SearchTb.Text) ||
-                        s.MiddleNameStaff.StartsWith(SearchTb.Text) ||
-                        s.NumberPhoneStaff.StartsWith(SearchTb.Text) ||
-                        s.Gender.GenderStaff.StartsWith(SearchTb.Text)).ToList();
-                }
-                else
-                {
-                    StaffListB.ItemsSource = DataFolder.DBEntities.GetContext().Staff.
-                      Where(s => s.LastNameStaff.StartsWith("")).ToList();
-                }
-            }
-            catch (Exception ex)
-            {
-                MBClass.ErrorMB(ex);
-            }
-        }
-
-        private void SearchBtn_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                StaffListB.ItemsSource = DataFolder.DBEntities.GetContext().Staff.
-                    Where(s => s.LastNameStaff.StartsWith(SearchTb.Text) ||
-                    s.FirstNameStaff.StartsWith(SearchTb.Text) ||
-                    s.MiddleNameStaff.StartsWith(SearchTb.Text) ||
-                    s.NumberPhoneStaff.StartsWith(SearchTb.Text) ||
-                    s.Gender.GenderStaff.StartsWith(SearchTb.Text)).ToList();
-                if (StaffListB.Items.Count <= 0)
-                    MBClass.ErrorMB("Данные отсутствуют");
-            }
-            catch (Exception ex)
-            {
-                MBClass.ErrorMB(ex);
-            }
-        }
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -216,6 +143,23 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                 }
                 else { }
             };
+        }
+
+        private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                    StaffListB.ItemsSource = DataFolder.DBEntities.GetContext().Staff.
+                        Where(s => s.LastNameStaff.StartsWith(SearchTb.Text) ||
+                        s.FirstNameStaff.StartsWith(SearchTb.Text) ||
+                        s.MiddleNameStaff.StartsWith(SearchTb.Text) ||
+                        s.NumberPhoneStaff.StartsWith(SearchTb.Text) ||
+                        s.Gender.GenderStaff.StartsWith(SearchTb.Text)).ToList();
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
+            }
         }
     }
 }

@@ -80,11 +80,6 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                     MBClass.ErrorMB("Введите название оборудование");
                     NameVeterinaryEquipmentTb.Focus();
                 }
-                else if (string.IsNullOrWhiteSpace(WhereDidItComeFromTb.Text))
-                {
-                    MBClass.ErrorMB("Введите откуда поступило");
-                    WhereDidItComeFromTb.Focus();
-                }
                 else if (TypeVeterinaryEquipmentCb.SelectedIndex <= -1)
                 {
                     MBClass.ErrorMB("Введите тип оборудование");
@@ -122,12 +117,11 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                             NameVeterinaryEquipmentTb.Text;
                         requestVeterinaryEquipment.IdTypeVeterinaryEquipment = Int32.Parse
                             (TypeVeterinaryEquipmentCb.SelectedValue.ToString());
-                        requestVeterinaryEquipment.WhereDidItComeFrom = WhereDidItComeFromTb.Text;
                         requestVeterinaryEquipment.IdStaff = Int32.Parse(veterinaryEquipment.IdStaff.ToString());
                         DBEntities.GetContext().SaveChanges();
 
                         MBClass.InfoMB("Данные о запросе успешно отредактированы");
-                        NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+                        NavigationService.Navigate(new ListMyRequestPage());
                     }
                     else
                     {
@@ -143,14 +137,13 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                             NameVeterinaryEquipmentTb.Text;
                         requestVeterinaryEquipment.IdTypeVeterinaryEquipment = Int32.Parse
                             (TypeVeterinaryEquipmentCb.SelectedValue.ToString());
-                        requestVeterinaryEquipment.WhereDidItComeFrom = WhereDidItComeFromTb.Text;
                         requestVeterinaryEquipment.IdStaff = Int32.Parse(veterinaryEquipment.IdStaff.ToString());
                         requestVeterinaryEquipment.PhotoVeterinaryEquipment = ClassImage
                             .ConvertImageToArray(selectedFileName);
                         DBEntities.GetContext().SaveChanges();
 
                         MBClass.InfoMB("Данные о запросе успешно отредактированы");
-                        NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+                        NavigationService.Navigate(new ListMyRequestPage());
                     }
                 }
             }

@@ -6,13 +6,13 @@
       xmlns:local="clr-namespace:EduvetKonovalov.PageFolder.StaffPageFolder"
       mc:Ignorable="d" 
             d:DesignHeight="700" d:DesignWidth="1200"
-        Title="Добавление оборудование">
+        Title="Создание запроса на оборудование">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="0"/>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="0"/>
             <ColumnDefinition Width="180"/>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="10"/>
@@ -26,9 +26,7 @@
             <RowDefinition Height="10"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="160"/>
+            <RowDefinition Height="200"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="70"/>
             <RowDefinition/>
@@ -41,28 +39,21 @@ Style="{DynamicResource LabelNormal}"/>
   Grid.Column="5"/>
 
         <Label Content="Тип оборудование"
-Grid.Row="3" Grid.Column="4"
+Grid.Row="1" Grid.Column="7"
 Style="{DynamicResource LabelNormal}"/>
         <ComboBox x:Name="TypeVeterinaryEquipmentCb"
-  Grid.Row="3"
-  Grid.Column="5"
+  Grid.Row="1"
+  Grid.Column="8"
   SelectedItem="{Binding TypeVeterinaryEquipment}"
 SelectedValuePath="IdTypeVeterinaryEquipment"
 DisplayMemberPath="NameTypeVeterinaryEquipment"/>
 
         <Label Content="Количество"
-Grid.Row="5" Grid.Column="4"
+Grid.Row="3" Grid.Column="4"
 Style="{DynamicResource LabelNormal}"/>
         <TextBox x:Name="AmountComingTb"
-  Grid.Row="5"
+  Grid.Row="3"
   Grid.Column="5"/>
-
-        <Label Content="Откуда поступило"
-    Grid.Row="1" Grid.Column="7"
-    Style="{DynamicResource LabelNormal}"/>
-        <TextBox x:Name="WhereDidItComeFromTb"
-    Grid.Row="1"
-    Grid.Column="8"/>
 
 
         <Label Content="Сумма"
@@ -73,20 +64,20 @@ Style="{DynamicResource LabelNormal}"/>
     Grid.Column="8"/>
 
         <Image x:Name="PhotoIM"
-       Grid.Row="7"
+       Grid.Row="5"
        Grid.Column="7"
        Grid.ColumnSpan="2"/>
 
         <Button x:Name="LoadPhotoBtn"
     Content="Загрузить фото"
     Grid.Column="5"
-    Grid.Row="9"
+    Grid.Row="7"
     Click="LoadPhotoBtn_Click"/>
 
         <Button x:Name="AddVeterinaryEquipmentBtn"
  Content="Добаваить запрос"
  Grid.Column="8"
- Grid.Row="9"
+ Grid.Row="7"
  Click="AddVeterinaryEquipmentBtn_Click"/>
     </Grid>
 </Page>

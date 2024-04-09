@@ -63,6 +63,11 @@
             Grid.Row="8"
             Grid.Column="3"
             Click="AddProviderBtn_Click"/>
+        <Button x:Name="BringExistingBtn"
+            Content="Привезать сущ"
+            Grid.Row="8"
+            Grid.Column="2"
+            Click="BringExistingBtn_Click"/>
 
         <ComboBox x:Name="ProviderCb"
                   Grid.Column="5"

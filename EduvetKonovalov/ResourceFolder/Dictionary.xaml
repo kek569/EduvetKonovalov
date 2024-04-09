@@ -282,7 +282,7 @@ SnapsToDevicePixels="True">
                             </Grid>
                         </Border>
 
-                        <Border x:Name="DisabledVisualElement" Background="{StaticResource FillFont}"
+                        <Border x:Name="DisabledVisualElement" Background="{StaticResource FillFon}"
                     IsHitTestVisible="False" Margin="1" Opacity="0" CornerRadius="10" />
                         <Rectangle x:Name="FocusVisualElement" IsHitTestVisible="False" Margin="2" Opacity="0" RadiusX="10"
                     RadiusY="10" 

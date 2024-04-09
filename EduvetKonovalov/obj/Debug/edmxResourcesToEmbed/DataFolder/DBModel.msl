@@ -19,20 +19,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Courses">
-      <EntityTypeMapping TypeName="DBModel.Courses">
-        <MappingFragment StoreEntitySet="Courses">
-          <ScalarProperty Name="IdCourses" ColumnName="IdCourses" />
-          <ScalarProperty Name="NameCourses" ColumnName="NameCourses" />
-          <ScalarProperty Name="PriceCourses" ColumnName="PriceCourses" />
-          <ScalarProperty Name="IdTypeCourses" ColumnName="IdTypeCourses" />
-          <ScalarProperty Name="AddressCourses" ColumnName="AddressCourses" />
-          <ScalarProperty Name="ShortDescriptionCourses" ColumnName="ShortDescriptionCourses" />
-          <ScalarProperty Name="PhotoCourse" ColumnName="PhotoCourse" />
-          <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Gender">
       <EntityTypeMapping TypeName="DBModel.Gender">
         <MappingFragment StoreEntitySet="Gender">
@@ -77,33 +63,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="RequestComing">
-      <EntityTypeMapping TypeName="DBModel.RequestComing">
-        <MappingFragment StoreEntitySet="RequestComing">
-          <ScalarProperty Name="IdRequestComing" ColumnName="IdRequestComing" />
-          <ScalarProperty Name="AmountComing" ColumnName="AmountComing" />
-          <ScalarProperty Name="SumComing" ColumnName="SumComing" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="RequestConsumption">
-      <EntityTypeMapping TypeName="DBModel.RequestConsumption">
-        <MappingFragment StoreEntitySet="RequestConsumption">
-          <ScalarProperty Name="IdRequestConsumption" ColumnName="IdRequestConsumption" />
-          <ScalarProperty Name="AmountConsumption" ColumnName="AmountConsumption" />
-          <ScalarProperty Name="SumConsumption" ColumnName="SumConsumption" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="RequestRemainder">
-      <EntityTypeMapping TypeName="DBModel.RequestRemainder">
-        <MappingFragment StoreEntitySet="RequestRemainder">
-          <ScalarProperty Name="IdRequestRemainder" ColumnName="IdRequestRemainder" />
-          <ScalarProperty Name="AmountRemainder" ColumnName="AmountRemainder" />
-          <ScalarProperty Name="SumRemainder" ColumnName="SumRemainder" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="RequestVeterinaryEquipment">
       <EntityTypeMapping TypeName="DBModel.RequestVeterinaryEquipment">
         <MappingFragment StoreEntitySet="RequestVeterinaryEquipment">
@@ -111,7 +70,6 @@
           <ScalarProperty Name="NameVeterinaryEquipment" ColumnName="NameVeterinaryEquipment" />
           <ScalarProperty Name="IdTypeVeterinaryEquipment" ColumnName="IdTypeVeterinaryEquipment" />
           <ScalarProperty Name="RecordingDate" ColumnName="RecordingDate" />
-          <ScalarProperty Name="WhereDidItComeFrom" ColumnName="WhereDidItComeFrom" />
           <ScalarProperty Name="IdStaff" ColumnName="IdStaff" />
           <ScalarProperty Name="AmountRequest" ColumnName="AmountRequest" />
           <ScalarProperty Name="SumRequest" ColumnName="SumRequest" />
@@ -154,14 +112,6 @@
           <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
           <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="TypeCourses">
-      <EntityTypeMapping TypeName="DBModel.TypeCourses">
-        <MappingFragment StoreEntitySet="TypeCourses">
-          <ScalarProperty Name="IdTypeCourses" ColumnName="IdTypeCourses" />
-          <ScalarProperty Name="NameTypeCourses" ColumnName="NameTypeCourses" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

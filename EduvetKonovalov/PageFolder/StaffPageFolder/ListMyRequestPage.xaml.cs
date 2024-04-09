@@ -28,24 +28,22 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
             string selected_dept = (App.Current as App).DeptName;
 
             VeterinaryEquipmentListB.ItemsSource = DBEntities.GetContext()
-                .RequestVeterinaryEquipment.ToList().OrderBy(v => v.NameVeterinaryEquipment);
+                .RequestVeterinaryEquipment.ToList().OrderBy(v => v.IdRequestVeterinaryEquipment);
 
             ListVeterinaryEquipmentDg.ItemsSource = DBEntities.GetContext()
-                .RequestVeterinaryEquipment.ToList().OrderBy(v => v.NameVeterinaryEquipment);
+                .RequestVeterinaryEquipment.ToList().OrderBy(v => v.IdRequestVeterinaryEquipment);
 
             try
             {
                 VeterinaryEquipmentListB.ItemsSource = DataFolder.DBEntities.GetContext().
-                    VeterinaryEquipment.Where
+                    RequestVeterinaryEquipment.Where
                     (v => v.Staff.User.LoginUser.StartsWith(selected_dept)).ToList();
                 if (VeterinaryEquipmentListB.Items.Count <= 0)
-                    MBClass.ErrorMB("Error");
+                    MBClass.ErrorMB("У вас нет запросов");
 
                 ListVeterinaryEquipmentDg.ItemsSource = DataFolder.DBEntities.GetContext().
-                    VeterinaryEquipment.Where
+                    RequestVeterinaryEquipment.Where
                     (v => v.Staff.User.LoginUser.StartsWith(selected_dept)).ToList();
-                if (ListVeterinaryEquipmentDg.Items.Count <= 0)
-                    MBClass.ErrorMB("Error");
             }
             catch (Exception ex)
             {
@@ -166,8 +164,8 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
             }
             else
             {
-                VeterinaryEquipment veterinaryEquipment = VeterinaryEquipmentListB.
-                    SelectedItem as VeterinaryEquipment;
+                RequestVeterinaryEquipment requestVeterinaryEquipment = VeterinaryEquipmentListB.
+                    SelectedItem as RequestVeterinaryEquipment;
                 NavigationService.Navigate
                     (new EditVeterinaryEquipmentPage(VeterinaryEquipmentListB.
                     SelectedItem as RequestVeterinaryEquipment));
@@ -186,11 +184,11 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                     "удалить данную строку?");
                 if (ret == true)
                 {
-                    VeterinaryEquipment veterinaryEquipment =
+                    RequestVeterinaryEquipment requestVeterinaryEquipment =
                         VeterinaryEquipmentListB.SelectedItem as
-                        VeterinaryEquipment;
-                    DBEntities.GetContext().VeterinaryEquipment.
-                        Remove(veterinaryEquipment);
+                        RequestVeterinaryEquipment;
+                    DBEntities.GetContext().RequestVeterinaryEquipment.
+                        Remove(requestVeterinaryEquipment);
                     DBEntities.GetContext().SaveChanges();
                     MBClass.InfoMB("Данные успешно были удалены!");
                     NavigationService.Navigate(new ListVeterinaryEquipmentPage());

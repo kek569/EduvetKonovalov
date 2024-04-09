@@ -96,45 +96,6 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
             NavigationService.Navigate(new AddVeterinaryEquipmentPage());
         }
 
-        private void DeleteVeterinaryEquipmentfMi_Click(object sender, RoutedEventArgs e)
-        {
-            if (VeterinaryEquipmentListB.SelectedItem == null)
-            {
-                MBClass.ErrorMB("Выберите строку для удаления");
-            }
-            else
-            {
-                bool ret = MBClass.QestionMB("Вы действительно хотите " +
-                    "удалить данную строку?");
-                if (ret == true)
-                {
-                    VeterinaryEquipment veterinaryEquipment =
-                        VeterinaryEquipmentListB.SelectedItem as
-                        VeterinaryEquipment;
-                    DBEntities.GetContext().VeterinaryEquipment.
-                        Remove(veterinaryEquipment);
-                    DBEntities.GetContext().SaveChanges();
-                    MBClass.InfoMB("Данные успешно были удалены!");
-                    NavigationService.Navigate(new ListVeterinaryEquipmentPage());
-                }
-            }
-        }
-
-        private void EditVeterinaryEquipmentfMi_Click(object sender, RoutedEventArgs e)
-        {
-            if (VeterinaryEquipmentListB.SelectedItem == null)
-            {
-                MBClass.ErrorMB("Выберите строку для редактирование");
-            }
-            else
-            {
-                VeterinaryEquipment veterinaryEquipment = VeterinaryEquipmentListB.
-                    SelectedItem as VeterinaryEquipment;
-                NavigationService.Navigate
-                    (new EditVeterinaryEquipmentPage(VeterinaryEquipmentListB.
-                    SelectedItem as VeterinaryEquipment));
-            }
-        }
 
         private void UpdateVeterinaryEquipmentMi_Click(object sender, RoutedEventArgs e)
         {

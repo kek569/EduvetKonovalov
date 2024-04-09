@@ -11,8 +11,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="0"/>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="0"/>
             <ColumnDefinition Width="180"/>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="10"/>
@@ -26,9 +26,7 @@
             <RowDefinition Height="10"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="10"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="10"/>
-            <RowDefinition Height="160"/>
+            <RowDefinition Height="200"/>
             <RowDefinition Height="10"/>
             <RowDefinition Height="70"/>
             <RowDefinition/>
@@ -38,31 +36,26 @@ Grid.Row="1" Grid.Column="4"
 Style="{DynamicResource LabelNormal}"/>
         <TextBox x:Name="NameVeterinaryEquipmentTb"
   Grid.Row="1"
-  Grid.Column="5"/>
+  Grid.Column="5"
+                 Text="{Binding NameVeterinaryEquipment}"/>
 
         <Label Content="Тип оборудование"
-Grid.Row="3" Grid.Column="4"
+Grid.Row="1" Grid.Column="7"
 Style="{DynamicResource LabelNormal}"/>
         <ComboBox x:Name="TypeVeterinaryEquipmentCb"
-  Grid.Row="3"
-  Grid.Column="5"
+  Grid.Row="1"
+  Grid.Column="8"
   SelectedItem="{Binding TypeVeterinaryEquipment}"
 SelectedValuePath="IdTypeVeterinaryEquipment"
 DisplayMemberPath="NameTypeVeterinaryEquipment"/>
 
         <Label Content="Количество"
-Grid.Row="5" Grid.Column="4"
+Grid.Row="3" Grid.Column="4"
 Style="{DynamicResource LabelNormal}"/>
         <TextBox x:Name="AmountComingTb"
-  Grid.Row="5"
-  Grid.Column="5"/>
-
-        <Label Content="Откуда поступило"
-    Grid.Row="1" Grid.Column="7"
-    Style="{DynamicResource LabelNormal}"/>
-        <TextBox x:Name="WhereDidItComeFromTb"
-    Grid.Row="1"
-    Grid.Column="8"/>
+  Grid.Row="3"
+  Grid.Column="5"
+                 Text="{Binding AmountRequest}"/>
 
 
         <Label Content="Сумма"
@@ -70,23 +63,24 @@ Style="{DynamicResource LabelNormal}"/>
     Style="{DynamicResource LabelNormal}"/>
         <TextBox x:Name="SumComingTb"
     Grid.Row="3"
-    Grid.Column="8"/>
+    Grid.Column="8"
+                 Text="{Binding SumRequest}"/>
 
         <Image x:Name="PhotoIM"
-       Grid.Row="7"
+       Grid.Row="5"
        Grid.Column="7"
        Grid.ColumnSpan="2"/>
 
         <Button x:Name="LoadPhotoBtn"
     Content="Загрузить фото"
     Grid.Column="5"
-    Grid.Row="9"
+    Grid.Row="7"
     Click="LoadPhotoBtn_Click"/>
 
         <Button x:Name="SaveBtn"
  Content="Сохранить изменения"
  Grid.Column="8"
- Grid.Row="9"
+ Grid.Row="7"
  Click="SaveBtn_Click"/>
     </Grid>
 </Page>

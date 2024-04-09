@@ -32,49 +32,6 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                 .RequestVeterinaryEquipment.ToList().OrderBy(v => v.IdRequestVeterinaryEquipment);
         }
 
-        private void SearchTb_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (SearchTb.Text == "Поиск")
-            {
-                SearchTb.Text = "";
-            }
-        }
-
-        private void SearchTb_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (SearchTb.Text == "")
-            {
-                SearchTb.Text = "Поиск";
-            }
-        }
-
-        private void SearchBtn_Click(object sender, RoutedEventArgs e)
-        {
-            string selected_dept = (App.Current as App).DeptName;
-            try
-            {
-                VeterinaryEquipmentListB.ItemsSource = DataFolder.DBEntities.GetContext().
-                    VeterinaryEquipment.Where
-                    (v => (v.NameVeterinaryEquipment.StartsWith(SearchTb.Text) ||
-                    v.TypeVeterinaryEquipment.NameTypeVeterinaryEquipment.
-                    StartsWith(SearchTb.Text) ||
-                    v.WhereDidItComeFrom.StartsWith(SearchTb.Text) ||
-                    v.Staff.FullName.StartsWith(SearchTb.Text)) &&
-                    v.Staff.User.LoginUser.StartsWith(selected_dept)).ToList();
-                if (VeterinaryEquipmentListB.Items.Count <= 0)
-                    MBClass.ErrorMB("Данные отсутствуют");
-            }
-            catch (Exception ex)
-            {
-                MBClass.ErrorMB(ex);
-            }
-        }
-
-        private void AddBtn_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new AddVeterinaryEquipmentPage());
-        }
-
         private void DeleteVeterinaryEquipmentfMi_Click(object sender, RoutedEventArgs e)
         {
             if (VeterinaryEquipmentListB.SelectedItem == null)
@@ -87,10 +44,10 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                     "удалить данную строку?");
                 if (ret == true)
                 {
-                    VeterinaryEquipment veterinaryEquipment =
+                    RequestVeterinaryEquipment veterinaryEquipment =
                         VeterinaryEquipmentListB.SelectedItem as
-                        VeterinaryEquipment;
-                    DBEntities.GetContext().VeterinaryEquipment.
+                        RequestVeterinaryEquipment;
+                    DBEntities.GetContext().RequestVeterinaryEquipment.
                         Remove(veterinaryEquipment);
                     DBEntities.GetContext().SaveChanges();
                     MBClass.InfoMB("Данные успешно были удалены!");
@@ -114,6 +71,30 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                 int a = colCount / (ListVeterinaryEquipmentDg.SelectedIndex + 1);
                 string selectedFileName = "Excel";
                 ExportClass.ToExcelFile(ListVeterinaryEquipmentDg, selectedFileName, a);
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
+            }
+        }
+
+        private void AddVeterinaryEquipmentMi_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddRequestVeterinaryEquipmentPage(VeterinaryEquipmentListB.
+                    SelectedItem as RequestVeterinaryEquipment));
+        }
+
+        private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string selected_dept = (App.Current as App).DeptName;
+            try
+            {
+                VeterinaryEquipmentListB.ItemsSource = DataFolder.DBEntities.GetContext().
+                    RequestVeterinaryEquipment.Where
+                    (v => (v.NameVeterinaryEquipment.StartsWith(SearchTb.Text) ||
+                    v.TypeVeterinaryEquipment.NameTypeVeterinaryEquipment.
+                    StartsWith(SearchTb.Text) ||
+                    v.Staff.FullName.StartsWith(SearchTb.Text))).ToList();
             }
             catch (Exception ex)
             {

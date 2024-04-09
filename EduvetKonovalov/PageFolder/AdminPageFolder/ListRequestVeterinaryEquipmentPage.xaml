@@ -11,13 +11,10 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="700"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
             <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="145"/>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="145"/>
-            <ColumnDefinition Width="10"/>
-            <ColumnDefinition Width="145"/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="25"/>
             <ColumnDefinition Width="0"/>
         </Grid.ColumnDefinitions>
@@ -25,14 +22,15 @@
             <RowDefinition Height="70"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Label Content="Поиск"
+               Style="{StaticResource LabelNormal}"
+               Grid.Column="1"/>
         <TextBox x:Name="SearchTb"
-                 Grid.Column="1"
-                 Text="Поиск"
-                 Keyboard.KeyDown="SearchTb_KeyDown"
-                 Keyboard.KeyUp="SearchTb_KeyUp"/>
+                 Grid.Column="2"
+                 TextChanged="SearchTb_TextChanged"/>
 
         <Button x:Name="ExportBtn"
-        Grid.Column="7"
+        Grid.Column="4"
         Content="Экспорт"
         Click="ExportBtn_Click"/>
 
@@ -66,14 +64,15 @@ IsReadOnly="True">
                  SelectionMode="Single"
                  Grid.Row="3"
                  Grid.Column="0"
-                 Grid.ColumnSpan="8"
+                 Grid.ColumnSpan="5"
                  HorizontalContentAlignment="Stretch"
                 ItemsSource="{Binding Path=ResizeItems}" 
                 BorderThickness="0">
             <ListBox.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Добавить оборудование"
-                          Name="LolUpdateVeterinaryEquipmentMi"/>
+                          Name="AddVeterinaryEquipmentMi"
+                              Click="AddVeterinaryEquipmentMi_Click"/>
                     <MenuItem Header="Удалить запрос"
                               Name="DeleteVeterinaryEquipmentfMi"
                               Click="DeleteVeterinaryEquipmentfMi_Click"/>
@@ -132,7 +131,7 @@ Grid.RowSpan="3"
 Background="{StaticResource FillFon}"/>
 
                         <StackPanel Grid.Column="10"
-Grid.ColumnSpan="3"
+Grid.ColumnSpan="2"
 Grid.RowSpan="2"
                                     Grid.Row="1"
 Background="{StaticResource FillFon}"/>

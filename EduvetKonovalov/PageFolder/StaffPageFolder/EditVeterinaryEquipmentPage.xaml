@@ -67,6 +67,7 @@ Style="{DynamicResource LabelNormal}"/>
                  Text="{Binding SumRequest}"/>
 
         <Image x:Name="PhotoIM"
+               Source="{Binding PhotoVeterinaryEquipment}"
        Grid.Row="5"
        Grid.Column="7"
        Grid.ColumnSpan="2"/>

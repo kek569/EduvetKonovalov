@@ -51,22 +51,6 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
             }
         }
 
-        private void SearchTb_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (SearchTb.Text == "Поиск")
-            {
-                SearchTb.Text = "";
-            }
-        }
-
-        private void SearchTb_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (SearchTb.Text == "")
-            {
-                SearchTb.Text = "Поиск";
-            }
-        }
-
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
         {
             string selected_dept = (App.Current as App).DeptName;
@@ -80,8 +64,6 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                     v.WhereDidItComeFrom.StartsWith(SearchTb.Text) ||
                     v.Staff.FullName.StartsWith(SearchTb.Text)) &&
                     v.Staff.User.LoginUser.StartsWith(selected_dept)).ToList();
-                if (VeterinaryEquipmentListB.Items.Count <= 0)
-                    MBClass.ErrorMB("Данные отсутствуют");
             }
             catch (Exception ex)
             {
@@ -191,8 +173,27 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                         Remove(requestVeterinaryEquipment);
                     DBEntities.GetContext().SaveChanges();
                     MBClass.InfoMB("Данные успешно были удалены!");
-                    NavigationService.Navigate(new ListVeterinaryEquipmentPage());
+                    NavigationService.Navigate(new ListMyRequestPage());
                 }
+            }
+        }
+
+        private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string selected_dept = (App.Current as App).DeptName;
+            try
+            {
+                VeterinaryEquipmentListB.ItemsSource = DataFolder.DBEntities.GetContext().
+                    RequestVeterinaryEquipment.Where
+                    (v => (v.NameVeterinaryEquipment.StartsWith(SearchTb.Text) ||
+                    v.TypeVeterinaryEquipment.NameTypeVeterinaryEquipment.
+                    StartsWith(SearchTb.Text) ||
+                    v.Staff.FullName.StartsWith(SearchTb.Text)) &&
+                    v.Staff.User.LoginUser.StartsWith(selected_dept)).ToList();
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
             }
         }
     }

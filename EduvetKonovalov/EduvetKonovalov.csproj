@@ -138,6 +138,9 @@
     <Compile Include="PageFolder\AdminPageFolder\AddProviderPage.xaml.cs">
       <DependentUpon>AddProviderPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PageFolder\AdminPageFolder\AddRequestVeterinaryEquipmentPage.xaml.cs">
+      <DependentUpon>AddRequestVeterinaryEquipmentPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageFolder\AdminPageFolder\AddStaffPage.xaml.cs">
       <DependentUpon>AddStaffPage.xaml</DependentUpon>
     </Compile>
@@ -229,6 +232,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="PageFolder\AdminPageFolder\AddProviderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFolder\AdminPageFolder\AddRequestVeterinaryEquipmentPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

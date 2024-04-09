@@ -28,14 +28,11 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
         public BringExisting(VeterinaryEquipment veterinaryEquipment)
         {
             InitializeComponent();
+            DataContext = veterinaryEquipment;
+
             this.veterinaryEquipment.IdVeterinaryEquipment =
                 veterinaryEquipment.IdVeterinaryEquipment;
             ProviderCb.ItemsSource = DBEntities.GetContext().Provider.ToList();
-
-            provider = DBEntities.GetContext().Provider
-                                .FirstOrDefault(p => p.IdProvider ==
-                                veterinaryEquipment.IdProvider);
-            DataContext = provider;
         }
 
         private void AddProviderBtn_Click(object sender, RoutedEventArgs e)

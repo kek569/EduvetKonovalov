@@ -39,27 +39,30 @@
        Grid.Row="4"
        Grid.Column="2"/>
         <TextBox x:Name="NameProviderTb"
-         Text="{Binding NameProvider}"
+         Text="{Binding Provider.NameProvider}"
          Grid.Row="4"
-         Grid.Column="3"/>
+         Grid.Column="3"
+                 IsEnabled="False"/>
 
         <Label Content="Номер телефона"
        Style="{StaticResource LabelNormal}"
        Grid.Row="6"
        Grid.Column="2"/>
         <TextBox x:Name="NumberPhoneProviderTb"
-         Text="{Binding NumberPhoneProvider}"
+         Text="{Binding Provider.NumberPhoneProvider}"
          Grid.Row="6"
-         Grid.Column="3"/>
+         Grid.Column="3"
+                 IsEnabled="False"/>
 
         <Label Content="Элктроная почта"
        Style="{StaticResource LabelNormal}"
        Grid.Row="8"
        Grid.Column="2"/>
         <TextBox x:Name="EmailProviderTb"
-         Text="{Binding EmailProvider}"
+         Text="{Binding Provider.EmailProvider}"
          Grid.Row="8"
-         Grid.Column="3"/>
+         Grid.Column="3"
+                 IsEnabled="False"/>
 
         <Button x:Name="AddProviderBtn"
         Content="Привезять"

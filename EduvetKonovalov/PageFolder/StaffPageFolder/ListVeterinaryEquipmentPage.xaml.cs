@@ -39,51 +39,11 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                     VeterinaryEquipment.Where
                     (v => v.Staff.User.LoginUser.StartsWith(selected_dept)).ToList();
                 if (VeterinaryEquipmentListB.Items.Count <= 0)
-                    MBClass.ErrorMB("Error");
+                    MBClass.ErrorMB("У вас отсуствует оборудование!");
 
                 ListVeterinaryEquipmentDg.ItemsSource = DataFolder.DBEntities.GetContext().
                     VeterinaryEquipment.Where
                     (v => v.Staff.User.LoginUser.StartsWith(selected_dept)).ToList();
-                if (ListVeterinaryEquipmentDg.Items.Count <= 0)
-                    MBClass.ErrorMB("Error");
-            }
-            catch (Exception ex)
-            {
-                MBClass.ErrorMB(ex);
-            }
-        }
-
-        private void SearchTb_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (SearchTb.Text == "Поиск")
-            {
-                SearchTb.Text = "";
-            }
-        }
-
-        private void SearchTb_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (SearchTb.Text == "")
-            {
-                SearchTb.Text = "Поиск";
-            }
-        }
-
-        private void SearchBtn_Click(object sender, RoutedEventArgs e)
-        {
-            string selected_dept = (App.Current as App).DeptName;
-            try
-            {
-                VeterinaryEquipmentListB.ItemsSource = DataFolder.DBEntities.GetContext().
-                    VeterinaryEquipment.Where
-                    (v => (v.NameVeterinaryEquipment.StartsWith(SearchTb.Text) ||
-                    v.TypeVeterinaryEquipment.NameTypeVeterinaryEquipment.
-                    StartsWith(SearchTb.Text) ||
-                    v.WhereDidItComeFrom.StartsWith(SearchTb.Text) ||
-                    v.Staff.FullName.StartsWith(SearchTb.Text)) && 
-                    v.Staff.User.LoginUser.StartsWith(selected_dept)).ToList();
-                if (VeterinaryEquipmentListB.Items.Count <= 0)
-                    MBClass.ErrorMB("Данные отсутствуют");
             }
             catch (Exception ex)
             {
@@ -112,6 +72,26 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                 int a = colCount / (ListVeterinaryEquipmentDg.SelectedIndex + 1);
                 string selectedFileName = "Excel";
                 ExportClass.ToExcelFile(ListVeterinaryEquipmentDg, selectedFileName, a);
+            }
+            catch (Exception ex)
+            {
+                MBClass.ErrorMB(ex);
+            }
+        }
+
+        private void SearchTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string selected_dept = (App.Current as App).DeptName;
+            try
+            {
+                VeterinaryEquipmentListB.ItemsSource = DataFolder.DBEntities.GetContext().
+                    VeterinaryEquipment.Where
+                    (v => (v.NameVeterinaryEquipment.StartsWith(SearchTb.Text) ||
+                    v.TypeVeterinaryEquipment.NameTypeVeterinaryEquipment.
+                    StartsWith(SearchTb.Text) ||
+                    v.WhereDidItComeFrom.StartsWith(SearchTb.Text) ||
+                    v.Staff.FullName.StartsWith(SearchTb.Text)) &&
+                    v.Staff.User.LoginUser.StartsWith(selected_dept)).ToList();
             }
             catch (Exception ex)
             {

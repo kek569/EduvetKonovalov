@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:EduvetKonovalov.PageFolder.AdminPageFolder"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="BringExisting">
+      Title="Привязывание поставщика">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

@@ -76,7 +76,7 @@ Margin="10,4,0,14"/>
                         <Button x:Name="LisRequestVeterinaryEquipmentBtn"
                     Grid.Row="1"
                     Grid.Column="3"
-                    Content="Список запращиваемого обородование"
+                    Content="Список запрашиваемого обородование"
                     Style="{DynamicResource InvisibleButton}"
                     Click="LisRequestVeterinaryEquipmentBtn_Click"/>
                     </Grid>

@@ -165,7 +165,7 @@ namespace EduvetKonovalov.WindowFolder
                 new System.Drawing.Point(0, Height - 1),
                 new System.Drawing.Point(Width - 1, 0));
 
-            for (int y = 0; y < 4; y++)
+            for (int y = 0; y < 2; y++)
             {
                 for (int i = 0; i < Width; i++)
                 {

@@ -369,6 +369,8 @@
       <DependentUpon>DBModel.edmx</DependentUpon>
       <LastGenOutput>DBModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="ResourceFolder\ImageFolder\OpenEyes.png" />
+    <Resource Include="ResourceFolder\ImageFolder\CloseEyes.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

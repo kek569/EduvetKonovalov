@@ -38,6 +38,9 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             RoleCb.ItemsSource = DBEntities.GetContext().Role.ToList();
             NumberPassportTb.MaxLength = 4;
             SeriesPassportTb.MaxLength = 6;
+
+            OpenEyesIm.Opacity = 0;
+            PasswordPb.PasswordChar = '*';
         }
 
         private void LoadPhotoBtn_Click(object sender, RoutedEventArgs e)
@@ -47,6 +50,8 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
 
         Staff staff = new Staff();
         string selectedFileName = "";
+        private string TextPassword;
+        private int Check = 0;
 
         private void AddPhoto()
         {
@@ -119,7 +124,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                         MBClass.ErrorMB("Введите логин");
                         LoginTb.Focus();
                     }
-                    else if (string.IsNullOrWhiteSpace(PasswordTb.Text))
+                    else if (string.IsNullOrWhiteSpace(TextPassword))
                     {
                         MBClass.ErrorMB("Введите пароль");
                         PasswordTb.Focus();
@@ -171,7 +176,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                             var userAdd = new User()
                             {
                                 LoginUser = LoginTb.Text,
-                                PasswordUser = PasswordTb.Text,
+                                PasswordUser = TextPassword,
                                 IdRole = Int32.Parse(RoleCb.SelectedValue.ToString())
                             };
                             DBEntities.GetContext().User.Add(userAdd);
@@ -215,7 +220,7 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
                             var userAdd = new User()
                             {
                                 LoginUser = LoginTb.Text,
-                                PasswordUser = PasswordTb.Text,
+                                PasswordUser = TextPassword,
                                 IdRole = Int32.Parse(RoleCb.SelectedValue.ToString())
                             };
                             DBEntities.GetContext().User.Add(userAdd);
@@ -357,9 +362,56 @@ namespace EduvetKonovalov.PageFolder.AdminPageFolder
             }
         }
 
-        private void Lol_Click(object sender, RoutedEventArgs e)
+        private void OpenEyesIm_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            Login();
+            if (Check == 0)
+            {
+                Check = 1;
+                PasswordTb.Text = TextPassword;
+                PasswordTb.IsEnabled = true;
+                PasswordTb.Opacity = 1;
+
+                PasswordPb.IsEnabled = false;
+                PasswordPb.Opacity = 0;
+
+                PasswordTb.Margin = new Thickness(10);
+                PasswordPb.Margin = new Thickness(1000);
+
+                CloseEyesIm.Opacity = 0;
+                OpenEyesIm.Opacity = 1;
+            }
+            else if (Check == 1)
+            {
+                Check = 0;
+                PasswordPb.Password = TextPassword;
+                PasswordPb.IsEnabled = true;
+                PasswordPb.Opacity = 1;
+
+                PasswordTb.IsEnabled = false;
+                PasswordTb.Opacity = 0;
+
+                PasswordPb.Margin = new Thickness(10);
+                PasswordTb.Margin = new Thickness(1000);
+
+                CloseEyesIm.Opacity = 1;
+                OpenEyesIm.Opacity = 0;
+            }
+        }
+
+        private void PasswordTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Check == 1)
+            {
+                TextPassword = PasswordTb.Text;
+            }
+        }
+
+        private void PasswordPb_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (Check == 0)
+            {
+                TextPassword = PasswordPb.Password;
+            }
         }
     }
 }

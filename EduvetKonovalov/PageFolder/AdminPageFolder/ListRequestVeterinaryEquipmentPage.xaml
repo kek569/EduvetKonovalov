@@ -42,7 +42,7 @@ IsReadOnly="True">
                 <DataGridTextColumn Header="Название"
             Binding="{Binding NameVeterinaryEquipment}"
             Width="*"/>
-                <DataGridTextColumn Header="Тип оборудование"
+                <DataGridTextColumn Header="Тип оборудования"
             Binding="{Binding TypeVeterinaryEquipment.NameTypeVeterinaryEquipment}"
             Width="*"/>
                 <DataGridTextColumn Header="Дата запроса"
@@ -88,7 +88,7 @@ IsReadOnly="True">
                             <ColumnDefinition Width="150"/>
                             <ColumnDefinition Width="100"/>
                             <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="145"/>
+                            <ColumnDefinition Width="150"/>
                             <ColumnDefinition Width="10"/>
                             <ColumnDefinition Width="75"/>
                             <ColumnDefinition Width="10"/>
@@ -96,7 +96,7 @@ IsReadOnly="True">
                             <ColumnDefinition Width="10"/>
                             <ColumnDefinition Width="75"/>
                             <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="150"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>

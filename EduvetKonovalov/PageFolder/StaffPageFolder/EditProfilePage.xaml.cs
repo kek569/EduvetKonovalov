@@ -37,16 +37,21 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
             LoginCb.ItemsSource = DBEntities.GetContext().User.ToList();
             PasswordCb.ItemsSource = DBEntities.GetContext().User.ToList();
 
+            OpenEyesIm.Opacity = 0;
+
             staff = DBEntities.GetContext().Staff
                                 .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
 
             var timer = new DispatcherTimer
-            { Interval = TimeSpan.FromSeconds(0.5) };
+            { Interval = TimeSpan.FromSeconds(0.1) };
             timer.Start();
             timer.Tick += (sender, args) =>
             {
                 timer.Stop();
                 (App.Current as App).EditLoginStaffOneName = LoginTb.Text;
+                PasswordPb.PasswordChar = '*';
+                TextPassword = PasswordTb.Text;
+                PasswordPb.Password = TextPassword;
             };
         }
 
@@ -56,7 +61,9 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
         }
 
         string selectedFileName = "";
-
+        private string TextPassword;
+        private int Check = 0;
+        
         private void AddPhoto()
         {
             try
@@ -125,7 +132,7 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                         MBClass.ErrorMB("Введите логин");
                         LoginTb.Focus();
                     }
-                    else if (string.IsNullOrWhiteSpace(PasswordTb.Text))
+                    else if (string.IsNullOrWhiteSpace(TextPassword))
                     {
                         MBClass.ErrorMB("Введите пароль");
                         PasswordTb.Focus();
@@ -148,7 +155,7 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                             staff = DBEntities.GetContext().Staff
                                 .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
                             staff.User.LoginUser = LoginTb.Text;
-                            staff.User.PasswordUser = PasswordTb.Text;
+                            staff.User.PasswordUser = TextPassword;
 
                             staff.LastNameStaff = LastNameStaffTb.Text;
                             staff.FirstNameStaff = FirstNameStaffTb.Text;
@@ -167,7 +174,7 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
                             staff = DBEntities.GetContext().Staff
                                 .FirstOrDefault(s => s.IdStaff == staff.IdStaff);
                             staff.User.LoginUser = LoginTb.Text;
-                            staff.User.PasswordUser = PasswordTb.Text;
+                            staff.User.PasswordUser = TextPassword;
 
                             staff.LastNameStaff = LastNameStaffTb.Text;
                             staff.FirstNameStaff = FirstNameStaffTb.Text;
@@ -192,6 +199,58 @@ namespace EduvetKonovalov.PageFolder.StaffPageFolder
             catch (DbEntityValidationException ex)
             {
                 MBClass.ErrorMB(ex);
+            }
+        }
+
+        private void OpenEyesIm_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if(Check == 0)
+            {
+                Check = 1;
+                PasswordTb.Text = TextPassword;
+                PasswordTb.IsEnabled = true;
+                PasswordTb.Opacity = 1;
+
+                PasswordPb.IsEnabled = false;
+                PasswordPb.Opacity = 0;
+
+                PasswordTb.Margin = new Thickness(10);
+                PasswordPb.Margin = new Thickness(1000);
+
+                CloseEyesIm.Opacity = 0;
+                OpenEyesIm.Opacity = 1;
+            }
+            else if(Check == 1)
+            {
+                Check = 0;
+                PasswordPb.Password = TextPassword;
+                PasswordPb.IsEnabled = true;
+                PasswordPb.Opacity = 1;
+
+                PasswordTb.IsEnabled = false;
+                PasswordTb.Opacity = 0;
+
+                PasswordPb.Margin = new Thickness(10);
+                PasswordTb.Margin = new Thickness(1000);
+
+                CloseEyesIm.Opacity = 1;
+                OpenEyesIm.Opacity = 0;
+            }
+        }
+
+        private void PasswordTb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Check == 1)
+            {
+                TextPassword = PasswordTb.Text;
+            }
+        }
+
+        private void PasswordPb_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (Check == 0)
+            {
+                TextPassword = PasswordPb.Password;
             }
         }
     }

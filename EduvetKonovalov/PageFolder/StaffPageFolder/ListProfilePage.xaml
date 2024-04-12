@@ -100,19 +100,19 @@
                             <ColumnDefinition Width="150"/>
                             <ColumnDefinition Width="65"/>
                             <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="125"/>
                             <ColumnDefinition Width="10"/>
                             <ColumnDefinition Width="80"/>
                             <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="125"/>
                             <ColumnDefinition Width="10"/>
                             <ColumnDefinition Width="65"/>
                             <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="175"/>
+                            <ColumnDefinition Width="225"/>
                             <ColumnDefinition Width="10"/>
                             <ColumnDefinition Width="60"/>
                             <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="125"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
@@ -295,7 +295,7 @@ Text="Роль:"
                                    TextWrapping="WrapWithOverflow"/>
                         <TextBlock Grid.Column="15"
                                    Grid.Row="1"
-                                    Text="{Binding User.PasswordUser}"
+                                    Text="*****"
                                    TextAlignment="Left"
                                    Style="{DynamicResource TBlListBox}"
                                    TextWrapping="WrapWithOverflow"/>

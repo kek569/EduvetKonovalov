@@ -295,9 +295,6 @@ namespace EduvetKonovalov.WindowFolder
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             CapchaPb.Image = CreateCapcha(CapchaPb.Width, CapchaPb.Height);
-            bool selected_CheckLogin = (App.Current as App).CheckLogin;
-            if (selected_CheckLogin != true) 
-            { 
                 using (StreamReader newTask = new StreamReader("Save.txt", true))
                 {
                     if (newTask == null || newTask.ReadToEnd() == "")
@@ -324,7 +321,6 @@ namespace EduvetKonovalov.WindowFolder
                         //Login();
                     }
                 }
-            }
         }
     }
 }
